@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { Montserrat } from 'next/font/google'
 import './styles/globals.css'
 import './styles/reset.css'
 
@@ -7,6 +8,13 @@ export const metadata: Metadata = {
   description: 'The Our Chat app',
 }
 
+const montserrat = Montserrat({
+  weight: ['300', '600', '700'],
+  style: ['normal'],
+  subsets: ['cyrillic'],
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: {
@@ -14,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="uk">
-      <body >{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }

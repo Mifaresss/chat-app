@@ -1,0 +1,9 @@
+:root {
+  /* ========================== Colors ========================== */
+  --lightest-color: rgb(255, 255, 239);
+  --lighter-color: rgb(255, 214, 0);
+  --light-color: rgb(255, 142, 0);
+  --dark-color: rgb(55, 75, 136);
+  --darker-color: rgb(0, 25, 102);
+  --darkest-color: rgb(11, 3, 51);
+}

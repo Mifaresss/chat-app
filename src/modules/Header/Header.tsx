@@ -1,10 +1,7 @@
 export function Header() {
-
-	return (
-		<header>
-			<div>
-				test
-			</div>
-		</header>
-	)
+   return (
+      <header>
+         <div>test</div>
+      </header>
+   )
 }

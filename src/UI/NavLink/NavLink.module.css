@@ -1,0 +1,34 @@
+.navLink {
+   color: var(--gamma-text-c);
+
+   font-size: calc(min(0.875rem + 2 * ((100vw - 320px) / (1280 - 320)), 1rem));
+   font-weight: 500;
+   line-height: 1.6;
+	text-decoration: none;
+
+   position: relative;
+
+   transition: color var(--hover-transit);
+}
+.navLink::after {
+   content: '';
+
+   background-color: var(--effect-1-c);
+
+   position: absolute;
+   bottom: -5%;
+   left: -13%;
+   right: -13%;
+	margin: auto;
+   width: 0%;
+   height: 5%;
+
+   transition: width var(--hover-transit);
+}
+
+.navLink:hover {
+   color: var(--effect-1-c);
+}
+.navLink:hover::after {
+   width: 126%;
+}

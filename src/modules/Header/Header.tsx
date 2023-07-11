@@ -1,4 +1,6 @@
 import React from 'react'
+import Navigation from '@/components/Navigation/Navigation'
+
 import styles from './Header.module.css'
 
 const navItems = [
@@ -8,7 +10,11 @@ const navItems = [
 ]
 
 function Header() {
-   return <div className={styles.main}>Header</div>
+   return (
+      <div className={styles.main}>
+         <Navigation />
+      </div>
+   )
 }
 
 export default Header

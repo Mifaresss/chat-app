@@ -1,7 +1,9 @@
 .heroSection {
+   --height: calc(min(16.75rem + 90 * ((100vw - 834px) / (1280 - 834)), 22.5rem));
+
    display: flex;
    align-items: center;
-   height: 22.5rem;
+   height: var(--height);
 }
 .heroSection::before {
    content: '';
@@ -10,19 +12,22 @@
    left: 0;
    z-index: -1;
    width: 100vw;
-   height: 22.5rem;
+   height: var(--height);
    background-image: url('/images/hero-section/hero-img.png');
    background-repeat: no-repeat;
    background-size: cover;
    background-position: center;
 }
 
-@media (max-width: 834px) {
+@media (max-width: 835px) {
+   .heroSection {
+      --height: calc(min(16.75rem + (40 * (834px - 100vw) / (834 - 430)), 19.25rem));
+   }
    .heroSection::before {
       filter: brightness(50%);
    }
 }
-@media (max-width: 450px) {
+@media (max-width: 431px) {
    .heroSection::before {
       filter: brightness(40%);
    }

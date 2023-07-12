@@ -8,6 +8,7 @@
    background-color: rgba(217, 217, 217, 0.2);
    backdrop-filter: blur(0.4688rem);
    border-radius: 1.875rem;
+   overflow: auto;
 }
 .infoBlockContentWrapper {
    flex: 1 1 auto;
@@ -24,7 +25,7 @@
    max-width: 17.375rem;
 }
 
-@media (max-width: 834px) {
+@media (max-width: 835px) {
    .infoBlock {
       max-width: 24.375rem;
    }

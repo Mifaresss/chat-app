@@ -1,7 +1,6 @@
 .title {
-	color: var(--beta-text-c);
-	
-	font-size: calc(min(1.375rem + 26 * ((100vw - 320px) / (1280 - 320)), 3rem));
-	font-weight: 700;
-	line-height: 1.2;
+   color: var(--beta-text-c);
+   font-size: calc(min(1.375rem + 26 * ((100vw - 320px) / (1280 - 320)), 3rem));
+   font-weight: 700;
+   line-height: 1.2;
 }

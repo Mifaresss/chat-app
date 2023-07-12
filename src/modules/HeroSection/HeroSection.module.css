@@ -1,0 +1,29 @@
+.heroSection {
+   display: flex;
+   align-items: center;
+   height: 22.5rem;
+}
+.heroSection::before {
+   content: '';
+   position: absolute;
+   top: 3.75rem;
+   left: 0;
+   z-index: -1;
+   width: 100vw;
+   height: 22.5rem;
+   background-image: url('/images/hero-section/hero-img.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+}
+
+@media (max-width: 834px) {
+   .heroSection::before {
+      filter: brightness(50%);
+   }
+}
+@media (max-width: 450px) {
+   .heroSection::before {
+      filter: brightness(40%);
+   }
+}

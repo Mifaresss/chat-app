@@ -5,7 +5,6 @@
       "quotes": ["error", "single"],
       "jsx-quotes": ["error", "prefer-single"],
       "no-duplicate-imports": "warn",
-      "semi": ["warn", "never"],
-      "indent": ["error", "tab"]
+      "semi": ["warn", "never"]
    }
 }

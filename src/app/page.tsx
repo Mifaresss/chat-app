@@ -6,7 +6,7 @@ export default function Home() {
 		<main className={s.main}>
 			<div className='mainContainer'>
 				<HeroSection />
-			</div>
+			  </div>
 		</main>
 	)
 }

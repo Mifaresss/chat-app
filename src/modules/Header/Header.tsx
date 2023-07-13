@@ -11,8 +11,9 @@ console.log(ws)
 function Header() {
 	return (
 		<div className={styles.main}>
+
 			<Navigation />
-		</div>
+		    </div>
 	)
 }
 

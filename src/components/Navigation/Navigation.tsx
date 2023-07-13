@@ -5,9 +5,9 @@ import { usePathname } from 'next/navigation'
 import styles from './Navigation.module.css'
 
 const navItems = [
-	{ label: 'Новий чат', href: '/' },
-	{ label: 'Чат кімнати', href: '/ourChat' },
-	{ label: 'Підтримка', href: '/support' },
+   { label: 'Новий чат', href: '/' },
+   { label: 'Чат кімнати', href: '/blog' },
+   { label: 'Підтримка', href: '/support' },
 ]
 
 function Navigation() {

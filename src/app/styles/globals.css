@@ -1,26 +1,30 @@
 :root {
-  /* ========================== Colors ========================== */
-  --alpha-text-c: rgb(2, 0, 10);
-  --beta-text-c: rgb(0, 25, 102);
-  --gamma-text-c: rgb(255, 254, 254);
-  
-  --effect-1-c: rgb(255, 214, 0);
-  --effect-2-c: rgb(222, 227, 243);
-  --effect-3-c: rgb(163, 175, 209);
-  --effect-4-c: rgb(55, 75, 136);
-  
-  --danger-c: rgb(183, 0, 0);
+   /* ========================== Colors ========================== */
+   --alpha-text-c: rgb(2, 0, 10);
+   --beta-text-c: rgb(0, 25, 102);
+   --gamma-text-c: rgb(255, 254, 254);
 
+   --effect-1-c: rgb(255, 214, 0);
+   --effect-2-c: rgb(222, 227, 243);
+   --effect-3-c: rgb(163, 175, 209);
+   --effect-4-c: rgb(55, 75, 136);
 
-  /* ========================== Transition ========================== */
-  --hover-transit: .3s;
+   --danger-c: rgb(183, 0, 0);
+
+   /* ========================== Transition ========================== */
+   --hover-transit: 0.3s;
 }
 
 body {
-  color: var(--alpha-text-c);
-  background-color: var(--gamma-text-c);
-  
-  font-size: calc(min(1rem + 2 * ((100vw - 320px) / (1280 - 320)), 1.125rem));
-  font-weight: 300;
-  line-height: 1.5;
+   color: var(--alpha-text-c);
+   background-color: var(--gamma-text-c);
+   font-size: calc(min(1rem + 2 * ((100vw - 320px) / (1280 - 320)), 1.125rem));
+   font-weight: 300;
+   line-height: 1.5;
+}
+
+[class*='Container'] {
+   margin: 0 auto;
+   max-width: 1320px;
+   padding: 0 1.25rem;
 }

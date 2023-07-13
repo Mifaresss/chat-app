@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Navigation from '@/components/Navigation/Navigation'
 
@@ -8,6 +10,9 @@ const navItems = [
 	{ label: 'Чат кімнати', href: '/' },
 	{ label: 'Підтримка', href: '/' },
 ]
+
+const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashxa')
+console.log(ws)
 
 function Header() {
 	return (

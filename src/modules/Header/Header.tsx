@@ -17,7 +17,6 @@ console.log(ws)
 function Header() {
 	return (
 		<div className={styles.main}>
-		<div>jdfjkjid</div>
 			<Navigation />
 		</div>
 	)

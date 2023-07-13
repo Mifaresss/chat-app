@@ -9,12 +9,11 @@ const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandle
 console.log(ws)
 
 function Header() {
-	return (
-		<div className={styles.main}>
-
-			<Navigation />
-		    </div>
-	)
+   return (
+      <div className={styles.main}>
+         <Navigation />
+      </div>
+   )
 }
 
 export default Header

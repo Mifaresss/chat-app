@@ -1,7 +1,6 @@
 'use client'
 
 import { NavLink } from '@/UI/NavLink/NavLink'
-// import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './Navigation.module.css'
 

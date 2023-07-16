@@ -1,6 +1,7 @@
 'use client'
 
-import Link from 'next/link'
+import { NavLink } from '@/UI/NavLink/NavLink'
+// import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import styles from './Navigation.module.css'
 
@@ -11,18 +12,18 @@ const navItems = [
 ]
 
 function Navigation() {
-	const pathname = usePathname()
-	return (
-		<div className={styles.navWrapper}>
-			{navItems.map(link => {
-				const isActive = pathname === link.href
-				return (
-					<Link href={link.href} key={link.href} className={isActive ? styles.active : styles.link}>
-						{link.label}
-					</Link>
-				)
-			})}
-		</div>
-	)
+   const pathname = usePathname()
+   return (
+      <div className={styles.navWrapper}>
+         {navItems.map(link => {
+            const isActive = pathname === link.href
+            return (
+               <NavLink key={link.href} className={isActive ? styles.active : styles.link} path={link.href}>
+                  {link.label}
+               </NavLink>
+            )
+         })}
+      </div>
+   )
 }
 export default Navigation

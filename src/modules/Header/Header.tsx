@@ -3,6 +3,7 @@ import Logo from '@/UI/Logo/Logo'
 
 import styles from './Header.module.css'
 
+
 // const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashxa')
 // console.log(ws)
 
@@ -14,6 +15,7 @@ function Header() {
           <Navigation />
        </div>
     )
+
 }
 
 export default Header

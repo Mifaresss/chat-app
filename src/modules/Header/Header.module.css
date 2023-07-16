@@ -3,10 +3,12 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 30px 40px;
   width: 100vw;
   height: 60px;
   background-color: #374B88;
 }
+
 
 
 

@@ -1,0 +1,28 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 80px;
+  width: 100vw;
+  height: 130px;
+  background-color: #374B88;
+}
+
+.socialTitle{
+  margin-right: 20px;
+  color: #ffffff;
+  margin-left: 210px;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.socialList{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 250px;
+}
+
+

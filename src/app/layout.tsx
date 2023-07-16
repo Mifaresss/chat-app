@@ -1,4 +1,6 @@
 /* eslint-disable indent */
+import Header from '@/modules/Header/Header'
+import Footer from '@/modules/Footer/Footer'
 import { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './styles/globals.css'
@@ -20,12 +22,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 
    return (
-      <html lang='uk'>
-         <body className={roboto.className} suppressHydrationWarning={true}>
-            <Header />
-            {children}
-         </body>
-      </html>
+     <html lang='uk'>
+       <body className={roboto.className} suppressHydrationWarning={true}>
+         <Header />
+         {children}
+         <Footer />
+       </body>
+     </html>
    )
 
 }

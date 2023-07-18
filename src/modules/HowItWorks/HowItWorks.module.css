@@ -1,0 +1,18 @@
+.howItWorks {
+	margin-bottom: 6rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+.contentWrapper {
+	display: flex;
+	gap: 1.25rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+@media (max-width: 1319px) {
+	.howItWorks h2 {
+		text-align: center;
+	}
+}

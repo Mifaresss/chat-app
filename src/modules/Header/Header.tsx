@@ -11,19 +11,19 @@ import styles from './Header.module.css'
 // console.log(ws)
 
 function Header() {
-  const [isAuthPopUp, setIsAuthPopUp] = useState(false)
+	const [isAuthPopUp, setIsAuthPopUp] = useState(false)
 
-  function setIsPopUpOpen() {
-     setIsAuthPopUp(true)
-     alert('Тут колись буде відкриття модального вікна')
-  }
-  return (
-    <div className={styles.main}>
-      <Logo />
-      <Navigation />
-      <Button setIsPopUpFalse={setIsPopUpOpen} text='Вхід' />
-    </div>
-  )
+	function setIsPopUpOpen() {
+		setIsAuthPopUp(true)
+		alert('Тут колись буде відкриття модального вікна')
+	}
+	return (
+		<div className={styles.main}>
+			<Logo />
+			<Navigation />
+			<Button setIsPopUpFalse={setIsPopUpOpen} text='Вхід' />
+		</div>
+	)
 }
 
 export default Header

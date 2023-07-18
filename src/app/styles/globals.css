@@ -5,8 +5,8 @@
    --gamma-text-c: rgb(255, 254, 254);
 
    --effect-1-c: rgb(255, 214, 0);
-   --effect-2-c: rgb(222, 227, 243);
-   --effect-3-c: rgb(163, 175, 209);
+   --effect-2-c: #dee3f3;
+   --effect-3-c: #a3afd1;
    --effect-4-c: rgb(55, 75, 136);
 
    --danger-c: rgb(183, 0, 0);
@@ -21,6 +21,12 @@ body {
    font-size: calc(min(1rem + 2 * ((100vw - 320px) / (1280 - 320)), 1.125rem));
    font-weight: 300;
    line-height: 1.5;
+
+   display: flex;
+   flex-direction: column;
+
+   overflow-y: auto;
+   overflow-x: hidden;
 }
 
 [class*='Container'] {

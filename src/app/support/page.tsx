@@ -1,7 +1,7 @@
 function page() {
-  return (
+	return (
 	 <div>page</div>
-  )
+	)
 }
 
 export default page

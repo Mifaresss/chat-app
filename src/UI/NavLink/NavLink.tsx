@@ -8,9 +8,9 @@ interface NavLinkPropsType {
 }
 
 export function NavLink({ path, children, className }: NavLinkPropsType) {
-   return (
-      <Link href={path} className={className}>
-         {children}
-      </Link>
-   )
+	return (
+		<Link href={path} className={className}>
+			{children}
+		</Link>
+	)
 }

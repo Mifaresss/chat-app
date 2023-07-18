@@ -1,0 +1,10 @@
+.policy {
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	max-width: 66.5rem;
+	border: 0.0625rem solid var(--danger-c);
+	border-radius: 0.3125rem;
+	margin: 0 auto;
+}

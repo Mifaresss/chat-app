@@ -1,13 +1,19 @@
 import s from './SubTitle.module.css'
 
 interface SubTitlePropsType {
+	color?:
+	'--alpha-text-c' | '--beta-text-c' | '--gamma-text-c' |
+	'--effect-1-c' | '--effect-2-c' | '--effect-3-c' | '--effect-4-c' |
+	'--danger-c'
+	align?: 'left' | 'center' | 'right'
 	children: string
 }
 
-export function SubTitle({ children }: SubTitlePropsType) {
+export function SubTitle({ color, align, children }: SubTitlePropsType) {
+	const style = { color: `var(${color})`, textAlign: align }
 
 	return (
-		<h3 className={s.subTitle}>
+		<h3 className={s.subTitle} style={style}>
 			{children}
 		</h3>
 	)

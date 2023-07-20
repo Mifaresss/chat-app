@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 import { useState } from 'react'
 import Navigation from '@/components/Navigation/Navigation'
-import Logo from '@/UI/Logo/Logo'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
 
 import s from './Header.module.css'

@@ -1,17 +1,14 @@
-.navWrapper {
-  margin-left: 300px;
-}
 .active {
   margin-left: 40px;
   font-weight: 600;
   font-style: 16px;
   line-height: 24px;
-  color: #05f121;
+  color: var(--effect-1-c);
 }
 .link {
   margin-left: 40px;
   font-weight: 600;
   font-style: 16px;
   line-height: 24px;
-  color: #f5f4f9;
+  color: var(--alpha-text-c);
 }

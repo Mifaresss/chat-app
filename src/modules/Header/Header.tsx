@@ -1,16 +1,16 @@
 'use client'
+import Image from 'next/image'
 
 import { useState } from 'react'
 import Navigation from '@/components/Navigation/Navigation'
-import Logo from '@/UI/Logo/Logo'
-import Button from '@/UI/Button/Button'
+import { LoginButton } from '@/UI/LoginButton/LoginButton'
 
-import styles from './Header.module.css'
+import s from './Header.module.css'
 
-// const ws = new WebSocket('wss://social-network.samuraijs.com/handlers/ChatHandler.ashxa')
+// const ws = new WebSocket('https://chat-server-socket-production.up.railway.app/')
 // console.log(ws)
 
-function Header() {
+export function Header() {
 	const [isAuthPopUp, setIsAuthPopUp] = useState(false)
 
 	function setIsPopUpOpen() {
@@ -18,12 +18,18 @@ function Header() {
 		alert('Тут колись буде відкриття модального вікна')
 	}
 	return (
-		<div className={styles.main}>
-			<Logo />
+		<div className={s.main}>
+			<Image className={s.infoBlockImage} src='/images/logo.svg' alt='Логотип сайту' width={218} height={47} />
 			<Navigation />
-			<Button setIsPopUpFalse={setIsPopUpOpen} text='Вхід' />
+			<LoginButton
+			  setIsPopUpFalse={setIsPopUpOpen}
+			>
+				Вхід
+			</LoginButton>
+
 		</div>
 	)
 }
 
 export default Header
+

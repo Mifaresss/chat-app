@@ -1,7 +1,8 @@
 import s from './LoginButton.module.css'
 
 interface LoginButtonPropsType {
-	children: string
+	children: string,
+	setIsPopUpFalse: () => void
 }
 
 export function LoginButton({ children }: LoginButtonPropsType) {

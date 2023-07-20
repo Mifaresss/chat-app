@@ -1,6 +1,6 @@
 /* eslint-disable indent */
-import Header from '@/modules/Header/Header'
-import Footer from '@/modules/Footer/Footer'
+import { Header } from '@/modules/Header/Header'
+import { Footer } from '@/modules/Footer/Footer'
 import { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './styles/globals.css'

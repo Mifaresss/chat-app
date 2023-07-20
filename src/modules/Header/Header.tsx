@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Navigation from '@/components/Navigation/Navigation'
 import Logo from '@/UI/Logo/Logo'
 import Button from '@/UI/Button/Button'
+import { LoginButton } from '@/UI/LoginButton/LoginButton'
 
 import styles from './Header.module.css'
 
@@ -21,7 +22,11 @@ function Header() {
 		<div className={styles.main}>
 			<Logo />
 			<Navigation />
-			<Button setIsPopUpFalse={setIsPopUpOpen} text='Вхід' />
+			<LoginButton
+			  setIsPopUpFalse={setIsPopUpOpen}
+			>
+				Вхід
+			</LoginButton>
 		</div>
 	)
 }

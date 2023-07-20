@@ -81,5 +81,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
-} -->
+  },
+  "prettier.tabWidth": 1
+}  -->

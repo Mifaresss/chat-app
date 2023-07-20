@@ -6,7 +6,7 @@
   padding: 30px 40px;
   width: 100vw;
   height: 60px;
-  background-color: #374B88;
+  background-color: var(--effect-4-c);
 }
 
 

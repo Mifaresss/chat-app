@@ -6,12 +6,12 @@
   padding: 24px 80px;
   width: 100vw;
   height: 130px;
-  background-color: #374B88;
+  background-color: var(--effect-4-c);
 }
 
 .socialTitle{
   margin-right: 20px;
-  color: #ffffff;
+  color: var(--gamma-text-c);
   margin-left: 210px;
   font-size: 20px;
   font-weight: 500;

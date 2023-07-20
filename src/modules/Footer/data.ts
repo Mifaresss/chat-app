@@ -1,5 +1,5 @@
 import facebookIcon from '@images/social/facebook.svg'
-import InstagramIcon from '@images/social/instagram.svg'
+import InstagramIcon from '@images/social/Instagram.svg'
 
 export const title = 'Соціальні мережі:'
 export const cardsContent = [

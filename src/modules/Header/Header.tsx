@@ -1,9 +1,9 @@
 'use client'
+
+import React, { useState } from 'react'
 import Image from 'next/image'
 
-import { useState } from 'react'
 import Navigation from '@/components/Navigation/Navigation'
-import { LoginButton } from '@/UI/LoginButton/LoginButton'
 
 import s from './Header.module.css'
 
@@ -11,22 +11,10 @@ import s from './Header.module.css'
 // console.log(ws)
 
 export function Header() {
-	const [isAuthPopUp, setIsAuthPopUp] = useState(false)
-
-	function setIsPopUpOpen() {
-		setIsAuthPopUp(true)
-		alert('Тут колись буде відкриття модального вікна')
-	}
 	return (
 		<div className={s.main}>
 			<Image className={s.infoBlockImage} src='/images/logo.svg' alt='Логотип сайту' width={218} height={47} />
-			<Navigation />
-			<LoginButton
-			  setIsPopUpFalse={setIsPopUpOpen}
-			>
-				Вхід
-			</LoginButton>
-
+			<Navigation type='header'/>
 		</div>
 	)
 }

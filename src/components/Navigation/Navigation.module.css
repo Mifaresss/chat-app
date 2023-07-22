@@ -1,29 +1,55 @@
-.navWrapper{
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  flex-direction: row;
-  align-items: center;
+.navHederWrapper {
+   display: flex;
+   justify-content: space-around;
+   text-align: center;
+   width: 100%;
+   flex-direction: row;
+   align-items: center;
+}
+.navFooterWrapper {
+   display: flex;
+   justify-content: space-around;
+   text-align: center;
+   width: 100%;
+   flex-direction: row;
+   align-items: center;
 }
 .active {
-  margin-left: 40px;
-  font-weight: 600;
-  font-style: 16px;
-  line-height: 24px;
-  color: var(--effect-1-c);
+   margin-left: 40px;
+   font-weight: 600;
+   font-style: 16px;
+   line-height: 24px;
+   color: var(--effect-1-c);
 }
 .link {
-  margin-left: 40px;
-  font-weight: 600;
-  font-style: 16px;
-  line-height: 24px;
-  color: var(--alpha-text-c);
+   margin-left: 40px;
+   font-weight: 600;
+   font-style: 16px;
+   line-height: 24px;
+   color: var(--alpha-text-c);
 }
 
 @media (max-width: 840px) {
-	.navWrapper{
-    width: 840px;
-    display: flex;
-    justify-content:flex-end
-  }
+   .navWrapper {
+      width: 840px;
+      display: flex;
+      justify-content: flex-end;
+   }
+   .navFooterWrapper {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+   }
+   .infoBlockImage {
+      width: 130px;
+      height: 28px;
+   }
+   .navHederWrapper {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      width: 450px;
+      flex-direction: row;
+      align-items: center;
+   }
 }

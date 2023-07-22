@@ -1,15 +1,28 @@
 .main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 40px;
-  width: 100vw;
-  height: 60px;
-  background-color: var(--effect-4-c);
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;  
+   align-items: center;
+   padding: 30px 40px;
+   width: 100vw;
+   height: 60px;
+   background-color: var(--effect-4-c);
 }
 
+@media (max-width: 840px) {
+   .main {
+      padding: 10px 20px;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+   }
+}
 
-
-
-
+@media (max-width: 420px) {
+  .main{
+    flex-direction: row-reverse;
+  }
+  .infoBlockImage{
+    width: 130px;
+    height: 28px;
+  }
+}

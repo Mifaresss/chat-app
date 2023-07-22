@@ -28,4 +28,24 @@
   margin-left: 250px;
 }
 
+@media (max-width: 840px) {
+  .main {
+    padding: 5px 10px;
+    height: 260px;
+  }
+  .infoBlockImage {
+    width: 130px;
+    height: 28px;
+  }
+}
 
+@media (max-width: 420px) {
+  .main {
+    padding: 40px 20px;
+    height: 260px;
+  }
+  .infoBlockImage {
+    width: 130px;
+    height: 28px;
+  }
+}

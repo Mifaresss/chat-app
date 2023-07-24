@@ -1,20 +1,16 @@
 .navHederWrapper {
    display: flex;
    justify-content: space-around;
-   text-align: center;
-   width: 50vw;
-   height: 4vw;
    flex-direction: row;
+   text-align: center;
    align-items: center;
-   /* border: solid 1px var(--effect-1-c); */
 }
 .navFooterWrapper {
+   height: 116px;
    display: flex;
+   flex-direction: column;
    justify-content: space-around;
-   text-align: center;
-   width: 100%;
-   flex-direction: row;
-   align-items: center;
+   align-items: flex-start;
 }
 .active {
    margin-left: 40px;
@@ -31,27 +27,26 @@
    color: var(--alpha-text-c);
 }
 
-@media (max-width: 840px) {
+@media (min-width: 840px) {
    .navWrapper {
       width: 840px;
       display: flex;
-      justify-content: flex-end;
    }
    .navFooterWrapper {
       display: flex;
-      justify-content: space-around;
-      flex-direction: column;
-   }
-   .infoBlockImage {
-      width: 130px;
+      margin-top: auto;
+      margin-bottom: auto;
+      flex-direction: row;
+      justify-content: space-between;
       height: 28px;
+      min-width: 348px;
    }
-   .navHederWrapper {
+   /* .navHederWrapper {
       display: flex;
       justify-content: space-around;
       text-align: center;
       width: 450px;
       flex-direction: row;
       align-items: center;
-   }
+   } */
 }

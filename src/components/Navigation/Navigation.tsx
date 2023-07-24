@@ -26,8 +26,8 @@ function Navigation({ type }:{type: string}) {
 
 	const pathname = usePathname()
 	return (
-		<div className={type === 'header' ? s.navHederWrapper : s.navFooterWrapper}>
-			{size > 840 && navItems.map(link => {
+		<ul className={type === 'header' ? s.navHederWrapper : s.navFooterWrapper}>
+			{navItems.map(link => {
 				const isActive = pathname === link.href
 				console.log(isActive)
 				return (
@@ -36,7 +36,7 @@ function Navigation({ type }:{type: string}) {
 					</NavLink>
 				)
 			})}
-		</div>
+		</ul>
 	)
 }
 export default Navigation

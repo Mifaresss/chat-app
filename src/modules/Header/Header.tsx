@@ -24,14 +24,13 @@ export function Header() {
 		<section className={s.main}>
 			<div className={s.firstBloc}>
 				<Image className={s.infoBlockImage} src='/images/logo.svg' alt='Логотип сайту' width={218} height={55} />
-				<Navigation type='header'/>
-				{size < 840 && <AiOutlineMenu size={35} color={'white'}/>}
-
+				{size > 840 && <Navigation type='header'/>}
+				{size <= 840 && <AiOutlineMenu size={35} color={'white'}/>}
 			</div>
 			<div className={s.secondBlock}>
-				<LoginButton>
+				{size > 840 && <LoginButton>
 				Вхід
-				</LoginButton >
+				</LoginButton >}
 				<SocialMenu type='header'/>
 			</div>
 		</section>

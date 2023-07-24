@@ -22,15 +22,10 @@ export function Footer() {
 			<section className={s.main}>
 				<div className={s.firstBloc}>
 					<Image className={s.infoBlockImage} src='/images/logo.svg' alt='Логотип сайту' width={218} height={55} />
-					<Navigation type='header'/>
-					{size < 840 && <AiOutlineMenu size={35} color={'white'}/>}
-
+					<Navigation type='footer'/>
 				</div>
 				<div className={s.secondBlock}>
-					<LoginButton>
-				Вхід
-					</LoginButton >
-					<SocialMenu type='header'/>
+					<SocialMenu type='footer'/>
 				</div>
 			</section>
 		</section>

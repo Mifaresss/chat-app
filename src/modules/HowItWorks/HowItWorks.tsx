@@ -9,7 +9,9 @@ export function HowItWorks() {
 
 	return (
 		<section className={s.howItWorks}>
-			<Title>{title}</Title>
+			<div className={s.titleWrapper}>
+				<Title>{title}</Title>
+			</div>
 			<div className={s.contentWrapper}>
 				{cardsContent.map(({ id, img, subTitle, text }) => (
 					<InfoCard key={id} bgColor='var(--effect-2-c)'>

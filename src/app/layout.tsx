@@ -20,7 +20,7 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
-	return (
+		return (
 	  <html lang='uk'>
 		 <body className={roboto.className} suppressHydrationWarning={true}>
 			<Header />

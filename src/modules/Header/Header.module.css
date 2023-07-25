@@ -1,15 +1,85 @@
 .main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 30px 40px;
-  width: 100vw;
-  height: 60px;
-  background-color: var(--effect-4-c);
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 8px 20px;
+   width: 100vw;
+   height: 56px;
+   background-color: var(--effect-4-c);
 }
 
+.loginBtn {
+   display: none;
+}
+.burgerMenu {
+   display: block;
+}
 
+.infoBlockImage {
+   width: 130px;
+   height: 28px;
+   margin-left: 60px;
+}
 
+.firstBloc {
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+}
 
+.secondBlock {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
 
+@media (min-width: 840px) {
+   .main {
+      display: flex;
+      flex-direction: row;
+      padding: 15px 50px;
+      height: 70px;
+      justify-content: space-around;
+   }
+   .infoBlockImage {
+      width: 230px;
+      height: 48px;
+   }
+
+   .loginBtn {
+      display: block;
+   }
+   .burgerMenu {
+      display: none;
+   }
+   .navHederWrapper {
+      display: none;
+   }
+
+   .firstBloc {
+      flex-direction: row;
+   }
+   .secondBlock {
+      flex-direction: row-reverse;
+      min-width: 230px;
+   }
+}
+
+/* @media (min-width: 1280px) {
+  .main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  
+    align-items: center;
+    padding: 30px 40px;
+    width: 100vw;
+    height: 60px;
+    background-color: var(--effect-4-c);
+  
+  }
+  .infoBlockImage{
+    width: 130px;
+    height: 28px;
+  }
+} */

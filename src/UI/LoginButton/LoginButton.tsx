@@ -2,13 +2,14 @@ import s from './LoginButton.module.css'
 
 interface LoginButtonPropsType {
 	children: string,
-	setIsPopUpFalse: () => void
+	className?: string
 }
 
-export function LoginButton({ children }: LoginButtonPropsType) {
+export function LoginButton({ children, className }: LoginButtonPropsType) {
 
 	return (
-		<button className={s.loginButton}>
+		<button
+			className={[s.loginButton, className].join(' ')}>
 			{children}
 		</button>
 	)

@@ -1,26 +1,23 @@
-import Image from 'next/image'
+import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
 import Navigation from '@/components/Navigation/Navigation'
-import { cardsContent, title } from './data'
+import logo from  '@/img/logo.svg'
+import Image from 'next/image'
 
 import s from './Footer.module.css'
 
 export function Footer() {
+
 	return (
-		<section className={s.main}>
-			<Image className={s.infoBlockImage} src='/images/logo.svg' alt='Логотип сайту' width={218} height={55} />
-			<Navigation />
-			<div className={s.social}>
-				<h3 className={s.socialTitle}>{title}</h3>
-				<div className={s.socialList}>
-					{cardsContent.map(({ id, img, href }) => (
-						<div key={id}>
-							<a className={s.socialLinkInstagram} href={href}>
-								<Image src={img.src} alt={img.alt}/>
-							</a>
-						</div>
-					))}
+		<section className='container'>
+			<section className={s.main}>
+				<div className={s.firstBloc}>
+					<Image className={s.infoBlockImage} src={logo} alt='Логотип сайту'/>
+					<Navigation type='footer'/>
 				</div>
-			</div>
+				<div className={s.secondBlock}>
+					<SocialMenu type='footer'/>
+				</div>
+			</section>
 		</section>
 	)
 }

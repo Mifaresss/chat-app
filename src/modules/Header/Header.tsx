@@ -1,9 +1,9 @@
-'use client'
-import Image from 'next/image'
-
-import { useState } from 'react'
-import Navigation from '@/components/Navigation/Navigation'
+import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
+import Navigation from '@/components/Navigation/Navigation'
+import { AiOutlineMenu } from 'react-icons/ai'
+import logo from  '@/img/logo.svg'
+import Image from 'next/image'
 
 import s from './Header.module.css'
 
@@ -11,23 +11,20 @@ import s from './Header.module.css'
 // console.log(ws)
 
 export function Header() {
-	const [isAuthPopUp, setIsAuthPopUp] = useState(false)
-
-	function setIsPopUpOpen() {
-		setIsAuthPopUp(true)
-		alert('Тут колись буде відкриття модального вікна')
-	}
 	return (
-		<div className={s.main}>
-			<Image className={s.infoBlockImage} src='/images/logo.svg' alt='Логотип сайту' width={218} height={47} />
-			<Navigation />
-			<LoginButton
-			  setIsPopUpFalse={setIsPopUpOpen}
-			>
+		<section className={s.main}>
+			<div className={s.firstBloc}>
+				<Image className={s.infoBlockImage} src={logo} alt='Логотип сайту'/>
+				<Navigation type='header'/>
+				<AiOutlineMenu size={35} color={'white'} className={s.burgerMenu}/>
+			</div>
+			<div className={s.secondBlock}>
+				<LoginButton className={s.loginBtn}>
 				Вхід
-			</LoginButton>
-
-		</div>
+				</LoginButton >
+				<SocialMenu type='header'/>
+			</div>
+		</section>
 	)
 }
 

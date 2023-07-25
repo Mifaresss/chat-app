@@ -3,12 +3,14 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 interface NavLinkPropsType {
-	path: string
-	children: string
+  path: string
+  children: string
 }
 
 export function NavLink({ path, children }: NavLinkPropsType) {
+
 	const currentPath = usePathname()
+
 	const isActive = currentPath === path
 
 	return (

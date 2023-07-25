@@ -1,0 +1,35 @@
+
+ .socialTitle{
+	color: var(--gamma-text-c);
+	font-size: 2.5vw;
+	font-weight: 500;
+	text-decoration: none;
+ }
+ .socialListfooter{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+ }
+ .socialListheader{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+ }
+
+ @media (max-width: 840px) {
+	.navWrapper{
+    width: 840px;
+    display: flex;
+    justify-content:flex-end
+  }
+  .main{
+	 width: 540px;
+	 display: flex;
+	 justify-content:flex-end
+  }
+}
+ 
+ 
+ 

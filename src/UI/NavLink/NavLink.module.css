@@ -20,9 +20,10 @@
    transition: width var(--hover-transit);
 }
 
-.navLink:hover {
+.navLink:hover, .navLink.active {
    color: var(--effect-1-c);
 }
+
 .navLink.active::after {
    width: 126%;
 }

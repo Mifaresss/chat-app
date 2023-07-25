@@ -3,40 +3,67 @@
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
-   padding: 8px  20px;
+   padding: 8px 20px;
    width: 100vw;
    height: 56px;
    background-color: var(--effect-4-c);
 }
 
+.loginBtn {
+   display: none;
+}
+.burgerMenu {
+   display: block;
+}
+
 .infoBlockImage {
-   max-width: 130px;
-   max-height: 28px;
+   width: 130px;
+   height: 28px;
+   margin-left: 60px;
 }
 
 .firstBloc {
    display: flex;
-   width: 250px;
    flex-direction: row-reverse;
-   justify-content: space-around;
    align-items: center;
 }
 
 .secondBlock {
    display: flex;
-   flex-direction: row;
    justify-content: space-between;
    align-items: center;
 }
 
-@media (min-width: 430px) {
+@media (min-width: 840px) {
    .main {
-    padding: 10px  30px;
+      display: flex;
+      flex-direction: row;
+      padding: 15px 50px;
+      height: 70px;
+      justify-content: space-around;
+   }
+   .infoBlockImage {
+      width: 230px;
+      height: 48px;
+   }
+
+   .loginBtn {
+      display: block;
+   }
+   .burgerMenu {
+      display: none;
+   }
+   .navHederWrapper {
+      display: none;
    }
 
    .firstBloc {
-    flex-direction: row;
- }
+      flex-direction: row;
+   }
+   .secondBlock {
+      flex-direction: row-reverse;
+      min-width: 230px;
+   }
 }
 
 /* @media (min-width: 1280px) {

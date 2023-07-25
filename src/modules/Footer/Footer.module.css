@@ -14,8 +14,8 @@
 }
 
 .infoBlockImage {
-   max-width: 130px;
-   max-height: 28px;
+   width: 130px;
+   height: 28px;
 }
 
 .secondBlock {
@@ -32,20 +32,20 @@
       justify-content: space-between;
    }
    .infoBlockImage {
-      max-width: 218px;
-      max-height: 55px;
+      width: 230px;
+      height: 48px;
+      margin-right: 40px;
    }
    .secondBlock {
       display: flex;
       flex-direction: row;
    }
-   .secondBlock li:first-child {
-      background-color: aqua;
-   }
 
    .firstBloc {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
    }
 }
 

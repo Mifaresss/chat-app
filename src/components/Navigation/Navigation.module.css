@@ -1,6 +1,6 @@
 .navHederWrapper {
-   display: flex;
-   justify-content: space-around;
+   display: none;
+   justify-content: space-between;
    flex-direction: row;
    text-align: center;
    align-items: center;
@@ -12,7 +12,7 @@
    justify-content: space-around;
    align-items: flex-start;
 }
-.active {
+/* .active {
    margin-left: 40px;
    font-weight: 600;
    font-style: 16px;
@@ -25,12 +25,17 @@
    font-style: 16px;
    line-height: 24px;
    color: var(--alpha-text-c);
-}
+} */
 
 @media (min-width: 840px) {
-   .navWrapper {
+   /* .navWrapper {
       width: 840px;
       display: flex;
+   } */
+   .navHederWrapper {
+      display: flex;
+      justify-content: space-around;
+      width: 600px;
    }
    .navFooterWrapper {
       display: flex;

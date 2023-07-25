@@ -26,3 +26,10 @@
 .navLink.active::after {
    width: 126%;
 }
+
+@media (min-width: 840px) {
+   .navLink {
+      width: 150px;
+   }
+}
+ 

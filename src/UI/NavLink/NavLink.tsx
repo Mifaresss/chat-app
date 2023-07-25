@@ -8,12 +8,12 @@ interface NavLinkPropsType {
 }
 
 export function NavLink({ path, children }: NavLinkPropsType) {
-  const currentPath = usePathname()
-  const isActive = currentPath === path
-  
-  return (
-    <Link href={path} className={[s.navLink, isActive ? s.active : ''].join(' ')}>
-      {children}
-    </Link>
-  )
+	const currentPath = usePathname()
+	const isActive = currentPath === path
+
+	return (
+		<Link href={path} className={[s.navLink, isActive ? s.active : ''].join(' ')}>
+			{children}
+		</Link>
+	)
 }

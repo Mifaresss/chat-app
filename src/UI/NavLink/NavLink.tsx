@@ -8,7 +8,9 @@ interface NavLinkPropsType {
 }
 
 export function NavLink({ path, children }: NavLinkPropsType) {
+
 	const currentPath = usePathname()
+
 	const isActive = currentPath === path
 
 	return (

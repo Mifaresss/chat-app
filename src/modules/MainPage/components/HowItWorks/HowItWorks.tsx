@@ -13,13 +13,16 @@ export function HowItWorks() {
 				<Title>{title}</Title>
 			</div>
 			<div className={s.contentWrapper}>
-				{cardsContent.map(({ id, img, subTitle, text }) => (
-					<InfoCard key={id} bgColor='var(--effect-2-c)'>
-						<Image src={img.src} alt={img.alt} />
-						<SubTitle>{subTitle}</SubTitle>
-						<p>{text}</p>
-					</InfoCard>
-				))}
+				{cardsContent.map(({ id, img, subTitle, text }) => {
+					console.log(img)
+					return (
+						<InfoCard key={id} bgColor='var(--effect-2-c)'>
+							<Image src={img.src} alt={img.alt} />
+							<SubTitle>{subTitle}</SubTitle>
+							<p>{text}</p>
+						</InfoCard>
+					)
+				})}
 			</div>
 		</section>
 	)

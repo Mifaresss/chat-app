@@ -1,0 +1,22 @@
+.button {
+   color: var(--effect-4-c);
+   background-color: transparent;
+   font-size: 1rem;
+   font-weight: 500;
+   line-height: 1.62;
+   padding: 0.5rem 1.5rem;
+   border: 0.125rem solid currentColor;
+   border-radius: 0.3125rem;
+   transition: all var(--hover-transit);
+   width: max-content;
+   align-self: center;
+}
+
+.button:hover {
+   color: var(--effect-3-c);
+}
+.button:active {
+   color: var(--gamma-text-c);
+   background-color: var(--effect-4-c);
+   border-color: var(--effect-4-c);
+}

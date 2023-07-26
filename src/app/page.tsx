@@ -1,17 +1,11 @@
-import { HeroSection } from '@/modules/HeroSection/HeroSection'
 import s from './page.module.css'
-import { HowItWorks } from '@/modules/HowItWorks/HowItWorks'
-import { PrivacyPolicy } from '@/modules/PrivacyPolicy/PrivacyPolicy'
+import { MainPageModule } from '@/modules/MainPage/MainPageModule'
 
 export default function Home() {
 
 	return (
 		<main className={s.main}>
-			<div className={s.mainContainer}>
-				<HeroSection />
-				<HowItWorks />
-				<PrivacyPolicy />
-			</div>
+			<MainPageModule />
 		</main>
 	)
 

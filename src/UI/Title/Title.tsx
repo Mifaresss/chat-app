@@ -2,13 +2,17 @@ import s from './Title.module.css'
 
 interface TitlePropsType {
 	children: string
+	align?: 'start' | 'center' | 'end'
 }
 
-export function Title({ children }: TitlePropsType) {
+export function Title({ children, align }: TitlePropsType) {
+	const styles = align ? { display: 'flex', justifyContent: align } : {}
 
 	return (
-		<h2 className={s.title}>
-			{children}
-		</h2>
+		<div style={styles}>
+			<h2 className={s.title}>
+				{children}
+			</h2>
+		</div>
 	)
 }

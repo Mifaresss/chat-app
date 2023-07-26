@@ -1,3 +1,4 @@
+'use client'
 import s from './NavLink.module.css'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -8,9 +9,7 @@ interface NavLinkPropsType {
 }
 
 export function NavLink({ path, children }: NavLinkPropsType) {
-
 	const currentPath = usePathname()
-
 	const isActive = currentPath === path
 
 	return (

@@ -14,7 +14,6 @@ export function HowItWorks() {
 			</div>
 			<div className={s.contentWrapper}>
 				{cardsContent.map(({ id, img, subTitle, text }) => {
-					console.log(img)
 					return (
 						<InfoCard key={id} bgColor='var(--effect-2-c)'>
 							<Image src={img.src} alt={img.alt} />

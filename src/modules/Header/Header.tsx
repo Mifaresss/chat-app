@@ -12,7 +12,7 @@ import s from './Header.module.css'
 
 export function Header() {
 	return (
-		<section className={s.main}>
+		<header className={s.main}>
 			<div className={s.firstBloc}>
 				<Image className={s.infoBlockImage} src={logo} alt='Логотип сайту'/>
 				<Navigation type='header'/>
@@ -24,7 +24,7 @@ export function Header() {
 				</LoginButton >
 				<SocialMenu type='header'/>
 			</div>
-		</section>
+		</header>
 	)
 }
 

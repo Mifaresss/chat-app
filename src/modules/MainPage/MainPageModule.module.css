@@ -1,6 +1,12 @@
 .mainContainer {
 	display: flex;
 	flex-direction: column;
-	gap: 6rem;
+	gap: calc(min(3rem + 48 * ((100vw - 834px) / (1320 - 834)), 6rem));
 	margin-top: 3.75rem;
+}
+
+@media (max-width: 835px) {
+	.mainContainer {
+		gap: calc(min(3rem + (12 * (835px - 100vw) / (835 - 420)), 3.75rem));
+	}
 }

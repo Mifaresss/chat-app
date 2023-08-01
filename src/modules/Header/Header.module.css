@@ -7,6 +7,10 @@
    width: 100vw;
    height: 56px;
    background-color: var(--effect-4-c);
+
+   /* Added fixed position (for always visible) */
+   position: fixed;
+   z-index: 10;
 }
 
 .loginBtn {

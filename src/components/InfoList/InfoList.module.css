@@ -1,17 +1,19 @@
 .infoList {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+	font-size: calc(min(0.875rem + 4 * ((100vw - 420px) / (1320 - 420)), 1.125rem));
 }
-.infoList li {
+.infoListItem {
+	padding-left: 3.75rem;
+	height: 2.5rem;
 	display: flex;
 	align-items: center;
-	gap: 20px;
 }
-.infoList li::before {
-	content: '';
-	display: block;
-	width: 40px;
-	height: 40px;
-	background-image: url('../../../public/images/what-is-our-chat/item-icon.svg');
+
+@media (max-width: 834px) {
+	.infoListItem {
+		height: 2.4rem;
+		padding-left: 3.3rem;
+	}
 }

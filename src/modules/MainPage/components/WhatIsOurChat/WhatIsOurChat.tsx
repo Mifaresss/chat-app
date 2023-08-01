@@ -4,6 +4,8 @@ import { Title } from '@/UI/Title/Title'
 import Image from 'next/image'
 import { InfoList } from '@/components/InfoList/InfoList'
 import { Button } from '@/UI/Button/Button'
+import listStyleImg from '@images/what-is-our-chat/item-icon.svg'
+import { altForContentImg, buttonContent, listItems, title } from './data'
 
 export function WhatIsOurChat() {
 
@@ -11,14 +13,14 @@ export function WhatIsOurChat() {
 		<section className={s.whatIsOurChat}>
 			<div className={s.contentWrapper}>
 				<div className={s.titleWrapper}>
-					<Title>Що таке наш чат?</Title>
+					<Title>{title}</Title>
 				</div>
 				<div className={s.content}>
-					<InfoList listStyleImg='@images/what-is-out-chat/item-icon.svg' />
+					<InfoList listStyleImg={listStyleImg.src} listItems={listItems} />
 				</div>
-				<Button>Авторизуватися</Button>
+				<Button>{buttonContent}</Button>
 			</div>
-			<Image src={contentImg} alt='людина, яка дивиться у ноутбук, біля якого стоїть кава' />
+			<Image className={s.contentImg} src={contentImg} alt={altForContentImg} />
 		</section>
 	)
 }

@@ -12,7 +12,7 @@ export function MainPageModule() {
 			<HeroSection />
 			<WhatIsOurChat />
 			<HowItWorks />
-			<CommunicationInRooms />
+			{/* <CommunicationInRooms /> */}
 			<PrivacyPolicy />
 		</div>
 	)

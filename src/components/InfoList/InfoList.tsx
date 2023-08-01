@@ -1,19 +1,19 @@
 import s from './InfoList.module.css'
-
 interface InfoListPropsType {
 	listStyleImg: string
+	listItems: string[]
 }
 
-export function InfoList({ listStyleImg }: InfoListPropsType) {
+export function InfoList({ listStyleImg, listItems }: InfoListPropsType) {
+	const itemStyle = {
+		background: `url(${listStyleImg}) no-repeat left`,
+	}
 
 	return (
 		<ul className={s.infoList}>
-			<li>Спілкуйся з користувачами приватно або у чат кімнатах</li>
-			<li>Обирай кола людей за своїми інтересами</li>
-			<li>Використовуй НАШChat для анонімного спілкування</li>
-			<li>Вільне спілкування в масштабах всієї планети</li>
-			<li>Твої повідомлення видаляються через 48 годин</li>
-			<li>Відсутність обов’язкової реєстрації та збору персональних даних</li>
+			{listItems.map((item, i) =>
+				<li key={i} style={itemStyle} className={s.infoListItem}>{item}</li>
+			)}
 		</ul>
 	)
 }

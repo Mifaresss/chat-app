@@ -6,14 +6,16 @@
 }
 .infoListItem {
 	padding-left: 3.75rem;
-	height: 2.5rem;
+	min-height: 2.5rem;
 	display: flex;
 	align-items: center;
 }
 
 @media (max-width: 834px) {
+	.infoList {
+		gap: 0.5rem !important;
+	}
 	.infoListItem {
-		height: 2.4rem;
 		padding-left: 3.3rem;
 	}
 }

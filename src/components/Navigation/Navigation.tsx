@@ -5,7 +5,7 @@ import s from './Navigation.module.css'
 const navItems = [
 
 	{ label: 'Новий чат', href: '/' },
-	{ label: 'Чат кімнати', href: '/blog' },
+	{ label: 'Чат кімнати', href: '/rooms' },
 	{ label: 'Підтримка', href: '/support' },
 
 ]

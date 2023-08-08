@@ -1,7 +1,7 @@
-function page() {
-	return (
-	 <div>page</div>
-	)
+import { Title } from '@/UI/Title/Title'
+
+function RoomsPage() {
+	return <Title>Rooms Page</Title>
 }
 
-export default page
+export default RoomsPage

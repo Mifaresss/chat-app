@@ -2,7 +2,7 @@ import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
 import Navigation from '@/components/Navigation/Navigation'
 import { AiOutlineMenu } from 'react-icons/ai'
-import logo from  '@/img/logo.svg'
+import logo from  '@images/logo.svg'
 import Image from 'next/image'
 
 import s from './Header.module.css'

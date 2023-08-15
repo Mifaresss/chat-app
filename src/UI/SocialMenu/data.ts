@@ -1,16 +1,21 @@
 import facebookIcon from '@images/social/facebook.svg'
 import InstagramIcon from '@images/social/Instagram.svg'
 
-export const title = 'Соціальні мережі:'
-export const cardsContent = [
+interface SocialMediaCard {
+   img: {
+      src: string;
+      alt: string;
+   };
+   href: string;
+}
+
+export const socialMediaCards: SocialMediaCard[] = [
 	{
-		id: 2,
-		img: { src: InstagramIcon, alt: 'Instagram' },
+		img: { src: InstagramIcon, alt: 'Іконка інстаграма' },
 		href: 'https://www.instagram.com',
 	},
 	{
-		id: 1,
-		img: { src: facebookIcon, alt: 'facebook' },
+		img: { src: facebookIcon, alt: 'Іконка фейсбука' },
 		href: 'https://www.facebook.com',
 	}
 ]

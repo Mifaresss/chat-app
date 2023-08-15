@@ -1,7 +1,5 @@
 import { Title } from '@/UI/Title/Title'
 
-function RoomsPage() {
+export default function RoomsPage() {
 	return <Title>Rooms Page</Title>
 }
-
-export default RoomsPage

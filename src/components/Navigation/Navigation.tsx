@@ -1,27 +1,27 @@
+import s from './Navigation.module.css'
 import { NavLink } from '@/UI/NavLink/NavLink'
 
-import s from './Navigation.module.css'
-
 const navItems = [
-
-	{ label: 'Новий чат', href: '/' },
+	{ label: 'Новий чат', href: '/new-chat' },
 	{ label: 'Чат кімнати', href: '/rooms' },
 	{ label: 'Підтримка', href: '/support' },
-
 ]
 
-function Navigation({ type }: { type: string }) {
+interface NavigationPropsType {
+	type: 'header' | 'footer'
+}
+
+export function Navigation({ type }: NavigationPropsType) {
 
 	return (
-		<ul className={type === 'header' ? s.navHederWrapper : s.navFooterWrapper}>
-			{navItems.map(link => {
-				return (
-					<NavLink key={link.href}  path={link.href}>
+		<nav className={s.nav}>
+			<ul className={type === 'header' ? s.navList : s.navList}>
+				{navItems.map(link =>
+					<NavLink key={link.href} path={link.href}>
 						{link.label}
 					</NavLink>
-				)
-			})}
-		</ul>
+				)}
+			</ul>
+		</nav>
 	)
 }
-export default Navigation

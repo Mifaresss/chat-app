@@ -1,15 +1,13 @@
 import s from './LoginButton.module.css'
 
 interface LoginButtonPropsType {
-	children: string,
-	className?: string
+	children: string
 }
 
-export function LoginButton({ children, className }: LoginButtonPropsType) {
+export function LoginButton({ children }: LoginButtonPropsType) {
 
 	return (
-		<button
-			className={[s.loginButton, className].join(' ')}>
+		<button className={s.loginButton}>
 			{children}
 		</button>
 	)

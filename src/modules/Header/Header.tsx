@@ -5,23 +5,23 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Navigation } from '@/components/Navigation/Navigation'
 import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
-import { Button } from '@/UI/Button/Button'
+import { BurgerMenuButton } from '@/UI/BurgerButton/BurgerButton'
 
 export function Header() {
 
 	return (
 		<header className={s.header}>
 			<div className={s.headerContainer}>
+				<BurgerMenuButton />
 				<div className={s.navWrapper}>
 					<Link href='/'>
 						<Image className={s.logo} src={logo} alt='Логотип сайту' />
 					</Link>
-					<Navigation type='header' />
+					<Navigation />
 				</div>
 				<div className={s.secondBlockWrapper}>
-					<SocialMenu />
-					{/* <LoginButton className={s.loginBtn}>Вхід</LoginButton> */}
-					<Button>Вхід</Button>
+					<SocialMenu className={s.socialBlock} />
+					<LoginButton>Вхід</LoginButton>
 				</div>
 			</div>
 		</header>

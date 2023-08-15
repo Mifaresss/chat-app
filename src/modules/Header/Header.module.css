@@ -16,7 +16,7 @@
 .navWrapper {
    display: flex;
    align-items: center;
-   gap: calc(min(1.5rem + 32 * ((100vw - 840px) / (1320 - 840)), 3.5rem));
+   gap: calc(min(2.1875rem + 30 * ((100vw - 840px) / (1320 - 840)), 4.0625rem));
 }
 .secondBlockWrapper {
    display: flex;
@@ -25,6 +25,24 @@
 }
 .logo {
    width: 8.125rem;
+}
+
+
+@media (max-width: 835px) {
+   .socialBlock {
+      position: absolute;
+      margin-top: 10rem;
+      right: 1.25rem;
+   }
+}
+@media (max-width: 650px) {
+   .navWrapper {
+      gap: 0;
+   }
+   .socialBlock {
+      position: static;
+      margin-top: 0;
+   }
 }
 
 

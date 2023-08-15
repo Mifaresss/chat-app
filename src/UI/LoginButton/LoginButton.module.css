@@ -1,15 +1,11 @@
 .loginButton {
    color: var(--gamma-text-c);
    background-color: transparent;
-   font-size: calc(min(0.875rem + 2 * ((100vw - 320px) / (1280 - 320)), 1rem));
+   font-size: 1rem;
    font-weight: 500;
-   line-height: 1.6;
-   max-width: 8.75rem;
-   width: 100%;
-   padding: 0.5625rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   line-height: 1.62;
+   width: calc(min(8.75rem + 36 * ((100vw - 835px) / (1320 - 835)), 11rem));
+   padding: 0.4375rem 1.5rem;
    border: 0.125rem solid currentColor;
    border-radius: 0.3125rem;
    transition: all var(--hover-transit);
@@ -22,4 +18,10 @@
    color: var(--gamma-text-c);
    background-color: var(--effect-1-c);
    border-color: var(--effect-1-c);
+}
+
+@media (max-width: 650px) {
+   .loginButton {
+      display: none;
+   }
 }

@@ -1,22 +1,24 @@
+import s from './Footer.module.css'
 import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
 import logo from  '@images/logo.svg'
 import Image from 'next/image'
-
-import s from './Footer.module.css'
+import { NavList } from '@/components/NavList/NavList'
+import Link from 'next/link'
 
 export function Footer() {
 
 	return (
-		<section className='container'>
-			<section className={s.main}>
-				<div className={s.firstBloc}>
-					<Image className={s.infoBlockImage} src={logo} alt='Логотип сайту'/>
-					{/* <Navigation type='footer'/> */}
-				</div>
-				<div className={s.secondBlock}>
+		<footer className={s.footer}>
+			<div className={s.footerContainer}>
+				<Link href='/'>
+					<Image className={s.logo} src={logo} alt='Логотип сайту'/>
+				</Link>
+				<NavList />
+				<div className={s.social}>
+					<p>Соціальні мережі:</p>
 					<SocialMenu />
 				</div>
-			</section>
-		</section>
+			</div>
+		</footer>
 	)
 }

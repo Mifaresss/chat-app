@@ -1,13 +1,28 @@
+'use client'
 import s from './Header.module.css'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
 import logo from '@images/logo.svg'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Navigation } from '@/components/Navigation/Navigation'
+import { NavList } from '@/components/NavList/NavList'
 import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
 import { BurgerMenuButton } from '@/UI/BurgerButton/BurgerButton'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { RootState } from '@/redux/store'
+import { toggleNavMenu } from '@/redux/toggleNavMenuSlice'
 
 export function Header() {
+	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		if (isOpen) {
+			document.body.style.overflowY = 'hidden'
+		} else {
+			document.body.style.overflowY = 'auto'
+		}
+	}, [isOpen])
 
 	return (
 		<header className={s.header}>
@@ -17,7 +32,12 @@ export function Header() {
 					<Link href='/'>
 						<Image className={s.logo} src={logo} alt='Логотип сайту' />
 					</Link>
-					<Navigation />
+					<nav className={[s.nav, isOpen && s.visible].join(' ')}>
+						<NavList
+							isOpen={isOpen}
+							updateOpen={() => { dispatch(toggleNavMenu(false)) }}
+						/>
+					</nav>
 				</div>
 				<div className={s.secondBlockWrapper}>
 					<SocialMenu className={s.socialBlock} />

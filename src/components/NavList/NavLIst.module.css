@@ -1,0 +1,4 @@
+.navList {
+   display: flex;
+   gap: calc(min(2.1875rem + 21 * ((100vw - 840px) / (1320 - 840)), 3.5rem));
+}

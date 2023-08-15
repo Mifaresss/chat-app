@@ -31,17 +31,51 @@
 @media (max-width: 835px) {
    .socialBlock {
       position: absolute;
-      margin-top: 10rem;
+      margin-top: 8rem;
       right: 1.25rem;
+      padding: 0.3125rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(0.1875rem);
+      border-radius: 0.625rem;
+
    }
 }
 @media (max-width: 650px) {
    .navWrapper {
       gap: 0;
    }
+   .nav {
+		position: absolute;
+		width: 100vw;
+		height: 100lvh;
+		top: 0;
+		left: -100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: left .2s;
+		background-color: rgba(0, 0, 0, .7);
+		backdrop-filter: blur(0.25rem);
+		z-index: 9;
+	}
+	.nav.visible {
+		left: 0;
+	}
+   .nav ul {
+      flex-direction: column;
+      gap: 1.5rem;
+   }
+   .nav a {
+      font-size: 1.5rem;
+      font-weight: 600;
+   }
    .socialBlock {
       position: static;
       margin-top: 0;
+      padding: 0;
+      background-color: transparent;
+      backdrop-filter: none;
+      border-radius: none;      
    }
 }
 

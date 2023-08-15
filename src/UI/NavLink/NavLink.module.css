@@ -23,15 +23,6 @@
 .navLink:hover, .navLink.active {
    color: var(--effect-1-c);
 }
-
 .navLink.active::after {
    width: 126%;
-}
-
-
-@media (max-width: 650px) {
-   .navLink {
-      font-size: 1.5rem;
-      font-weight: 600;
-   }
 }

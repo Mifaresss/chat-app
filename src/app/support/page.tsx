@@ -1,5 +1,9 @@
 import { Title } from '@/UI/Title/Title'
 
 export default function SupportPage() {
-	return <Title>Support Page</Title>
+	return (
+		<div style={{ marginTop: '60px' }}>
+			<Title>Support Page</Title>
+		</div>
+	)
 }

@@ -1,3 +1,4 @@
+import s from './NavLIst.module.css'
 import { NavLink } from '@/UI/NavLink/NavLink'
 
 const navItems = [

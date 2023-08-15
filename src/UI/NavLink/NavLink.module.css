@@ -6,6 +6,7 @@
    text-decoration: none;
    position: relative;
    transition: color var(--hover-transit);
+   height: max-content;
 }
 .navLink::after {
    content: '';

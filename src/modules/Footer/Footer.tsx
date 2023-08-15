@@ -14,7 +14,7 @@ export function Footer() {
 					{/* <Navigation type='footer'/> */}
 				</div>
 				<div className={s.secondBlock}>
-					<SocialMenu type='footer'/>
+					<SocialMenu />
 				</div>
 			</section>
 		</section>

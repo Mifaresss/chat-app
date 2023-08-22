@@ -5,13 +5,15 @@ import { socialMediaCards } from './data'
 
 interface SocialMenuPropsType {
 	className?: string
+	reverse?: boolean
 }
 
-export function SocialMenu({ className }: SocialMenuPropsType) {
+export function SocialMenu({ className, reverse }: SocialMenuPropsType) {
+	const newSocialMediaCards = reverse ? [...socialMediaCards].reverse() : socialMediaCards
 
 	return (
 		<div className={[s.social, className].join(' ')}>
-			{socialMediaCards.map(({ img, href }, i) => (
+			{newSocialMediaCards.map(({ img, href }, i) => (
 				<Link key={i} className={s.socialLink} href={href}>
 					<Image src={img.src} alt={img.alt}/>
 				</Link>

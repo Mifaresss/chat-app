@@ -2,7 +2,7 @@ import s from './NavLIst.module.css'
 import { NavLink } from '@/UI/NavLink/NavLink'
 
 const navItems = [
-	{ label: 'Новий чат', href: '/new-chat' },
+	{ label: 'Приватний чат', href: '/private-chat' },
 	{ label: 'Чат кімнати', href: '/rooms' },
 	{ label: 'Підтримка', href: '/support' },
 ]

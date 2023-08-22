@@ -18,7 +18,7 @@ export function WhatIsOurChat() {
 				<div className={s.content}>
 					<InfoList listStyleImg={listStyleImg.src} listItems={listItems} />
 				</div>
-				<Button>{buttonContent}</Button>
+				<Button title={buttonContent} />
 			</div>
 			<Image className={s.contentImg} src={contentImg} alt={altForContentImg} />
 		</section>

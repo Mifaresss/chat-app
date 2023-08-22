@@ -11,11 +11,11 @@ interface SocialMediaCard {
 
 export const socialMediaCards: SocialMediaCard[] = [
 	{
+		img: { src: facebookIcon, alt: 'Іконка фейсбука' },
+		href: 'https://www.facebook.com',
+	},
+	{
 		img: { src: InstagramIcon, alt: 'Іконка інстаграма' },
 		href: 'https://www.instagram.com',
 	},
-	{
-		img: { src: facebookIcon, alt: 'Іконка фейсбука' },
-		href: 'https://www.facebook.com',
-	}
 ]

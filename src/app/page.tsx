@@ -4,9 +4,9 @@ import { MainPageModule } from '@/modules/MainPage/MainPageModule'
 export default function Home() {
 
 	return (
-		<main className={s.main}>
+		<div className={s.main}>
 			<MainPageModule />
-		</main>
+		</div>
 	)
 
 }

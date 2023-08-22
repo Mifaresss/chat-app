@@ -1,15 +1,15 @@
 :root {
    /* ========================== Colors ========================== */
-   --alpha-text-c: rgb(2, 0, 10);
-   --beta-text-c: rgb(0, 25, 102);
-   --gamma-text-c: rgb(255, 254, 254);
+   --alpha-text-c: #02000a;
+   --beta-text-c: #001966;
+   --gamma-text-c: #fffefe;
 
-   --effect-1-c: rgb(255, 214, 0);
-   --effect-2-c: rgb(222, 227, 243);
-   --effect-3-c: rgb(163, 175, 209);
-   --effect-4-c: rgb(55, 75, 136);
+   --effect-1-c: #ffd600;
+   --effect-2-c: #dee3f3;
+   --effect-3-c: #a3afd1;
+   --effect-4-c: #374b88;
 
-   --danger-c: rgb(183, 0, 0);
+   --danger-c: #b70000;
 
    /* ========================== Transition ========================== */
    --hover-transit: 0.3s;
@@ -27,6 +27,9 @@ body {
 
    overflow-y: auto;
    overflow-x: hidden;
+}
+.main {
+   margin-top: 3.75rem;
 }
 
 [class*='Container'] {

@@ -16,7 +16,7 @@ export function Footer() {
 				<NavList />
 				<div className={s.social}>
 					<p>Соціальні мережі:</p>
-					<SocialMenu />
+					<SocialMenu reverse />
 				</div>
 			</div>
 		</footer>

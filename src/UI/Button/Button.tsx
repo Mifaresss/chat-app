@@ -1,14 +1,15 @@
+import { ButtonHTMLAttributes } from 'react'
 import s from './Button.module.css'
 
-interface ButtonPropsType {
-	children: string
+interface ButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
+	title: string
 }
 
-export function Button({ children }: ButtonPropsType) {
+export function Button({ title, className, ...props }: ButtonPropsType) {
 
 	return (
-		<button className={s.button}>
-			{children}
+		<button {...props} className={[s.button, className].join(' ')}>
+			{title}
 		</button>
 	)
 }

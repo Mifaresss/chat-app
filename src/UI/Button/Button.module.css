@@ -8,7 +8,7 @@
    border: 0.125rem solid currentColor;
    border-radius: 0.3125rem;
    transition: all var(--hover-transit);
-   width: max-content;
+   width: 11rem;
    align-self: center;
 }
 

@@ -30,7 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={roboto.className}>
 				<Provider store={store}>
 					<Header />
-					{children}
+					<main className='main'>
+						{children}
+					</main>
 					<Footer />
 				</Provider>
 			</body>

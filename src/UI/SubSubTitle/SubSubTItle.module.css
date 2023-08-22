@@ -1,6 +1,0 @@
-.subSubTitle {
-   color: var(--beta-text-c);
-   font-size: calc(min(1.1875rem + 3 * ((100vw - 320px) / (1320 - 320)), 1.375rem));
-   font-weight: 700;
-   line-height: 1.45;
-}

@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'react'
 import s from './SubSubTitle.module.css'
+import { HTMLAttributes } from 'react'
 
 interface SubSubTitlePropsType extends HTMLAttributes<HTMLHeadingElement> {
 	color?:

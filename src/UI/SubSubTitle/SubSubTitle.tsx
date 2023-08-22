@@ -1,4 +1,4 @@
-import s from './SubSubTitle.module.css'
+import s from './SubSubTItle.module.css'
 import { HTMLAttributes } from 'react'
 
 interface SubSubTitlePropsType extends HTMLAttributes<HTMLHeadingElement> {

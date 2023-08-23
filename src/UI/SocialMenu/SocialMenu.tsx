@@ -14,7 +14,7 @@ export function SocialMenu({ className, reverse }: SocialMenuPropsType) {
 	return (
 		<div className={[s.social, className].join(' ')}>
 			{newSocialMediaCards.map(({ img, href }, i) => (
-				<Link key={i} className={s.socialLink} href={href}>
+				<Link target='_blank' key={i} className={s.socialLink} href={href}>
 					<Image src={img.src} alt={img.alt}/>
 				</Link>
 			))}

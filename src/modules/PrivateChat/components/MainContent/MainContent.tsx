@@ -18,7 +18,7 @@ export function MainContent() {
 	return (
 		<>
 			<article className={s.mainContent}>
-				<SubTitle title='На жаль, ти ще не авторизований!' />
+				<SubTitle title='На жаль, ти ще не авторизований!' align='center' />
 				<div className={s.wrapperButtons}>
 					<Link href='/'>
 						<Button title='На головну' />

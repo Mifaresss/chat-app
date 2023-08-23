@@ -1,10 +1,12 @@
 .mainContent {
    display: flex;
    flex-direction: column;
-   gap: 4rem;
+   gap: calc(min(1.5rem + 40 * ((100vw - 320px) / (1320 - 320)), 4rem));
 }
 
 .wrapperButtons {
    display: flex;
-   justify-content: space-between;
+   flex-wrap: wrap;
+   gap: 1.25rem;
+   justify-content: center;
 }

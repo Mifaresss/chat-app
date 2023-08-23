@@ -15,6 +15,9 @@
    --hover-transit: 0.3s;
 }
 
+html {
+   overflow-y: scroll;
+}
 body {
    color: var(--alpha-text-c);
    background-color: var(--gamma-text-c);
@@ -24,6 +27,9 @@ body {
 
    display: flex;
    flex-direction: column;
+
+   overflow-y: scroll;
+   scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
    width: 0;

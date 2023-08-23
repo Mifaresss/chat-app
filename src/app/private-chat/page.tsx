@@ -1,7 +1,8 @@
-export default function NewChat() {
+import { PrivateChat } from '@/modules/PrivateChat/PrivateChat'
+
+export default function PrivateChatPage() {
 
 	return (
-		<div style={{ margin: '100px' }}>
-		</div>
+		<PrivateChat />
 	)
 }

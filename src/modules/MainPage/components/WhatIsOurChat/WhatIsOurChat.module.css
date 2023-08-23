@@ -1,42 +1,42 @@
 .whatIsOurChat {
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	margin-top: -4%;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   margin-top: -5%;
 }
 .contentWrapper {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 @media (max-width: 1250px) {
-	.whatIsOurChat {
-		justify-content: center;
-		gap: 3rem;
-	}
-	.contentWrapper {
-		justify-content: initial;
-	}
-	.titleWrapper {
-		display: flex;
-		justify-content: center;
-		margin-bottom: 1.5rem;
-	}
-	.content {
-		margin-bottom: 1.5rem;
-	}
+   .whatIsOurChat {
+      justify-content: center;
+      gap: 3rem;
+   }
+   .contentWrapper {
+      justify-content: initial;
+   }
+   .titleWrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+   }
+   .content {
+      margin-bottom: 1.5rem;
+   }
 }
 @media (max-width: 835px) {
-	.whatIsOurChat {
-		margin-top: -2.5%;
-	}
+   .whatIsOurChat {
+      margin-top: -2.5%;
+   }
 }
 @media (max-width: 700px) {
-	.contentImg {
-		width: 100vw;
-		height: auto;
-		object-fit: cover;
-		margin: 0 -1.25rem;
-	}
+   .contentImg {
+      width: 100vw;
+      height: auto;
+      object-fit: cover;
+      margin: 0 -1.25rem;
+   }
 }

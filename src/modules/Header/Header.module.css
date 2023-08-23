@@ -1,5 +1,5 @@
 .header {
-   width: 100%;
+   width: 100vw;
    height: 3.75rem;
    display: flex;
    align-items: center;
@@ -27,7 +27,6 @@
    width: 8.125rem;
 }
 
-
 @media (max-width: 835px) {
    .socialBlock {
       position: absolute;
@@ -37,7 +36,6 @@
       background-color: rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(0.1875rem);
       border-radius: 0.625rem;
-
    }
 }
 @media (max-width: 650px) {
@@ -45,22 +43,22 @@
       gap: 0;
    }
    .nav {
-		position: absolute;
-		width: 100vw;
-		height: 100lvh;
-		top: 0;
-		left: -100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		transition: left .2s;
-		background-color: rgba(0, 0, 0, .7);
-		backdrop-filter: blur(0.25rem);
-		z-index: 9;
-	}
-	.nav.visible {
-		left: 0;
-	}
+      position: absolute;
+      width: 100vw;
+      height: 100lvh;
+      top: 0;
+      left: -100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: left 0.2s;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(0.25rem);
+      z-index: 9;
+   }
+   .nav.visible {
+      left: 0;
+   }
    .nav ul {
       flex-direction: column;
       gap: 1.5rem;
@@ -75,23 +73,9 @@
       padding: 0;
       background-color: transparent;
       backdrop-filter: none;
-      border-radius: none;      
+      border-radius: none;
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* .loginBtn {
    display: none;

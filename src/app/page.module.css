@@ -1,4 +1,0 @@
-.main {
-	flex: 1 1 auto;
-	margin-bottom: calc(min(5rem + 84 * ((100vw - 320px) / (1320 - 320)), 10.25rem));
-}

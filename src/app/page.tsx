@@ -1,12 +1,10 @@
 import s from './page.module.css'
-import { MainPageModule } from '@/modules/MainPage/MainPageModule'
+import { MainPage } from '@/modules/MainPage/MainPage'
 
 export default function Home() {
 
 	return (
-		<div className={s.main}>
-			<MainPageModule />
-		</div>
+		<MainPage />
 	)
 
 }

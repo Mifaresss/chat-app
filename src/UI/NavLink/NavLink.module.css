@@ -1,4 +1,5 @@
 .navLink {
+   width: max-content;
    color: var(--gamma-text-c);
    font-size: calc(min(0.875rem + 2 * ((100vw - 320px) / (1280 - 320)), 1rem));
    font-weight: 500;
@@ -21,7 +22,8 @@
    transition: width var(--hover-transit);
 }
 
-.navLink:hover, .navLink.active {
+.navLink:hover,
+.navLink.active {
    color: var(--effect-1-c);
 }
 .navLink.active::after {

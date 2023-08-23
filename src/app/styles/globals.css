@@ -24,11 +24,13 @@ body {
 
    display: flex;
    flex-direction: column;
-
-   overflow-y: auto;
-   overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+   width: 0;
+}
+
 .main {
+   flex: 1 1 auto;
    margin-top: 3.75rem;
 }
 

@@ -1,0 +1,10 @@
+.mainContent {
+   display: flex;
+   flex-direction: column;
+   gap: 4rem;
+}
+
+.wrapperButtons {
+   display: flex;
+   justify-content: space-between;
+}

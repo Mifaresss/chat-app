@@ -10,14 +10,14 @@ export function HowItWorks() {
 	return (
 		<section className={s.howItWorks}>
 			<div className={s.titleWrapper}>
-				<Title>{title}</Title>
+				<Title title={title} />
 			</div>
 			<div className={s.contentWrapper}>
 				{cardsContent.map(({ id, img, subTitle, text }) => {
 					return (
 						<InfoCard key={id} bgColor='var(--effect-2-c)'>
 							<Image src={img.src} alt={img.alt} />
-							<SubTitle>{subTitle}</SubTitle>
+							<SubTitle title={subTitle} />
 							<p>{text}</p>
 						</InfoCard>
 					)

@@ -15,7 +15,7 @@ export function CommunicationInRooms() {
 			/>
 			<div className={s.contentWrapper}>
 				<div className={s.titleWrapper}>
-					<Title>{communicationSectionData.title}</Title>
+					<Title title={communicationSectionData.title} />
 				</div>
 				<div className={s.content}>
 					<InfoList

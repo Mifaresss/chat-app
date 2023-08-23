@@ -12,6 +12,5 @@
       "comma-spacing": "error",
       "no-multiple-empty-lines": ["error", { "max": 1 }],
       "no-trailing-spaces": "warn"
-
    }
 }

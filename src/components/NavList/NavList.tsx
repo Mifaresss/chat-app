@@ -10,9 +10,10 @@ const navItems = [
 interface NavListPropsType {
 	isOpen?: boolean
 	updateOpen?: () => void;
+	highlight?: boolean
 }
 
-export function NavList({ isOpen, updateOpen }: NavListPropsType) {
+export function NavList({ isOpen, updateOpen, highlight }: NavListPropsType) {
 
 	return (
 		<ul className={s.navList}>
@@ -23,6 +24,7 @@ export function NavList({ isOpen, updateOpen }: NavListPropsType) {
 					onClick={() => {
 						if (isOpen && updateOpen) updateOpen()
 					}}
+					highlight={highlight}
 				>
 					{link.label}
 				</NavLink>

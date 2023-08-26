@@ -4,19 +4,20 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 interface NavLinkPropsType {
-  	path: string
+	path: string
 	children: string
 	onClick?: () => void
+	highlight?: boolean
 }
 
-export function NavLink({ path, children, onClick }: NavLinkPropsType) {
+export function NavLink({ path, children, onClick, highlight = false }: NavLinkPropsType) {
 	const currentPath = usePathname()
-	const isActive = currentPath === path
+	const isActive = highlight && currentPath === path
 
 	return (
 		<Link
 			href={path}
-			className={[s.navLink, isActive ? s.active : ''].join(' ')}
+			className={[s.navLink, isActive && s.active].join(' ')}
 			onClick={onClick}
 		>
 			{children}

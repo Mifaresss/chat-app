@@ -43,6 +43,7 @@ export function Header() {
 					</Link>
 					<nav className={[s.nav, isOpen && s.visible].join(' ')}>
 						<NavList
+							highlight
 							isOpen={isOpen}
 							updateOpen={() => { dispatch(toggleNavMenu(false)) }}
 						/>

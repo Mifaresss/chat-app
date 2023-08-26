@@ -23,7 +23,7 @@ export function MainContent() {
 					<Link href='/'>
 						<Button title='На головну' />
 					</Link>
-					<Button title='Авторизуватись' onClick={openPopupHandler} />
+					<Button title='Авторизуватися' onClick={openPopupHandler} />
 				</div>
 			</article>
 			<LoginPopup ref={dialogRef} />

@@ -24,29 +24,50 @@
    opacity: 1;
 }
 .popup::backdrop {
-   /* position: absolute; */
-   /* top: 0; */
-   /* left: 0; */
-   /* width: 100vw; */
-   /* height: 100vh; */
    background-color: rgba(0, 0, 0, 0.7);
    backdrop-filter: blur(0.1rem);
    transition: all 1.25s;
-   /* z-index: 99; */
 }
 
 .popupContent {
-   max-width: 24.5rem;
+   max-width: 25rem;
    flex: 1 1 auto;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: calc(min(1.5625rem + 20 * ((100vw - 320px) / (1320 - 320)), 2.8125rem));
+   gap: calc(min(1.5625rem + 23 * ((100vw - 320px) / (1320 - 320)), 3rem));
 }
 
 .popupForm {
    width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+}
+
+.emojiesWrapper {
+   align-self: center;
+   display: flex;
+   gap: calc(min(0.625rem + 14 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
+   height: 2.5rem;
+}
+.emoji {
+   cursor: pointer;
+   transition: transform var(--hover-transit);
+}
+.emoji:hover .emojiImg {
+   color: #40b700;
+}
+.emoji:has(.emojiInput:checked) {
+   transform: scale(1.2);
+}
+.emoji:has(.emojiInput:checked) .emojiImg {
+   color: #40b700;
+}
+.emojiInput {
+   position: absolute;
+   appearance: none;
 }
 
 .wrapperButtons {

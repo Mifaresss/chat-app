@@ -1,0 +1,14 @@
+.chatRoomsContainer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: calc(min(3rem + 48 * ((100vw - 834px) / (1320 - 834)), 96px));
+   margin-bottom: calc(min(5rem + 40 * ((100vw - 320px) / (1320 - 320)), 7.5rem));
+}
+
+@media (max-width: 835px) {
+   .chatRoomsContainer {
+      gap: calc(min(3rem + (12 * (835px - 100vw) / (835 - 320)), 3.75rem));
+   }
+}

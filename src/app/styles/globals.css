@@ -12,7 +12,7 @@
    --danger-c: #b70000;
 
    /* ========================== Transition ========================== */
-   --hover-transit: 0.3s;
+   --hover-transit: 0.2s;
 }
 
 html {
@@ -23,7 +23,7 @@ body {
    background-color: var(--gamma-text-c);
    font-size: calc(min(1rem + 2 * ((100vw - 320px) / (1280 - 320)), 1.125rem));
    font-weight: 300;
-   line-height: 1.5;
+   line-height: 1.55;
 
    display: flex;
    flex-direction: column;

@@ -1,21 +1,20 @@
 .heroSection {
-   --height: calc(min(16.75rem + 90 * ((100vw - 834px) / (1280 - 834)), 22.5rem));
-
    width: 100%;
    display: flex;
    align-items: center;
-   height: var(--height);
+   height: calc(min(16.75rem + 90 * ((100vw - 834px) / (1280 - 834)), 360px));
    position: relative;
 }
 .heroSection::before {
    content: '';
    position: absolute;
-   top: 0;
-   left: 50%;
-   transform: translateX(-50%);
    z-index: -1;
    width: 100vw;
-   height: var(--height);
+   /* This↓ is a bug. If you remove transform translate, a white bar will appear above the section */
+   transform: translate(0);
+   margin: 0 calc(50% - 50vw);
+   padding: 0 calc(50vw - 50%);
+   height: 100%;
    background-image: url('/images/hero-section/hero-img.png');
    background-repeat: no-repeat;
    background-size: cover;
@@ -24,7 +23,7 @@
 
 @media (max-width: 835px) {
    .heroSection {
-      --height: calc(min(16.75rem + (40 * (834px - 100vw) / (834 - 430)), 19.25rem));
+      height: calc(min(16.75rem + (40 * (834px - 100vw) / (834 - 430)), 19.25rem));
    }
    .heroSection::before {
       filter: brightness(50%);
@@ -32,6 +31,6 @@
 }
 @media (max-width: 431px) {
    .heroSection::before {
-      filter: brightness(40%);
+      filter: brightness(30%);
    }
 }

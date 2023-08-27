@@ -1,15 +1,23 @@
-import { RefObject, ForwardedRef, forwardRef } from 'react'
+import { RefObject, ForwardedRef, forwardRef, MouseEvent } from 'react'
 import s from './LoginPopup.module.css'
+import Image from 'next/image'
+import emoji1 from '@images/login-popup/emoji-1.svg'
+import emoji2 from '@images/login-popup/emoji-2.svg'
+import emoji3 from '@images/login-popup/emoji-3.svg'
+import emoji4 from '@images/login-popup/emoji-4.svg'
+import emoji5 from '@images/login-popup/emoji-5.svg'
 import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
 import { TextField } from '../TextField/TextField'
 import { Button } from '../Button/Button'
+import { SvgIcon } from '../SvgIcon/SvgIcon'
 
 interface PropsType {}
 
 // eslint-disable-next-line react/display-name
 export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 
-	function closeModalHandler() {
+	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
+		e.preventDefault()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()
 		}
@@ -18,14 +26,71 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 	return (
 		<dialog className={s.popup} ref={ref}>
 			<div className={s.popupContent}>
-				<SubSubTitle label='Щоб продовжити далі, авторизуйся!' className={s.popupTitle} />
+				<SubSubTitle
+					align='center'
+					label='Щоб продовжити далі, авторизуйся та обери, який настрій маєш сьогодні!'
+					className={s.popupTitle}
+				/>
 				<form className={s.popupForm} id='loginPopupForm'>
 					<TextField placeholder='Ім’я' />
+					<div className={s.emojiesWrapper}>
+						<label className={s.emoji}>
+							<input className={s.emojiInput} type='radio' name='emoji' value='emoji1' />
+							<SvgIcon
+								width={40}
+								height={40}
+								src='login-popup/sprite.svg'
+								name='emoji-1'
+								className={s.emojiImg}
+							/>
+						</label>
+						<label className={s.emoji}>
+							<input className={s.emojiInput} type='radio' name='emoji' value='emoji2' />
+							<SvgIcon
+								width={40}
+								height={40}
+								src='login-popup/sprite.svg'
+								name='emoji-2'
+								className={s.emojiImg}
+							/>
+						</label>
+						<label className={s.emoji}>
+							<input className={s.emojiInput} type='radio' name='emoji' value='emoji3' />
+							<SvgIcon
+								width={40}
+								height={40}
+								src='login-popup/sprite.svg'
+								name='emoji-3'
+								className={s.emojiImg}
+							/>
+						</label>
+						<label className={s.emoji}>
+							<input className={s.emojiInput} type='radio' name='emoji' value='emoji4' />
+							<SvgIcon
+								width={40}
+								height={40}
+								src='login-popup/sprite.svg'
+								name='emoji-4'
+								className={s.emojiImg}
+							/>
+						</label>
+						<label className={s.emoji}>
+							<input className={s.emojiInput} type='radio' name='emoji' value='emoji5' />
+							<SvgIcon
+								width={40}
+								height={40}
+								src='login-popup/sprite.svg'
+								name='emoji-5'
+								className={s.emojiImg}
+							/>
+						</label>
+					</div>
+
+					<div className={s.wrapperButtons}>
+						<Button title='Закрити' onClick={closeModalHandler} className={s.cancelButton} />
+						<Button title='Авторизуватися' form='loginPopupForm' />
+					</div>
 				</form>
-				<div className={s.wrapperButtons}>
-					<Button title='Закрити' onClick={closeModalHandler} className={s.cancelButton} />
-					<Button title='Авторизуватися' form='loginPopupForm' />
-				</div>
 				<button onClick={closeModalHandler} className={s.cancelButton2}></button>
 			</div>
 		</dialog>

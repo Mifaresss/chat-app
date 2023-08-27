@@ -1,12 +1,17 @@
+.wrapperButton {
+   position: relative;
+   z-index: 10;
+   padding: 0.625rem;
+   cursor: pointer;
+   display: none;
+}
 .burgerButton {
-	z-index: 10;
-	display: none;
-	background-color: transparent;
-	cursor: pointer;
+   display: block;
+   background-color: transparent;
    position: relative;
    width: 1.5625rem;
    height: 1.1875rem;
-	transition: all .2s;
+   transition: all 0.2s;
 }
 .burgerButton span {
    display: block;
@@ -39,24 +44,24 @@
 .burgerButton:hover:after {
    width: 50%;
 } */
-.burgerButton.open:before {
+.wrapperButton.open .burgerButton:before {
    top: 50%;
    transform: rotate(45deg);
 }
-.burgerButton.open:after {
+.wrapperButton.open .burgerButton:after {
    top: 50%;
    transform: rotate(-45deg);
 }
-.burgerButton.open span {
+.wrapperButton.open .burgerButton span {
    display: none;
 }
-.burgerButton.open:hover:before,
-.burgerButton.open:hover:after {
+.wrapperButton.open:hover .burgerButton:before,
+.wrapperButton.open:hover .burgerButton:after {
    width: 100%;
 }
 
 @media (max-width: 650px) {
-	.burgerButton {
-		display: block;
-	}
+   .wrapperButton {
+      display: block;
+   }
 }

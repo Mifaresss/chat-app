@@ -1,0 +1,36 @@
+.section {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 1.25rem;
+}
+
+.contentImg {
+   max-width: 39.375rem;
+   width: 100%;
+}
+
+.contentWrapper {
+   flex: 1 1 min-content;
+   min-width: 17.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+}
+
+.text {
+   letter-spacing: 0.0125rem;
+}
+
+@media (max-width: 970px) {
+   .contentImg {
+      max-width: none;
+      width: 100vw;
+      object-fit: cover;
+      height: calc(min(15.3125rem + 115 * ((100vw - 320px) / (835 - 320)), 22.5rem));
+   }
+   .contentWrapper {
+      padding: 0 1.25rem;
+      align-items: center;
+   }
+}

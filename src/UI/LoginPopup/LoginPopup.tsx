@@ -26,14 +26,13 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 	const RegisterRef = useRef<HTMLDialogElement>(null)
 	const [name, setName] = useState('')
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault()
 		dispatch(registerUser({ name }))
 		setName('')
-		closeModalHandler()
 	}
 
-	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
+	function closeModalHandler(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
 		e.preventDefault()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()

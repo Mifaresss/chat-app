@@ -30,3 +30,9 @@
       max-width: 24.375rem;
    }
 }
+
+@media (max-width: 430px) {
+   .infoBlock {
+      background-color: rgba(236, 233, 233, 0.225);
+   }
+}

@@ -1,5 +1,5 @@
-import { HeroSection } from '../HeroSection/HeroSection'
 import s from './MainPage.module.css'
+import { HeroSection } from '../HeroSection/HeroSection'
 import { CommunicationInRooms } from './components/CommunicationInRooms/CommunicationInRooms'
 import { HowItWorks } from './components/HowItWorks/HowItWorks'
 import { PrivacyPolicy } from './components/PrivacyPolicy/PrivacyPolicy'

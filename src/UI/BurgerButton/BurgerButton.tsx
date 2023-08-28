@@ -11,13 +11,15 @@ export function BurgerMenuButton({}: BurgerButtonPropsType) {
 	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
 
 	return (
-		<button
-			className={[s.burgerButton, isOpen && s.open].join(' ')}
+		<div
+			className={[s.wrapperButton, isOpen && s.open].join(' ')}
 			onClick={() => {
 				dispatch(toggleNavMenu(!isOpen))
 			}}
 		>
-			<span></span>
-		</button>
+			<button className={s.burgerButton}>
+				<span></span>
+			</button>
+		</div>
 	)
 }

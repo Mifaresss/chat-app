@@ -1,5 +1,5 @@
-import { HeroSection } from '../HeroSection/HeroSection'
 import s from './PrivateChat.module.css'
+import { HeroSection } from '../HeroSection/HeroSection'
 import { MainContent } from './components/MainContent/MainContent'
 
 export function PrivateChat() {

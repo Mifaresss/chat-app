@@ -5,8 +5,8 @@ import { Roboto } from 'next/font/google'
 import { Provider } from 'react-redux'
 import { store } from '@/redux/store'
 
-import './styles/globals.css'
 import './styles/reset.css'
+import './styles/globals.css'
 
 const roboto = Roboto({
 	weight: ['300', '500', '700'],

@@ -13,7 +13,7 @@
    position: absolute;
    left: 0;
    bottom: 0;
-   width: calc(min(3.75rem + 20 * ((100vw - 840px) / (1320 - 840)), 5rem));
+   width: calc(min(3.75rem + 20 * ((100vw - 52.5rem) / (1320 - 840)), 5rem));
    height: 0.3125rem;
    background-color: var(--effect-1-c);
 }

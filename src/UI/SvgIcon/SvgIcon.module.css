@@ -1,0 +1,4 @@
+.image {
+   color: var(--effect-4-c);
+   transition: color var(--hover-transit);
+}

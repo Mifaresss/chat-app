@@ -1,4 +1,6 @@
 .input {
+   font-size: 0.75rem;
+   line-height: 1.66;
    border: 0.0625rem solid var(--effect-3-c);
    color: var(--beta-text-c);
    padding: 0.5rem 1rem;
@@ -6,9 +8,10 @@
    width: 100%;
 }
 .input::placeholder {
-   /* font-size: 35px; */
    color: var(--effect-3-c);
    font-size: 0.75rem;
    font-weight: 300;
-   line-height: 1.66;
+}
+.input:focus {
+   border-color: var(--beta-text-c);
 }

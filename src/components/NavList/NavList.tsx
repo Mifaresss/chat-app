@@ -3,7 +3,7 @@ import { NavLink } from '@/UI/NavLink/NavLink'
 
 const navItems = [
 	{ label: 'Приватний чат', href: '/private-chat' },
-	{ label: 'Чат кімнати', href: '/rooms' },
+	{ label: 'Чат кімнати', href: '/chat-rooms' },
 	{ label: 'Підтримка', href: '/support' },
 ]
 

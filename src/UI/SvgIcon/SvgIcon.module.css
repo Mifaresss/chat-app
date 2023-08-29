@@ -1,4 +1,6 @@
 .image {
-   color: var(--effect-4-c);
-   transition: color var(--hover-transit);
+   --stroke-width: 1;
+   --fill-c: #ededed;
+
+   transition: all var(--hover-transit);
 }

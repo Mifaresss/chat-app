@@ -57,17 +57,18 @@
    transition: transform var(--hover-transit);
 }
 .emoji:hover .emojiImg {
-   color: #40b700;
-}
-.emoji:has(.emojiInput:checked) {
-   transform: scale(1.2);
+   --fill-c: var(--effect-2-c);
+   --stroke-width: 1.75;
 }
 .emoji:has(.emojiInput:checked) .emojiImg {
-   color: #40b700;
+   --fill-c: #ededed;
+   --stroke-width: 1.75;
 }
 .emojiInput {
    position: absolute;
    appearance: none;
+}
+.emojiImg {
 }
 
 .wrapperButtons {

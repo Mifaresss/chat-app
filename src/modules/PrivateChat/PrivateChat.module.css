@@ -1,3 +1,7 @@
+.privateChatPage {
+   flex: 1 1 auto;
+}
+
 .privateChatContainer {
    display: flex;
    flex-direction: column;

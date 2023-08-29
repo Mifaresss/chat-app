@@ -7,7 +7,6 @@ interface PropsType {
 }
 
 export function HeroSection({ className, infoBlock }: PropsType) {
-
 	return (
 		<section className={[s.heroSection, className].join(' ')}>
 			{infoBlock && <InfoBlock />}

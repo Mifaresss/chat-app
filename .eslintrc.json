@@ -1,6 +1,24 @@
 {
    "extends": "next/core-web-vitals",
+    "plugins": [
+        "prettier"
+    ],
    "rules": {
+      "prettier/prettier": [
+         "warn",
+         {
+            "printWidth": 100,
+            "arrowParens": "avoid",
+            "semi": false,
+            "singleQuote": true,
+            "jsxSingleQuote": true,
+            "tabWidth": 3,
+            "bracketSameLine": false,
+            "trailingComma": "all",
+            "useTabs": true,
+            "endOfLine": "auto"
+         }
+      ],
       "eol-last": "warn",
       "quotes": ["error", "single"],
       "jsx-quotes": ["error", "prefer-single"],

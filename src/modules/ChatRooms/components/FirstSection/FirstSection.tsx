@@ -2,6 +2,7 @@ import s from './FirstSection.module.css'
 import Image from 'next/image'
 import contentImg from '@images/chat-rooms/first-block/content.jpg'
 import { Title } from '@/UI/Title/Title'
+import { Text } from '@/UI/Text/Text'
 
 interface PropsType {}
 
@@ -18,9 +19,10 @@ export function FirstSection({}: PropsType) {
 			/>
 			<div className={s.contentWrapper}>
 				<Title className={s.title} title='Спілкуйся в чат-кімнатах' />
-				<p className={s.text}>
-					Чат-кімнати є повністью анонімними та не збирають ваших персональних даних. Спілкуйтеся на різні хвилюючі теми та генеруйте нові ідеї!
-				</p>
+				<Text>
+					Чат-кімнати є повністью анонімними та не збирають ваших персональних даних. Спілкуйтеся на різні
+					хвилюючі теми та генеруйте нові ідеї!
+				</Text>
 			</div>
 		</section>
 	)

@@ -3,7 +3,7 @@
    max-width: max-content;
    color: var(--beta-text-c);
    font-size: calc(min(1.625rem + 14 * ((100vw - 840px) / (1320 - 840)), 2.5rem));
-   font-weight: 700;
+   font-weight: 500;
    line-height: 1.2;
    padding-bottom: calc(min(0.25rem + 5 * ((100vw - 320px) / (1320 - 320)), 0.5625rem));
 }

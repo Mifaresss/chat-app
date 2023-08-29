@@ -19,7 +19,7 @@ export function CommunicationInRooms() {
 				</div>
 				<div className={s.content}>
 					<InfoList
-						gap='1rem'
+						className={s.infoList}
 						listStyleImg={communicationSectionData.listItems.icon}
 						listItems={communicationSectionData.listItems.data}
 					/>

@@ -23,6 +23,9 @@
    flex-direction: column;
    justify-content: space-between;
 }
+.infoList {
+   gap: 1rem;
+}
 
 @media (max-width: 1000px) {
    .communicationInRooms {

@@ -7,7 +7,6 @@ import { Text } from '@/UI/Text/Text'
 interface PropsType {}
 
 export function FirstSection({}: PropsType) {
-
 	return (
 		<section className={s.section}>
 			<Image
@@ -15,13 +14,12 @@ export function FirstSection({}: PropsType) {
 				src={contentImg}
 				placeholder='blur'
 				alt='Люди спілкуються і сидять за ноутбуками'
-				sizes='100vw'
 			/>
 			<div className={s.contentWrapper}>
 				<Title className={s.title} title='Спілкуйся в чат-кімнатах' />
 				<Text>
-					Чат-кімнати є повністю анонімними та не збирають ваших персональних даних. Спілкуйтеся на різні
-					хвилюючі теми та генеруйте нові ідеї!
+					Чат-кімнати є повністю анонімними та не збирають ваших персональних даних.
+					Спілкуйтеся на різні хвилюючі теми та генеруйте нові ідеї!
 				</Text>
 			</div>
 		</section>

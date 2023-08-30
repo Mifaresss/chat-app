@@ -8,7 +8,7 @@ interface PropsType {
 
 export function HeroSection({ className, infoBlock }: PropsType) {
 	return (
-		<section className={[s.heroSection, className].join(' ')}>
+		<section className={[s.heroSection, className].join(' ')} key='few'>
 			{infoBlock && <InfoBlock />}
 		</section>
 	)

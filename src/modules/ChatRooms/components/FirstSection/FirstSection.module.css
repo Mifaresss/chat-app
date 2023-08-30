@@ -22,11 +22,12 @@
    .contentImg {
       max-width: none;
       width: 100vw;
+      margin: 0 -1.25rem;
       object-fit: cover;
-      height: calc(min(15.3125rem + 115 * ((100vw - 320px) / (835 - 320)), 22.5rem));
+      height: calc(min(15.3125rem + 115 * ((100vw - 320px) / (970 - 320)), 22.5rem));
    }
    .contentWrapper {
-      padding: 0 1.25rem;
+      padding: 0 calc(min(0rem + 20 * ((100vw - 320px) / (970 - 320)), 1.25rem));
       align-items: center;
    }
 }

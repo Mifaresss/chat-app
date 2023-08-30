@@ -7,14 +7,16 @@ interface InfoListPropsType {
 
 export function InfoList({ listStyleImg, listItems, className }: InfoListPropsType) {
 	const itemStyle = {
-		background: `url(${listStyleImg}) no-repeat left`,
+		background: `url(${listStyleImg}) no-repeat top left`,
 	}
 
 	return (
-		<ul className={[s.infoList, className]. join(' ')}>
-			{listItems.map((item, i) =>
-				<li key={i} style={itemStyle} className={s.infoListItem}>{item}</li>
-			)}
+		<ul className={[s.infoList, className].join(' ')}>
+			{listItems.map((item, i) => (
+				<li key={i} style={itemStyle} className={s.infoListItem}>
+					{item}
+				</li>
+			))}
 		</ul>
 	)
 }

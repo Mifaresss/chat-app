@@ -5,7 +5,6 @@ import { InfoList } from '@/components/InfoList/InfoList'
 import { communicationSectionData } from './data'
 
 export function CommunicationInRooms() {
-
 	return (
 		<section className={s.communicationInRooms}>
 			<Image

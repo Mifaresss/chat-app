@@ -26,6 +26,7 @@
 .infoList {
    gap: 1rem;
    font-size: calc(min(0.875rem + 2 * ((100vw - 420px) / (1320 - 420)), 1rem));
+   line-height: 1.62;
 }
 
 @media (max-width: 1000px) {
@@ -57,7 +58,6 @@
    }
    .contentImg {
       width: 100vw;
-      object-fit: cover;
       margin: 0 -1.25rem;
    }
 }

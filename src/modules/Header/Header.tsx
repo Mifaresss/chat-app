@@ -12,8 +12,13 @@ import { useRef, useEffect } from 'react'
 import { RootState } from '@/redux/store'
 import { toggleNavMenu } from '@/redux/toggleNavMenuSlice'
 import { LoginPopup } from '@/UI/LoginPopup/LoginPopup'
+import { usePathname } from 'next/navigation'
 
 export function Header() {
+	const currentPath = usePathname()
+	const isSocialMenuVisible = currentPath === '/'
+	const socialMenuStyle = isSocialMenuVisible ? {} : { display: 'none' }
+
 	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
 	const dispatch = useDispatch()
 
@@ -45,12 +50,14 @@ export function Header() {
 						<NavList
 							highlight
 							isOpen={isOpen}
-							updateOpen={() => { dispatch(toggleNavMenu(false)) }}
+							updateOpen={() => {
+								dispatch(toggleNavMenu(false))
+							}}
 						/>
 					</nav>
 				</div>
 				<div className={s.secondBlockWrapper}>
-					<SocialMenu className={s.socialBlock} />
+					<SocialMenu className={s.socialBlock} style={socialMenuStyle} />
 					<LoginButton label='Вхід' onClick={openPopupHandler} />
 				</div>
 			</div>
@@ -58,4 +65,3 @@ export function Header() {
 		</header>
 	)
 }
-

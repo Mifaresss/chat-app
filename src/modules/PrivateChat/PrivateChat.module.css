@@ -6,9 +6,28 @@
    display: flex;
    flex-direction: column;
    justify-content: center;
-   align-items: center;
    gap: calc(min(1.5rem + 72 * ((100vw - 834px) / (1320 - 834)), 6rem));
    margin-bottom: calc(min(5rem + 40 * ((100vw - 320px) / (1320 - 320)), 7.5rem));
+}
+
+.chatBody {
+   display: flex;
+   flex-direction: column;
+   gap: 1.5rem;
+}
+.sendBlockWrapper {
+   flex: 1 1 auto;
+   display: flex;
+   gap: calc(min(0.8125rem + 40 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
+}
+.sendButtonsWrapper {
+   display: flex;
+   gap: calc(min(0.8125rem + 40 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
+}
+.button {
+   width: 2.5rem;
+   height: 2.5rem;
+   cursor: pointer;
 }
 
 @media (max-width: 835px) {

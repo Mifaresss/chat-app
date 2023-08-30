@@ -3,7 +3,7 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: calc(min(3rem + 48 * ((100vw - 834px) / (1320 - 834)), 96px));
+   gap: calc(min(3rem + 48 * ((100vw - 834px) / (1320 - 834)), 6rem));
    margin-bottom: calc(min(5rem + 40 * ((100vw - 320px) / (1320 - 320)), 7.5rem));
 }
 

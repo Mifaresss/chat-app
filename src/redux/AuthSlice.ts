@@ -51,12 +51,6 @@ export const authSlice = createSlice({
 			state.access = action.payload.access
 			state.username = action.payload.username
 			state.isAuthenticated = Boolean(action.payload.access)
-
-			const tokenExpires = new Date(new Date().getTime() + 24 * 60 * 60 * 1000)
-
-			localStorage.setItem(ACCESS_KEY, action.payload.access)
-			localStorage.setItem(USERNAME_KEY, action.payload.username)
-			localStorage.setItem(EXPIRES_KEY, tokenExpires.toString())
 		},
 	},
 })

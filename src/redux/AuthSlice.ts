@@ -27,7 +27,7 @@ export const authSlice = createSlice({
 			state.username = ''
 		},
 		loginSuccess(state, action: PayloadAction<AuthPayload>) {
-			console.log(action.payload)
+			console.log(action.payload.username)
 			state.isAuthenticated = action.payload.isAuthenticated
 			state.username = action.payload.username
 		},

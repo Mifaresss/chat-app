@@ -1,4 +1,4 @@
-import { forwardRef, MouseEvent, FormEvent, useState } from 'react'
+import { forwardRef, MouseEvent, ChangeEvent, useState } from 'react'
 import { IAuth } from '../../models/models'
 import { login } from '../../redux/ActionCreators'
 import { useAppDispatch } from '../../hooks/redux'
@@ -22,6 +22,10 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()
 		}
+	}
+
+	const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+		setName(() => ({ username: event.target.value }))
 	}
 
 	const isFormValid = () => {
@@ -50,7 +54,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 					className={s.popupTitle}
 				/>
 				<form className={s.popupForm} id='loginPopupForm'>
-					<TextField placeholder='Ім’я' />
+					<TextField placeholder='Ім’я' onChange={changeHandler} />
 					<div className={s.emojiesWrapper}>
 						<label className={s.emoji}>
 							<input className={s.emojiInput} type='radio' name='emoji' value='emoji1' />

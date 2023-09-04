@@ -5,9 +5,7 @@ import { authSlice } from '../redux/AuthSlice'
 
 export const login = (data: IAuth) => {
 	return async (dispatch: any) => {
-		console.log('login')
 		try {
-			console.log('login')
 			const response = await API.post<IAuthResponse>('auth/signup', data)
 			dispatch(
 				authSlice.actions.loginSuccess({

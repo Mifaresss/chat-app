@@ -37,6 +37,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 		await dispatch(login(name))
 		if (isFormValid()) {
 			await dispatch(login(name))
+			setName('')
 			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 				ref.current.close()
 			}

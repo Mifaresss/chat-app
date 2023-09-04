@@ -5,10 +5,6 @@ interface AuthState {
 	username: string
 }
 
-const ACCESS_KEY = 'dc-access'
-const USERNAME_KEY = 'dc-username'
-const EXPIRES_KEY = 'dc-expires'
-
 const initialState: AuthState = {
 	isAuthenticated: false,
 	username: '',
@@ -24,14 +20,11 @@ export const authSlice = createSlice({
 	initialState,
 	reducers: {
 		login(state) {
-			console.log(state)
+			console.log('login')
 		},
 		logout(state) {
 			state.isAuthenticated = false
 			state.username = ''
-			localStorage.removeItem(ACCESS_KEY)
-			localStorage.removeItem(USERNAME_KEY)
-			localStorage.removeItem(EXPIRES_KEY)
 		},
 		loginSuccess(state, action: PayloadAction<AuthPayload>) {
 			console.log(action.payload)

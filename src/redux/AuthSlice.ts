@@ -9,23 +9,10 @@ const ACCESS_KEY = 'dc-access'
 const USERNAME_KEY = 'dc-username'
 const EXPIRES_KEY = 'dc-expires'
 
-function getInitialState(): AuthState {
-	const expiresIn = localStorage.getItem(EXPIRES_KEY) ?? null
-
-	if (expiresIn && new Date() > new Date(expiresIn)) {
-		return {
-			isAuthenticated: false,
-			username: '',
-		}
-	}
-
-	return {
-		isAuthenticated: Boolean(localStorage.getItem(ACCESS_KEY) ?? ''),
-		username: localStorage.getItem(USERNAME_KEY) ?? '',
-	}
+const initialState: AuthState = {
+	isAuthenticated: false,
+	username: '',
 }
-
-const initialState: AuthState = getInitialState()
 
 interface AuthPayload {
 	isAuthenticated: boolean

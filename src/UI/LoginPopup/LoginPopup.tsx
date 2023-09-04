@@ -14,7 +14,7 @@ interface PropsType {}
 export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 	const dispatch = useAppDispatch()
 	const [name, setName] = useState<IAuth>({
-		username: 'RomaLesyo',
+		username: 'Roma Lesyo',
 	})
 
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {

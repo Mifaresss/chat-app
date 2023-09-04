@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface AuthState {
 	isAuthenticated: boolean
-	access: string
 	username: string
 }
 
@@ -16,14 +15,12 @@ function getInitialState(): AuthState {
 	if (expiresIn && new Date() > new Date(expiresIn)) {
 		return {
 			isAuthenticated: false,
-			access: '',
 			username: '',
 		}
 	}
 
 	return {
 		isAuthenticated: Boolean(localStorage.getItem(ACCESS_KEY) ?? ''),
-		access: localStorage.getItem(ACCESS_KEY) ?? '',
 		username: localStorage.getItem(USERNAME_KEY) ?? '',
 	}
 }
@@ -31,7 +28,7 @@ function getInitialState(): AuthState {
 const initialState: AuthState = getInitialState()
 
 interface AuthPayload {
-	access: string
+	isAuthenticated: boolean
 	username: string
 }
 
@@ -39,21 +36,23 @@ export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
+		login(state) {
+			console.log(state)
+		},
 		logout(state) {
 			state.isAuthenticated = false
-			state.access = ''
 			state.username = ''
 			localStorage.removeItem(ACCESS_KEY)
 			localStorage.removeItem(USERNAME_KEY)
 			localStorage.removeItem(EXPIRES_KEY)
 		},
 		loginSuccess(state, action: PayloadAction<AuthPayload>) {
-			state.access = action.payload.access
+			console.log(action.payload)
+			state.isAuthenticated = action.payload.isAuthenticated
 			state.username = action.payload.username
-			state.isAuthenticated = Boolean(action.payload.access)
 		},
 	},
 })
 
-export const { logout, loginSuccess } = authSlice.actions
+export const { logout, loginSuccess, login } = authSlice.actions
 export default authSlice.reducer

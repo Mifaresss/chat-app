@@ -7,5 +7,6 @@ export interface IAuthResponse {
 	code: number
 	data: {
 		username: string
+		isAuthenticated: boolean
 	}
 }

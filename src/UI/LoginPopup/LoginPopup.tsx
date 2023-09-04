@@ -29,14 +29,17 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 	}
 
 	const isFormValid = () => {
+		console.log(name)
 		return name.username.trim().length
 	}
 
 	const submitHandler = async (event: any) => {
 		event.preventDefault()
-		await dispatch(login(name))
 		if (isFormValid()) {
 			await dispatch(login(name))
+			setName({
+				username: '',
+			})
 			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 				ref.current.close()
 			}

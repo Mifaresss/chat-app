@@ -1,6 +1,7 @@
 import { forwardRef, MouseEvent, FormEvent, useState } from 'react'
 import { IAuth } from '../../models/models'
 import { login } from '../../redux/ActionCreators'
+import { useAppDispatch } from '../../hooks/redux'
 import s from './LoginPopup.module.css'
 import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
 import { TextField } from '../TextField/TextField'
@@ -11,7 +12,7 @@ interface PropsType {}
 
 // eslint-disable-next-line react/display-name
 export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
-	// const dispatch = useAppDispatch()
+	const dispatch = useAppDispatch()
 	const [name, setName] = useState<IAuth>({
 		username: 'RomaLesyo',
 	})
@@ -29,9 +30,9 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 
 	const submitHandler = async (event: any) => {
 		event.preventDefault()
+		await dispatch(login(name))
 		if (isFormValid()) {
-			console.log(name)
-			// await dispatch(login(name))
+			await dispatch(login(name))
 			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 				ref.current.close()
 			}

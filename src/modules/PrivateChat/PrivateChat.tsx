@@ -6,12 +6,12 @@ import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 
 export function PrivateChat() {
-	const isAutorized = false
+	const isAutorized = true
 
 	return (
 		<div className={s.privateChatPage} style={isAutorized ? { backgroundColor: '#f4f6ff' } : {}}>
 			<div className={s.privateChatContainer}>
-				{/* <div style={{ width: '100%', height: '167px' }}></div> */}
+				<div style={{ width: '100%', height: '167px' }}></div>
 				{isAutorized ? (
 					<div className={s.chatBody}>
 						<MessagesBlock />

@@ -1,9 +1,11 @@
 export interface IAuth {
-  password: string
-  username: string
+	userName: string
 }
 
 export interface IAuthResponse {
-  access: string
-  refresh: string
+	status: string
+	code: number
+	data: {
+		userName: string
+	}
 }

@@ -1,49 +1,49 @@
 :root {
-   /* ========================== Colors ========================== */
-   --alpha-text-c: #02000a;
-   --beta-text-c: #001966;
-   --gamma-text-c: #fffefe;
+	/* ========================== Colors ========================== */
+	--alpha-text-c: #02000a;
+	--beta-text-c: #001966;
+	--gamma-text-c: #fffefe;
 
-   --effect-1-c: #ffd600;
-   --effect-2-c: #dee3f3;
-   --effect-3-c: #a3afd1;
-   --effect-4-c: #374b88;
+	--effect-1-c: #ffd600;
+	--effect-2-c: #dee3f3;
+	--effect-3-c: #a3afd1;
+	--effect-4-c: #374b88;
 
-   --danger-c: #b70000;
+	--danger-c: #b70000;
 
-   /* ========================== Transition ========================== */
-   --hover-transit: 0.2s;
+	/* ========================== Transition ========================== */
+	--hover-transit: 0.2s;
 }
 
 html {
-   overflow-y: scroll;
+	overflow-y: scroll;
 }
 body {
-   color: var(--alpha-text-c);
-   background-color: var(--gamma-text-c);
-   font-size: 1rem;
-   font-weight: 300;
-   line-height: 1.62;
+	color: var(--alpha-text-c);
+	background-color: var(--gamma-text-c);
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1.62;
 
-   display: flex;
-   flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-   overflow-y: scroll;
-   scroll-behavior: smooth;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
-   width: 0;
+	width: 0;
 }
 
 .main {
-   flex: 1 1 auto;
-   margin-top: 3.75rem;
-   display: flex;
-   flex-direction: column;
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
 }
 
 [class*='Container'] {
-   margin: 0 auto;
-   max-width: 1320px;
-   padding: 0 1.25rem;
+	margin: 0 auto;
+	max-width: 1320px;
+	padding: 0 1.25rem;
+	padding-top: 3.75rem;
 }

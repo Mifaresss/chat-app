@@ -9,7 +9,6 @@ interface PropsType {}
 
 // eslint-disable-next-line react/display-name
 export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
-
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
 		e.preventDefault()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {

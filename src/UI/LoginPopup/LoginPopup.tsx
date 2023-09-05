@@ -32,7 +32,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 							<SvgIcon
 								width={40}
 								height={40}
-								src='login-popup/sprite.svg'
+								src='icons/sprite.svg'
 								name='emoji-1'
 								className={s.emojiImg}
 							/>
@@ -42,7 +42,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 							<SvgIcon
 								width={40}
 								height={40}
-								src='login-popup/sprite.svg'
+								src='icons/sprite.svg'
 								name='emoji-2'
 								className={s.emojiImg}
 							/>
@@ -52,7 +52,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 							<SvgIcon
 								width={40}
 								height={40}
-								src='login-popup/sprite.svg'
+								src='icons/sprite.svg'
 								name='emoji-3'
 								className={s.emojiImg}
 							/>
@@ -62,7 +62,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 							<SvgIcon
 								width={40}
 								height={40}
-								src='login-popup/sprite.svg'
+								src='icons/sprite.svg'
 								name='emoji-4'
 								className={s.emojiImg}
 							/>
@@ -72,7 +72,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 							<SvgIcon
 								width={40}
 								height={40}
-								src='login-popup/sprite.svg'
+								src='icons/sprite.svg'
 								name='emoji-5'
 								className={s.emojiImg}
 							/>

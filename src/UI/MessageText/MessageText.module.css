@@ -1,0 +1,18 @@
+.message {
+	padding: 0.25rem 0.5rem;
+	background-color: var(--message-background-c);
+	border-radius: 0.625rem 0.625rem 0.625rem 0;
+	max-width: 100%;
+	width: max-content;
+	display: flex;
+	gap: 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.71;
+}
+
+.messageDate {
+	font-size: 0.75rem;
+	line-height: 1.66;
+	color: var(--effect-3-c);
+	align-self: flex-end;
+}

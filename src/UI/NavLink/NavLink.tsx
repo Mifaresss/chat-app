@@ -15,11 +15,7 @@ export function NavLink({ path, children, onClick, highlight = false }: NavLinkP
 	const isActive = highlight && currentPath === path
 
 	return (
-		<Link
-			href={path}
-			className={[s.navLink, isActive && s.active].join(' ')}
-			onClick={onClick}
-		>
+		<Link href={path} className={[s.navLink, isActive && s.active].join(' ')} onClick={onClick}>
 			{children}
 		</Link>
 	)

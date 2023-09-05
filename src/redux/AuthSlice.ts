@@ -19,15 +19,12 @@ export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		login(state) {
-			console.log('login')
-		},
+		login(state) {},
 		logout(state) {
 			state.isAuthenticated = false
 			state.username = ''
 		},
 		loginSuccess(state, action: PayloadAction<AuthPayload>) {
-			console.log(action.payload.username)
 			state.isAuthenticated = action.payload.isAuthenticated
 			state.username = action.payload.username
 		},

@@ -29,7 +29,6 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 	}
 
 	const isFormValid = () => {
-		console.log(name)
 		return name.username.trim().length
 	}
 

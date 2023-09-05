@@ -7,7 +7,6 @@ export const login = (data: IAuth) => {
 	return async (dispatch: any) => {
 		try {
 			const response = await API.post<IAuthResponse>('auth/signup', data)
-			console.log(response.data.data)
 			dispatch(
 				authSlice.actions.loginSuccess({
 					username: response.data.data.username,

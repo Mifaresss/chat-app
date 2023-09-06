@@ -1,7 +1,15 @@
 import React from 'react'
 import styles from './PopUp.module.css'
 
-function PopUpAutorisation({ title, text, setisAuthPopUp }: { title: string; text?: string; setisAuthPopUp: any }) {
+function PopUpAutorisation({
+	title,
+	text,
+	setisAuthPopUp,
+}: {
+	title: string
+	text?: string
+	setisAuthPopUp: any
+}) {
 	setTimeout(() => {
 		localStorage.setItem('isAuth', 'true')
 		setisAuthPopUp(false)

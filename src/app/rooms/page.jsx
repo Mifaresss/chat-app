@@ -78,7 +78,9 @@ export default function RoomsPage() {
 					{messages.map(mess => (
 						<div key={mess.id}>
 							{mess.event === 'connection' ? (
-								<div className='connection_message'>Пользователь {mess.username} подключился</div>
+								<div className='connection_message'>
+									Пользователь {mess.username} подключился
+								</div>
 							) : (
 								<div className='message'>
 									{mess.username}. {mess.message}

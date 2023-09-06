@@ -16,7 +16,6 @@ const roboto = Roboto({
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
 	return (
 		<html lang='uk'>
 			<head>
@@ -25,13 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body className={roboto.className}>
 				<Provider store={store}>
 					<Header />
-					<main className='main'>
-						{children}
-					</main>
+					<main className='main'>{children}</main>
 					<Footer />
 				</Provider>
 			</body>
 		</html>
 	)
-
 }

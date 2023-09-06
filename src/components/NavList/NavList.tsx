@@ -9,15 +9,14 @@ const navItems = [
 
 interface NavListPropsType {
 	isOpen?: boolean
-	updateOpen?: () => void;
+	updateOpen?: () => void
 	highlight?: boolean
 }
 
 export function NavList({ isOpen, updateOpen, highlight }: NavListPropsType) {
-
 	return (
 		<ul className={s.navList}>
-			{navItems.map(link =>
+			{navItems.map(link => (
 				<NavLink
 					key={link.href}
 					path={link.href}
@@ -28,7 +27,7 @@ export function NavList({ isOpen, updateOpen, highlight }: NavListPropsType) {
 				>
 					{link.label}
 				</NavLink>
-			)}
+			))}
 		</ul>
 	)
 }

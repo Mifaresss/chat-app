@@ -6,8 +6,5 @@ interface PropsType {
 }
 
 export function Text({ children, className }: PropsType) {
-
-	return (
-		<p className={[s.text, className].join(' ')}>{children}</p>
-	)
+	return <p className={[s.text, className].join(' ')}>{children}</p>
 }

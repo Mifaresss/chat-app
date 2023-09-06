@@ -10,12 +10,12 @@ interface PropsType {
 	emoji: Emoji
 }
 
-export function MessageList({ messages }: PropsType) {
+export function MessageList({ userName, messages, emoji }: PropsType) {
 	return (
 		<div className={s.message}>
 			<div className={s.firstLine}>
-				<UserEmoji emoji='emoji-1' />
-				<UserName name='Alex' />
+				<UserEmoji emoji={emoji} />
+				<UserName name={userName} />
 			</div>
 			<div className={s.secondLine}>
 				{messages.map(({ text, date }) => (

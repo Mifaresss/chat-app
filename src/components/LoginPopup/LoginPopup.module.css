@@ -56,7 +56,7 @@
 .emojiError {
 	position: absolute;
 	left: calc(50% - 5.75rem);
-	bottom: -40%;
+	top: -40%;
 	font-size: 0.75rem;
 	color: var(--danger-c);
 	opacity: 0.9;

@@ -52,7 +52,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 					/>
 					<div className={s.emojiesWrapper}>
 						{errors.userMood && (
-							<span className={s.emojiError}>Оберіть ваш настрій, будь ласка:)</span>
+							<span className={s.emojiError}>{errors.userMood.message}</span>
 						)}
 						{loginPopupUsersMood.map(mood => (
 							<UserMood

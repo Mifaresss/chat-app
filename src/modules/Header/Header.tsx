@@ -11,8 +11,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRef, useEffect } from 'react'
 import { RootState } from '@/redux/store'
 import { toggleNavMenu } from '@/redux/toggleNavMenuSlice'
-import { LoginPopup } from '@/UI/LoginPopup/LoginPopup'
 import { usePathname } from 'next/navigation'
+import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
 
 export function Header() {
 	const currentPath = usePathname()

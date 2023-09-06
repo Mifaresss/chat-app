@@ -1,10 +1,10 @@
 'use client'
 import s from './NotAuthorized.module.css'
 import { useRef } from 'react'
-import { LoginPopup } from '@/UI/LoginPopup/LoginPopup'
 import { SubTitle } from '@/UI/SubTitle/SubTitle'
 import { Button } from '@/UI/Button/Button'
 import Link from 'next/link'
+import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
 
 export function NotAuthorized() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)

@@ -1,0 +1,20 @@
+.emoji {
+	cursor: pointer;
+	transition: transform var(--hover-transit);
+}
+.emoji:hover .emojiImg {
+	--fill-c: var(--effect-2-c);
+	--stroke-width: 1.75;
+}
+.emoji:has(.emojiInput:checked) .emojiImg {
+	--fill-c: #ededed;
+	--stroke-width: 1.75;
+}
+.emojiInput {
+	position: absolute;
+	appearance: none;
+}
+.emojiImg {
+	width: 2.5rem;
+	height: 2.5rem;
+}

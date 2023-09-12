@@ -1,10 +1,8 @@
+import { Colors } from '@/types/colors'
 import s from './SubTitle.module.css'
 
 interface SubTitlePropsType {
-	color?:
-	'--alpha-text-c' | '--beta-text-c' | '--gamma-text-c' |
-	'--effect-1-c' | '--effect-2-c' | '--effect-3-c' | '--effect-4-c' |
-	'--danger-c'
+	color?: Colors
 	align?: 'left' | 'center' | 'right'
 	title: string
 }

@@ -1,0 +1,10 @@
+export type Colors =
+	| '--alpha-text-c'
+	| '--beta-text-c'
+	| '--gamma-text-c'
+	| '--effect-1-c'
+	| '--effect-2-c'
+	| '--effect-3-c'
+	| '--effect-4-c'
+	| '--message-background-c'
+	| '--danger-c'

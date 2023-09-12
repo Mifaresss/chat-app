@@ -6,7 +6,6 @@ import { PrivacyPolicy } from './components/PrivacyPolicy/PrivacyPolicy'
 import { WhatIsOurChat } from './components/WhatIsOurChat/WhatIsOurChat'
 
 export function MainPage() {
-
 	return (
 		<div className={s.mainContainer}>
 			<HeroSection infoBlock />

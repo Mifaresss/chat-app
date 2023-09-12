@@ -11,9 +11,7 @@ export function Title({ title, justify, className }: TitlePropsType) {
 
 	return (
 		<div style={styles}>
-			<h2 className={[s.title, className].join(' ')}>
-				{title}
-			</h2>
+			<h2 className={[s.title, className].join(' ')}>{title}</h2>
 		</div>
 	)
 }

@@ -10,7 +10,6 @@ import Link from 'next/link'
 interface PropsType {}
 
 export function SecondSection({}: PropsType) {
-
 	return (
 		<section className={s.section}>
 			<Title title={title} className={s.title} justify='center' />

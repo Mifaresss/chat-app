@@ -2,11 +2,11 @@ import facebookIcon from '@images/social/facebook.svg'
 import InstagramIcon from '@images/social/Instagram.svg'
 
 interface SocialMediaCard {
-   img: {
-      src: string;
-      alt: string;
-   };
-   href: string;
+	img: {
+		src: string
+		alt: string
+	}
+	href: string
 }
 
 export const socialMediaCards: SocialMediaCard[] = [

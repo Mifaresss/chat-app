@@ -1,5 +1,6 @@
 export interface IAuth {
-	username: string
+	userName: string
+	userMood: string
 }
 
 export interface IAuthResponse {

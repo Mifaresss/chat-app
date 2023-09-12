@@ -15,10 +15,6 @@ import { usePathname } from 'next/navigation'
 import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
 
 export function Header() {
-	const currentPath = usePathname()
-	const isSocialMenuVisible = currentPath === '/'
-	const socialMenuStyle = isSocialMenuVisible ? {} : { display: 'none' }
-
 	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
 	const dispatch = useDispatch()
 
@@ -57,7 +53,7 @@ export function Header() {
 					</nav>
 				</div>
 				<div className={s.secondBlockWrapper}>
-					<SocialMenu className={s.socialBlock} style={socialMenuStyle} />
+					<SocialMenu className={s.socialBlock} />
 					<LoginButton label='Вхід' onClick={openPopupHandler} />
 				</div>
 			</div>

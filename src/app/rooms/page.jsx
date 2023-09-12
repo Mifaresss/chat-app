@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import './style.css'
 
 export default function RoomsPage() {
 	const [messages, setMessages] = useState([])
@@ -46,7 +45,7 @@ export default function RoomsPage() {
 
 	if (!connected) {
 		return (
-			<div className='center'>
+			<div style={{ margin: '500px' }}>
 				<div className='form'>
 					<input
 						value={username}
@@ -61,27 +60,25 @@ export default function RoomsPage() {
 	}
 
 	return (
-		<div className='center'>
-			<div>
-				<div className='form'>
-					<input value={value} onChange={e => setValue(e.target.value)} type='text' />
-					<button onClick={sendMessage}>Отправить</button>
-				</div>
-				<div className='messages'>
-					{messages.map(mess => (
-						<div key={mess.id}>
-							{mess.event === 'connection' ? (
-								<div className='connection_message'>
-									Пользователь {mess.username} подключился
-								</div>
-							) : (
-								<div className='message'>
-									{mess.username}. {mess.message}
-								</div>
-							)}
-						</div>
-					))}
-				</div>
+		<div style={{ margin: '500px' }}>
+			<div className='form'>
+				<input value={value} onChange={e => setValue(e.target.value)} type='text' />
+				<button onClick={sendMessage}>Отправить</button>
+			</div>
+			<div className='messages'>
+				{messages.map(mess => (
+					<div key={mess.id}>
+						{mess.event === 'connection' ? (
+							<div className='connection_message'>
+								Пользователь {mess.username} подключился
+							</div>
+						) : (
+							<div className='message'>
+								{mess.username}. {mess.message}
+							</div>
+						)}
+					</div>
+				))}
 			</div>
 		</div>
 	)

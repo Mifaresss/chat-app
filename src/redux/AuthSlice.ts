@@ -1,13 +1,15 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { IAuth, IAuthResponse } from '../models/models'
+import { socketApi } from '@/api/url'
 
 interface AuthState {
 	isAuthenticated: boolean
-	username: string
+	userName: string
 }
 
 const initialState: AuthState = {
 	isAuthenticated: false,
-	username: '',
+	userName: '',
 }
 
 interface AuthPayload {
@@ -15,21 +17,40 @@ interface AuthPayload {
 	username: string
 }
 
+export const loginAsync = createAsyncThunk(
+	'auth/login',
+	async (data: IAuth, { dispatch, rejectWithValue }) => {
+		try {
+			const response = await socketApi.post<IAuthResponse>('auth/signup', data)
+			const res = response.data.data
+			return res
+		} catch (error) {
+			return rejectWithValue(error)
+		}
+	},
+)
+
 export const authSlice = createSlice({
 	name: 'auth',
 	initialState,
 	reducers: {
-		login(state) {},
 		logout(state) {
 			state.isAuthenticated = false
-			state.username = ''
+			state.userName = ''
 		},
-		loginSuccess(state, action: PayloadAction<AuthPayload>) {
-			state.isAuthenticated = action.payload.isAuthenticated
-			state.username = action.payload.username
-		},
+	},
+	extraReducers: builder => {
+		builder
+			.addCase(loginAsync.fulfilled, (state, action) => {
+				state.isAuthenticated = action.payload.isAuthenticated
+				state.userName = action.payload.username
+			})
+			.addCase(loginAsync.rejected, state => {
+				console.log('ERROR::', state)
+			})
 	},
 })
 
-export const { logout, loginSuccess, login } = authSlice.actions
+export const { logout } = authSlice.actions
+
 export default authSlice.reducer

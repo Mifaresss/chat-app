@@ -5,8 +5,8 @@ const baseUrl = 'https://our-chat-outh-back-production.up.railway.app/'
 // ? 'https://our-chat-outh-back-production.up.railway.app/'
 // : 'http://localhost:8000/';
 
-const API = axios.create({
+const socketApi = axios.create({
 	baseURL: `${baseUrl}`,
 })
 
-export { API }
+export { socketApi }

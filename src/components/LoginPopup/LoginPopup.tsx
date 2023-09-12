@@ -1,13 +1,14 @@
 import { forwardRef, MouseEvent } from 'react'
 import s from './LoginPopup.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { SubSubTitle } from '@/UI/SubSubTitle/SubSubTitle'
 import { TextField } from '@/UI/TextField/TextField'
-import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { Button } from '@/UI/Button/Button'
 import { authValidationSchema, loginPopupUsersMood } from './data'
 import { UserMood } from './components/UserMood/UserMood'
+import { useAppDispatch } from '@/hooks/redux'
+import { loginAsync } from '@/redux/authSlice'
 
 interface FormValues {
 	userName: string
@@ -23,16 +24,22 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 		reset,
 	} = useForm<FormValues>({ resolver: yupResolver(authValidationSchema) })
 
+	const dispatch = useAppDispatch()
+
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
 		e.preventDefault()
+		reset()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()
-			reset()
 		}
 	}
+
 	function onSubmit(data: FormValues) {
-		console.log(data)
+		dispatch(loginAsync(data))
 		reset()
+		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
+			ref.current.close()
+		}
 	}
 
 	return (

@@ -1,4 +1,7 @@
-import { forwardRef, MouseEvent } from 'react'
+import { forwardRef, MouseEvent, ChangeEvent, useState } from 'react'
+import { IAuth } from '../../models/models'
+import { login } from '../../redux/ActionCreators'
+import { useAppDispatch } from '../../hooks/redux'
 import s from './LoginPopup.module.css'
 import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
 import { TextField } from '../TextField/TextField'
@@ -9,11 +12,38 @@ interface PropsType {}
 
 // eslint-disable-next-line react/display-name
 export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
+	const dispatch = useAppDispatch()
+	const [name, setName] = useState<IAuth>({
+		username: '',
+	})
 
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
 		e.preventDefault()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()
+		}
+	}
+
+	const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+		setName(() => ({ username: event.target.value }))
+	}
+
+	const isFormValid = () => {
+		return name.username.trim().length
+	}
+
+	const submitHandler = async (event: any) => {
+		event.preventDefault()
+		if (isFormValid()) {
+			await dispatch(login(name))
+			setName({
+				username: '',
+			})
+			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
+				ref.current.close()
+			}
+		} else {
+			alert('Form is invalid!')
 		}
 	}
 
@@ -26,7 +56,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 					className={s.popupTitle}
 				/>
 				<form className={s.popupForm} id='loginPopupForm'>
-					<TextField placeholder='Ім’я' />
+					<TextField placeholder='Ім’я' onChange={changeHandler} />
 					<div className={s.emojiesWrapper}>
 						<label className={s.emoji}>
 							<input className={s.emojiInput} type='radio' name='emoji' value='emoji1' />
@@ -82,7 +112,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 
 					<div className={s.wrapperButtons}>
 						<Button title='Закрити' onClick={closeModalHandler} className={s.cancelButton} />
-						<Button title='Авторизуватися' form='loginPopupForm' />
+						<Button title='Авторизуватися' onClick={submitHandler} form='loginPopupForm' />
 					</div>
 				</form>
 				<button onClick={closeModalHandler} className={s.cancelButton2}></button>

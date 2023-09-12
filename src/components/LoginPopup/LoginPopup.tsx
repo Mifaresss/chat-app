@@ -7,8 +7,8 @@ import { TextField } from '@/UI/TextField/TextField'
 import { Button } from '@/UI/Button/Button'
 import { authValidationSchema, loginPopupUsersMood } from './data'
 import { UserMood } from './components/UserMood/UserMood'
-import { useAppDispatch } from '@/hooks/redux'
 import { loginAsync } from '@/redux/authSlice'
+import { useAppDispatch } from '@/hooks/redux'
 
 interface FormValues {
 	userName: string

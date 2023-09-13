@@ -6,7 +6,6 @@ import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'
 
 export function HowItWorks() {
-
 	return (
 		<section className={s.howItWorks}>
 			<div className={s.titleWrapper}>

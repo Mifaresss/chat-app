@@ -1,11 +1,9 @@
+import { Colors } from '@/types/colors'
 import s from './SubSubTItle.module.css'
 import { HTMLAttributes } from 'react'
 
 interface SubSubTitlePropsType extends HTMLAttributes<HTMLHeadingElement> {
-	color?:
-	'--alpha-text-c' | '--beta-text-c' | '--gamma-text-c' |
-	'--effect-1-c' | '--effect-2-c' | '--effect-3-c' | '--effect-4-c' |
-	'--danger-c'
+	color?: Colors
 	align?: 'left' | 'center' | 'right'
 	label: string
 }

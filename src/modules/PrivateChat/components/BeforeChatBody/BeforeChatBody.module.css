@@ -1,0 +1,56 @@
+.beforeChatBody {
+	display: flex;
+	flex-direction: column;
+	gap: calc(min(0.9375rem + (9 * (1320px - 100vw) / (1320 - 835)), 1.5rem));
+}
+.beforeChatBodyTitle {
+	position: relative;
+	padding-bottom: calc(min(0.25rem + 3 * ((100vw - 320px) / (1320 - 320)), 7px));
+}
+.beforeChatBodyTitle::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	/* width: calc(min(3.125rem + (10 * (1320px - 100vw) / (1320 - 835)), 3.75rem));
+	height: calc(min(0.1875rem + (2 * (1320px - 100vw) / (1320 - 835)), 0.3125rem)); */
+	width: 3.125rem;
+	height: 0.1875rem;
+	background-color: var(--effect-1-c);
+}
+.beforeChatBodyContent {
+	display: flex;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+.beforeChatBodyText {
+	font-weight: 500;
+}
+
+.beforeChatBodyButtons {
+	display: flex;
+	gap: 1.5rem;
+}
+.beforeChatBodyButton {
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+@media (max-width: 835px) {
+	.beforeChatBodyTitle::after {
+		width: 3.75rem;
+		height: 0.3125rem;
+	}
+	.beforeChatBodyText {
+		font-weight: 300;
+	}
+}
+
+@media (max-width: 430px) {
+	.beforeChatBodyTitle::after {
+		width: 3.125rem;
+		height: 0.125rem;
+	}
+}

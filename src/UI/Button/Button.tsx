@@ -6,7 +6,6 @@ interface ButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ title, className, ...props }: ButtonPropsType) {
-
 	return (
 		<button {...props} className={[s.button, className].join(' ')}>
 			{title}

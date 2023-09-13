@@ -1,14 +1,14 @@
 'use client'
 import s from './WhatIsOurChat.module.css'
+import Image from 'next/image'
 import contentImg from '@images/what-is-our-chat/content-img.jpg'
 import { Title } from '@/UI/Title/Title'
-import Image from 'next/image'
 import { InfoList } from '@/components/InfoList/InfoList'
 import { Button } from '@/UI/Button/Button'
 import listStyleImg from '@images/what-is-our-chat/item-icon.svg'
 import { altForContentImg, buttonContent, listItems, title } from './data'
-import { LoginPopup } from '@/UI/LoginPopup/LoginPopup'
 import { useRef } from 'react'
+import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
 
 export function WhatIsOurChat() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)

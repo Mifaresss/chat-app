@@ -1,17 +1,33 @@
+.inputWrapper {
+	position: relative;
+}
+
 .input {
-   font-size: 0.75rem;
-   line-height: 1.66;
-   border: 0.0625rem solid var(--effect-3-c);
-   color: var(--beta-text-c);
-   padding: 0.5rem 1rem;
-   background-color: transparent;
-   width: 100%;
+	font-size: 0.75rem;
+	line-height: 1.66;
+	border: 0.0625rem solid var(--effect-3-c);
+	color: var(--beta-text-c);
+	padding: 0.5rem 1rem;
+	background-color: transparent;
+	width: 100%;
 }
 .input::placeholder {
-   color: var(--effect-3-c);
-   font-size: 0.75rem;
-   font-weight: 300;
+	color: var(--effect-3-c);
+	font-size: 0.75rem;
+	font-weight: 300;
 }
 .input:focus {
-   border-color: var(--beta-text-c);
+	border-color: var(--beta-text-c);
+}
+.input.inputError {
+	border-color: var(--danger-c);
+}
+
+.error {
+	position: absolute;
+	top: -60%;
+	left: 0;
+	font-size: 0.75rem;
+	color: var(--danger-c);
+	opacity: 0.9;
 }

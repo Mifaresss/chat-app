@@ -1,80 +1,82 @@
 .header {
-   width: 100vw;
-   height: 3.75rem;
-   display: flex;
-   align-items: center;
-   background-color: var(--effect-4-c);
-   position: fixed;
-   z-index: 10;
+	width: 100vw;
+	height: 3.75rem;
+	min-height: 3.75rem;
+	display: flex;
+	align-items: center;
+	background-color: var(--effect-4-c);
+	position: fixed;
+	z-index: 10;
 }
 .headerContainer {
-   flex: 1 1 auto;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 0 !important;
 }
 .navWrapper {
-   display: flex;
-   align-items: center;
-   gap: calc(min(2.1875rem + 30 * ((100vw - 840px) / (1320 - 840)), 4.0625rem));
+	display: flex;
+	align-items: center;
+	gap: calc(min(2.1875rem + 30 * ((100vw - 840px) / (1320 - 840)), 4.0625rem));
 }
 .secondBlockWrapper {
-   display: flex;
-   align-items: center;
-   gap: calc(min(1.5rem + 32 * ((100vw - 840px) / (1320 - 840)), 3.5rem));
+	display: flex;
+	align-items: center;
+	gap: calc(min(1.5rem + 32 * ((100vw - 840px) / (1320 - 840)), 3.5rem));
 }
 .logo {
-   width: 8.125rem;
+	width: 8.125rem;
 }
 
 @media (max-width: 835px) {
-   .socialBlock {
-      position: absolute;
-      margin-top: 8rem;
-      right: 1.25rem;
-      padding: 0.3125rem;
-      background-color: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(0.1875rem);
-      border-radius: 0.625rem;
-   }
+	.socialBlock {
+		position: absolute;
+		margin-top: 8rem;
+		right: 1.25rem;
+		padding: 0.3125rem;
+		background-color: rgba(0, 0, 0, 0.2);
+		backdrop-filter: blur(0.1875rem);
+		border-radius: 0.625rem;
+	}
 }
 @media (max-width: 650px) {
-   .navWrapper {
-      gap: 0;
-   }
-   .nav {
-      position: absolute;
-      width: 100vw;
-      height: 100lvh;
-      top: 0;
-      left: -100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: left 0.2s;
-      background-color: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(0.25rem);
-      z-index: 9;
-   }
-   .nav.visible {
-      left: 0;
-   }
-   .nav ul {
-      flex-direction: column;
-      gap: 1.5rem;
-   }
-   .nav a {
-      font-size: 1.5rem;
-      font-weight: 600;
-   }
-   .socialBlock {
-      position: static;
-      margin-top: 0;
-      padding: 0;
-      background-color: transparent;
-      backdrop-filter: none;
-      border-radius: none;
-   }
+	.navWrapper {
+		gap: 0;
+	}
+	.nav {
+		position: absolute;
+		width: 100vw;
+		height: 100lvh;
+		top: 0;
+		left: -100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: left 0.2s;
+		background-color: rgba(0, 0, 0, 0.7);
+		backdrop-filter: blur(0.25rem);
+		z-index: 9;
+	}
+	.nav.visible {
+		left: 0;
+	}
+	.nav ul {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.nav a {
+		font-size: 1.5rem;
+		font-weight: 600;
+	}
+	.socialBlock {
+		position: static;
+		margin-top: 0;
+		padding: 0;
+		background-color: transparent;
+		backdrop-filter: none;
+		border-radius: none;
+	}
 }
 
 /* .loginBtn {

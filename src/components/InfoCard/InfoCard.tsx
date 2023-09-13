@@ -8,9 +8,7 @@ interface InfoCardPropsType {
 }
 
 export function InfoCard({ bgColor, children, className }: InfoCardPropsType) {
-	const infoCardStyles = {
-		backgroundColor: bgColor
-	}
+	const infoCardStyles = { backgroundColor: bgColor }
 
 	return (
 		<article className={[s.infoCard, className].join(' ')} style={infoCardStyles}>

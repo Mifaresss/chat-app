@@ -25,8 +25,6 @@ ws.onopen = function () {
 }
 
 export function SecondSection({}: PropsType) {
-<<<<<<< Updated upstream
-=======
 	const text = 'helo world'
 	const message = {
 		id: 'klsdnvlknsdvp;sdv',
@@ -50,7 +48,6 @@ export function SecondSection({}: PropsType) {
 		}
 		ws.send(JSON.stringify(message))
 	}
->>>>>>> Stashed changes
 
 	return (
 		<section className={s.section}>

@@ -1,6 +1,6 @@
 .message {
 	padding: 0.25rem 0.5rem;
-	background-color: var(--message-background-c);
+	background-color: var(--color-8);
 	border-radius: 0.625rem 0.625rem 0.625rem 0;
 	max-width: 100%;
 	width: max-content;
@@ -13,6 +13,6 @@
 .messageDate {
 	font-size: 0.75rem;
 	line-height: 1.66;
-	color: var(--effect-3-c);
+	color: var(--color-6);
 	align-self: flex-end;
 }

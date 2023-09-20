@@ -1,13 +1,16 @@
 import s from './BeforeChatBody.module.css'
 import { SubSubTitle } from '@/UI/SubSubTitle/SubSubTitle'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
+import { useAppSelector } from '@/hooks/redux'
 
 interface PropsType {}
 
 export function BeforeChatBody({}: PropsType) {
+	const userName = useAppSelector(state => state.auth.userName)
+
 	return (
 		<div className={s.beforeChatBody}>
-			<SubSubTitle className={s.beforeChatBodyTitle} label='Привіт, Олена!' />
+			<SubSubTitle className={s.beforeChatBodyTitle} label={`Привіт, ${userName}!`} />
 			<div className={s.beforeChatBodyContent}>
 				<p className={s.beforeChatBodyText}>
 					Для початку нового чату додай самостійно користувачів або поділись посиланням на чат.

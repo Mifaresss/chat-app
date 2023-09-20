@@ -14,7 +14,7 @@ export function HowItWorks() {
 			<div className={s.contentWrapper}>
 				{cardsContent.map(({ id, img, subTitle, text }) => {
 					return (
-						<InfoCard key={id} bgColor='var(--effect-2-c)'>
+						<InfoCard key={id} bgColor='var(--color-5)'>
 							<Image src={img.src} alt={img.alt} />
 							<SubTitle title={subTitle} />
 							<p>{text}</p>

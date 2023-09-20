@@ -8,7 +8,7 @@
 	padding-bottom: calc(min(0.25rem + 3 * ((100vw - 320px) / (1320 - 320)), 7px));
 }
 .beforeChatBodyTitle::after {
-	content: '';
+	content: "";
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -16,7 +16,7 @@
 	height: calc(min(0.1875rem + (2 * (1320px - 100vw) / (1320 - 835)), 0.3125rem)); */
 	width: 3.125rem;
 	height: 0.1875rem;
-	background-color: var(--effect-1-c);
+	background-color: var(--color-4);
 }
 .beforeChatBodyContent {
 	display: flex;

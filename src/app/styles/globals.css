@@ -1,18 +1,19 @@
 :root {
 	/* ========================== Colors ========================== */
-	--alpha-text-c: #02000a;
-	--beta-text-c: #001966;
-	--gamma-text-c: #fffefe;
+	--color-1: #02000a;
+	--color-2: #001966;
+	--color-3: #fffefe;
 
-	--effect-1-c: #ffd600;
-	--effect-2-c: #dee3f3;
-	--effect-3-c: #a3afd1;
-	--effect-4-c: #374b88;
-	--message-background-c: #f4f6ff;
+	--color-4: #ffd600;
+	--color-5: #dee3f3;
+	--color-6: #a3afd1;
+	--color-7: #374b88;
+	--color-8: #f4f6ff;
 
-	--danger-c: #b70000;
+	--color-9: #b70000;
 
 	/* ========================== Transition ========================== */
+	--transit: 0.3s;
 	--hover-transit: 0.2s;
 }
 
@@ -20,8 +21,8 @@ html {
 	overflow-y: scroll;
 }
 body {
-	color: var(--alpha-text-c);
-	background-color: var(--gamma-text-c);
+	color: var(--color-1);
+	background-color: var(--color-3);
 	font-size: 1rem;
 	font-weight: 300;
 	line-height: 1.62;

@@ -1,29 +1,29 @@
 .title {
-   position: relative;
-   max-width: max-content;
-   color: var(--beta-text-c);
-   font-size: calc(min(1.625rem + 14 * ((100vw - 840px) / (1320 - 840)), 2.5rem));
-   font-weight: 500;
-   line-height: 1.2;
-   padding-bottom: calc(min(0.25rem + 5 * ((100vw - 320px) / (1320 - 320)), 0.5625rem));
+	position: relative;
+	max-width: max-content;
+	color: var(--color-2);
+	font-size: calc(min(1.625rem + 14 * ((100vw - 840px) / (1320 - 840)), 2.5rem));
+	font-weight: 500;
+	line-height: 1.2;
+	padding-bottom: calc(min(0.25rem + 5 * ((100vw - 320px) / (1320 - 320)), 0.5625rem));
 }
 
 .title::after {
-   content: '';
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   width: calc(min(3.75rem + 20 * ((100vw - 52.5rem) / (1320 - 840)), 5rem));
-   height: 0.3125rem;
-   background-color: var(--effect-1-c);
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: calc(min(3.75rem + 20 * ((100vw - 52.5rem) / (1320 - 840)), 5rem));
+	height: 0.3125rem;
+	background-color: var(--color-4);
 }
 
 @media (max-width: 840px) {
-   .title {
-      font-size: calc(min(1.375rem + 4 * ((100vw - 430px) / (840 - 430)), 1.625rem));
-   }
-   .title::after {
-      width: calc(min(3.125rem + 10 * ((100vw - 430px) / (840 - 430)), 3.75rem));
-      height: calc(min(0.125rem + 3 * ((100vw - 430px) / (840 - 430)), 0.3125rem));
-   }
+	.title {
+		font-size: calc(min(1.375rem + 4 * ((100vw - 430px) / (840 - 430)), 1.625rem));
+	}
+	.title::after {
+		width: calc(min(3.125rem + 10 * ((100vw - 430px) / (840 - 430)), 3.75rem));
+		height: calc(min(0.125rem + 3 * ((100vw - 430px) / (840 - 430)), 0.3125rem));
+	}
 }

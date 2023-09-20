@@ -1,5 +1,5 @@
-import { FieldError } from 'react-hook-form'
 import s from './TextField.module.css'
+import { FieldError } from 'react-hook-form'
 import { InputHTMLAttributes } from 'react'
 
 interface PropsType extends InputHTMLAttributes<HTMLInputElement> {

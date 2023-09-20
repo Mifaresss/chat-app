@@ -9,11 +9,15 @@ import listStyleImg from '@images/what-is-our-chat/item-icon.svg'
 import { altForContentImg, buttonContent, listItems, title } from './data'
 import { useRef } from 'react'
 import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 
 export function WhatIsOurChat() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
+	const userId = useAppSelector(state => state.auth.userId)
 
 	function openPopupHandler() {
+		if (userId) return
+
 		if (dialogRef.current) {
 			dialogRef.current.showModal()
 		}
@@ -28,7 +32,11 @@ export function WhatIsOurChat() {
 				<div className={s.content}>
 					<InfoList listStyleImg={listStyleImg.src} listItems={listItems} />
 				</div>
-				<Button title={buttonContent} onClick={openPopupHandler} />
+				<Button
+					disabled={userId ? true : false}
+					title={buttonContent}
+					onClick={openPopupHandler}
+				/>
 			</div>
 			<Image className={s.contentImg} src={contentImg} alt={altForContentImg} />
 			<LoginPopup ref={dialogRef} />

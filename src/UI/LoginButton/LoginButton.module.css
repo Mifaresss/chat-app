@@ -1,27 +1,27 @@
 .loginButton {
-   color: var(--gamma-text-c);
-   background-color: transparent;
-   font-size: 1rem;
-   font-weight: 500;
-   line-height: 1.62;
-   width: calc(min(8.75rem + 36 * ((100vw - 835px) / (1320 - 835)), 11rem));
-   padding: 0.4375rem 1.5rem;
-   border: 0.125rem solid currentColor;
-   border-radius: 0.3125rem;
-   transition: all var(--hover-transit);
+	color: var(--color-3);
+	background-color: transparent;
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.62;
+	width: calc(min(8.75rem + 36 * ((100vw - 835px) / (1320 - 835)), 11rem));
+	padding: 0.4375rem 1.5rem;
+	border: 0.125rem solid currentColor;
+	border-radius: 0.3125rem;
+	transition: all var(--hover-transit);
 }
 
 .loginButton:hover {
-   color: var(--effect-1-c);
+	color: var(--color-4);
 }
 .loginButton:active {
-   color: var(--gamma-text-c);
-   background-color: var(--effect-1-c);
-   border-color: var(--effect-1-c);
+	color: var(--color-3);
+	background-color: var(--color-4);
+	border-color: var(--color-4);
 }
 
 @media (max-width: 650px) {
-   .loginButton {
-      display: none;
-   }
+	.loginButton {
+		display: none;
+	}
 }

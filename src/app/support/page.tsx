@@ -1,5 +1,5 @@
-import { Title } from '@/UI/Title/Title'
+import { Support } from '@/modules/SupportPage/SupportPage'
 
 export default function SupportPage() {
-	return <Title title='Support Page' />
+	return <Support />
 }

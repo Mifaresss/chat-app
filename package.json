@@ -25,6 +25,7 @@
       "react-hook-form": "^7.46.1",
       "react-redux": "^8.1.1",
       "react-router-dom": "^6.14.2",
+      "redux-persist": "^6.0.0",
       "sharp": "^0.32.4",
       "socket.io-client": "^4.7.1",
       "typescript": "5.1.6",

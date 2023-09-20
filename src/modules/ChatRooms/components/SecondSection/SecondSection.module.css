@@ -28,13 +28,13 @@
 	display: flex;
 }
 .cardLink:hover .card {
-	border-color: var(--effect-2-c);
-	background-color: var(--effect-2-c);
+	border-color: var(--color-5);
+	background-color: var(--color-5);
 	box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
 }
 .cardLink:active .card {
-	border-color: var(--beta-text-c);
-	background-color: var(--gamma-text-c);
+	border-color: var(--color-2);
+	background-color: var(--color-3);
 }
 .card {
 	height: 100%;

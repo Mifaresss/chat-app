@@ -3,7 +3,7 @@
 	transition: transform var(--hover-transit);
 }
 .emoji:hover .emojiImg {
-	--fill-c: var(--effect-2-c);
+	--fill-c: var(--color-5);
 	--stroke-width: 1.75;
 }
 .emoji:has(.emojiInput:checked) .emojiImg {

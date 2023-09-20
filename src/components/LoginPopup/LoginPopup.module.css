@@ -1,7 +1,7 @@
 .popup {
 	max-width: 35rem;
 	width: 100%;
-	background-color: var(--effect-2-c);
+	background-color: var(--color-5);
 	padding: calc(min(1.25rem + 20 * ((100vw - 320px) / (1320 - 320)), 2.5rem));
 	display: flex;
 	justify-content: center;
@@ -58,7 +58,7 @@
 	left: calc(50% - 5.75rem);
 	top: -40%;
 	font-size: 0.75rem;
-	color: var(--danger-c);
+	color: var(--color-9);
 	opacity: 0.9;
 }
 
@@ -82,12 +82,12 @@
 }
 .cancelButton2::before,
 .cancelButton2::after {
-	content: '';
+	content: "";
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%) rotate(45deg);
-	background-color: var(--beta-text-c);
+	background-color: var(--color-2);
 }
 
 .cancelButton2::before {

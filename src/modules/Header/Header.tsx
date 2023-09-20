@@ -10,10 +10,14 @@ import { BurgerMenuButton } from '@/UI/BurgerButton/BurgerButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRef, useEffect } from 'react'
 import { RootState } from '@/redux/store'
-import { toggleNavMenu } from '@/redux/toggleNavMenuSlice'
+import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
 import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
+import { useAppSelector } from '@/hooks/redux'
+import { AutorizedUser } from '@/UI/AutorizedUser/AutorizedUser'
 
 export function Header() {
+	const { userName, userMood } = useAppSelector(state => state.auth)
+
 	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
 	const dispatch = useDispatch()
 
@@ -53,7 +57,11 @@ export function Header() {
 				</div>
 				<div className={s.secondBlockWrapper}>
 					<SocialMenu className={s.socialBlock} />
-					<LoginButton label='Вхід' onClick={openPopupHandler} />
+					{userName ? (
+						<AutorizedUser name={userName} emoji={userMood} />
+					) : (
+						<LoginButton label='Вхід' onClick={openPopupHandler} />
+					)}
 				</div>
 			</div>
 			<LoginPopup ref={dialogRef} />

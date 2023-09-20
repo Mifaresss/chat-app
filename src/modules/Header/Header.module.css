@@ -4,7 +4,7 @@
 	min-height: 3.75rem;
 	display: flex;
 	align-items: center;
-	background-color: var(--effect-4-c);
+	background-color: var(--color-7);
 	position: fixed;
 	z-index: 10;
 }
@@ -145,7 +145,7 @@
     padding: 30px 40px;
     width: 100vw;
     height: 60px;
-    background-color: var(--effect-4-c);
+    background-color: var(--color-7);
   
   }
   .infoBlockImage{

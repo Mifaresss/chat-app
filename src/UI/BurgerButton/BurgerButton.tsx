@@ -2,7 +2,7 @@
 import { RootState } from '@/redux/store'
 import s from './BurgerButton.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleNavMenu } from '@/redux/toggleNavMenuSlice'
+import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
 
 interface BurgerButtonPropsType {}
 

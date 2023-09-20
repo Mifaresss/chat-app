@@ -1,4 +1,4 @@
-import { forwardRef, MouseEvent } from 'react'
+import { forwardRef, MouseEvent, useEffect, useId, useState } from 'react'
 import s from './LoginPopup.module.css'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
@@ -7,8 +7,8 @@ import { TextField } from '@/UI/TextField/TextField'
 import { Button } from '@/UI/Button/Button'
 import { authValidationSchema, loginPopupUsersMood } from './data'
 import { UserMood } from './components/UserMood/UserMood'
-import { loginAsync } from '@/redux/authSlice'
-import { useAppDispatch } from '@/hooks/redux'
+import { login } from '@/redux/slices/authSlice'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 
 interface FormValues {
 	userName: string
@@ -17,14 +17,17 @@ interface FormValues {
 
 // eslint-disable-next-line react/display-name
 export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
+	const dispatch = useAppDispatch()
+	const userId = useAppSelector(state => state.auth.userId)
+
+	const formId = useId()
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		reset,
 	} = useForm<FormValues>({ resolver: yupResolver(authValidationSchema) })
-
-	const dispatch = useAppDispatch()
 
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
 		e.preventDefault()
@@ -34,8 +37,13 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 		}
 	}
 
-	function onSubmit(data: FormValues) {
-		dispatch(loginAsync(data))
+	async function onSubmit(data: FormValues) {
+		const newData = {
+			userName: data.userName,
+			userMood: Number(data.userMood.at(-1)),
+		}
+
+		await dispatch(login(newData))
 		reset()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()
@@ -50,7 +58,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 					label='Щоб продовжити далі, авторизуйся та обери, який настрій маєш сьогодні!'
 					className={s.popupTitle}
 				/>
-				<form onSubmit={handleSubmit(onSubmit)} className={s.popupForm} id='loginPopupForm'>
+				<form onSubmit={handleSubmit(onSubmit)} className={s.popupForm} id={formId}>
 					<TextField
 						placeholder='Ім’я'
 						register={register}
@@ -72,8 +80,13 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 						))}
 					</div>
 					<div className={s.wrapperButtons}>
-						<Button title='Закрити' onClick={closeModalHandler} className={s.cancelButton} />
-						<Button title='Авторизуватися' form='loginPopupForm' />
+						<Button
+							type='button'
+							title='Закрити'
+							onClick={closeModalHandler}
+							className={s.cancelButton}
+						/>
+						<Button type='submit' title='Авторизуватися' form={formId} />
 					</div>
 				</form>
 				<button onClick={closeModalHandler} className={s.cancelButton2}></button>

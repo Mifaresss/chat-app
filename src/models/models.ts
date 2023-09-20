@@ -1,13 +1,16 @@
+import { Emoji } from '@/types/emojies'
+
 export interface IAuth {
 	userName: string
-	userMood: string
+	userMood: number
 }
 
 export interface IAuthResponse {
 	status: string
 	code: number
-	data: {
-		username: string
-		isAuthenticated: boolean
+	newUser: {
+		_id: string
+		userName: string
+		userMood: number
 	}
 }

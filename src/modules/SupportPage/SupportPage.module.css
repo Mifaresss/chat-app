@@ -1,0 +1,24 @@
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	gap: calc(min(3rem + 48 * ((100vw - 834px) / (1320 - 834)), 6rem));
+	margin-bottom: calc(min(5rem + 40 * ((100vw - 320px) / (1320 - 320)), 7.5rem));
+}
+
+.supportHeroSection::before {
+	background-image: url("/images/support/hero-section/background.png") !important;
+}
+
+.faq {
+	max-width: 66.4375rem;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+@media (max-width: 835px) {
+	.mainContainer {
+		gap: calc(min(3rem + (12 * (835px - 100vw) / (835 - 420)), 3.75rem));
+	}
+}

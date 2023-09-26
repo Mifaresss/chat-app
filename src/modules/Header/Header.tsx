@@ -14,6 +14,7 @@ import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
 import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
 import { useAppSelector } from '@/hooks/redux'
 import { AutorizedUser } from '@/UI/AutorizedUser/AutorizedUser'
+import { Popup } from '@/UI/Popup/Popup'
 
 export function Header() {
 	const { userName, userMood } = useAppSelector(state => state.auth)
@@ -37,6 +38,13 @@ export function Header() {
 		}
 	}, [isOpen])
 
+	const editUserRef = useRef<HTMLDialogElement | null>(null)
+	function editUserHandler() {
+		if (editUserRef.current) {
+			editUserRef.current.showModal()
+		}
+	}
+
 	return (
 		<header className={s.header}>
 			<div className={s.headerContainer}>
@@ -58,7 +66,10 @@ export function Header() {
 				<div className={s.secondBlockWrapper}>
 					<SocialMenu className={s.socialBlock} />
 					{userName ? (
-						<AutorizedUser name={userName} emoji={userMood} />
+						<>
+							<AutorizedUser name={userName} emoji={userMood} onClick={editUserHandler} />
+							<Popup ref={editUserRef}></Popup>
+						</>
 					) : (
 						<LoginButton label='Вхід' onClick={openPopupHandler} />
 					)}

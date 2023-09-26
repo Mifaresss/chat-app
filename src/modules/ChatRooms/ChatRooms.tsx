@@ -1,12 +1,12 @@
 import s from './ChatRooms.module.css'
-import { FirstSection } from './components/FirstSection/FirstSection'
-import { SecondSection } from './components/SecondSection/SecondSection'
+import { AboutSection } from './components/AboutSection/AboutSection'
+import { RoomsListSection } from './components/RoomsListSection/RoomsListSection'
 
 export function ChatRooms() {
 	return (
 		<div className={s.chatRoomsContainer}>
-			<FirstSection />
-			<SecondSection />
+			<AboutSection />
+			<RoomsListSection />
 		</div>
 	)
 }

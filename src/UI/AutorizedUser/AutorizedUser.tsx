@@ -4,13 +4,14 @@ import { SvgIcon } from '../SvgIcon/SvgIcon'
 import s from './AutorizedUser.module.css'
 import { useAppDispatch } from '@/hooks/redux'
 import { logout } from '@/redux/slices/authSlice'
+import { HTMLAttributes } from 'react'
 
-interface PropsType {
+interface PropsType extends HTMLAttributes<HTMLDivElement> {
 	name: string
 	emoji: number
 }
 
-export function AutorizedUser({ name, emoji }: PropsType) {
+export function AutorizedUser({ name, emoji, ...props }: PropsType) {
 	const dispatch = useAppDispatch()
 
 	function handleLogout() {
@@ -19,7 +20,7 @@ export function AutorizedUser({ name, emoji }: PropsType) {
 
 	return (
 		<div className={s.wrapper}>
-			<article className={s.user}>
+			<article className={s.user} {...props}>
 				<SubSubTitle className={s.userName} label={name} color='--color-3' />
 				<SvgIcon
 					className={`${s.button} ${s.userMood}`}

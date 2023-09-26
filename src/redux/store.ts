@@ -13,10 +13,12 @@ import storage from 'redux-persist/lib/storage'
 import toggleNavMenuReducer from './slices/toggleNavMenuSlice'
 import authReducer from './slices/authSlice'
 import socketReducer from './slices/socketSlice'
+import roomsReducer from './slices/roomsSlice'
 
 const rootReducer = combineReducers({
 	toggleNavMenu: toggleNavMenuReducer,
 	auth: authReducer,
+	rooms: roomsReducer,
 	socket: socketReducer,
 })
 

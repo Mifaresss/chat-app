@@ -17,10 +17,9 @@ const initialState: AuthState = {
 
 export const login = createAsyncThunk(
 	'auth/login',
-	async (toRequest: IAuth, { dispatch, rejectWithValue }) => {
+	async (toRequest: IAuth, { rejectWithValue }) => {
 		try {
 			const { data } = await apiInstance.post<IAuthResponse>('auth/signup', toRequest)
-			console.log('data:', data)
 			return data
 		} catch (error) {
 			return rejectWithValue(error)

@@ -1,14 +1,15 @@
-import { forwardRef, MouseEvent, useEffect, useId, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import s from './LoginPopup.module.css'
+import { MouseEvent, forwardRef, useId, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+import { authValidationSchema, loginPopupUsersMood } from './data'
+import { login } from '@/redux/slices/authSlice'
+import { Popup } from '@/UI/Popup/Popup'
 import { SubSubTitle } from '@/UI/SubSubTitle/SubSubTitle'
 import { TextField } from '@/UI/TextField/TextField'
-import { Button } from '@/UI/Button/Button'
-import { authValidationSchema, loginPopupUsersMood } from './data'
 import { UserMood } from './components/UserMood/UserMood'
-import { login } from '@/redux/slices/authSlice'
-import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { Button } from '@/UI/Button/Button'
 
 interface FormValues {
 	userName: string
@@ -16,9 +17,8 @@ interface FormValues {
 }
 
 // eslint-disable-next-line react/display-name
-export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
+export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 	const dispatch = useAppDispatch()
-	const userId = useAppSelector(state => state.auth.userId)
 
 	const formId = useId()
 
@@ -51,46 +51,41 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((_, ref) => {
 	}
 
 	return (
-		<dialog className={s.popup} ref={ref}>
-			<div className={s.popupContent}>
-				<SubSubTitle
-					align='center'
-					label='Щоб продовжити далі, авторизуйся та обери, який настрій маєш сьогодні!'
-					className={s.popupTitle}
+		<Popup ref={ref}>
+			<SubSubTitle
+				align='center'
+				label='Щоб продовжити далі, авторизуйся та обери, який настрій маєш сьогодні!'
+				className={s.popupTitle}
+			/>
+			<form onSubmit={handleSubmit(onSubmit)} className={s.popupForm} id={formId}>
+				<TextField
+					placeholder='Ім’я'
+					register={register}
+					name='userName'
+					error={errors.userName}
 				/>
-				<form onSubmit={handleSubmit(onSubmit)} className={s.popupForm} id={formId}>
-					<TextField
-						placeholder='Ім’я'
-						register={register}
-						name='userName'
-						error={errors.userName}
-					/>
-					<div className={s.emojiesWrapper}>
-						{errors.userMood && (
-							<span className={s.emojiError}>{errors.userMood.message}</span>
-						)}
-						{loginPopupUsersMood.map(mood => (
-							<UserMood
-								key={mood}
-								name='userMood'
-								value={mood}
-								register={register}
-								className={s.emojiInput}
-							/>
-						))}
-					</div>
-					<div className={s.wrapperButtons}>
-						<Button
-							type='button'
-							title='Закрити'
-							onClick={closeModalHandler}
-							className={s.cancelButton}
+				<div className={s.emojiesWrapper}>
+					{errors.userMood && <span className={s.emojiError}>{errors.userMood.message}</span>}
+					{loginPopupUsersMood.map(mood => (
+						<UserMood
+							key={mood}
+							name='userMood'
+							value={mood}
+							register={register}
+							className={s.emojiInput}
 						/>
-						<Button type='submit' title='Авторизуватися' form={formId} />
-					</div>
-				</form>
-				<button onClick={closeModalHandler} className={s.cancelButton2}></button>
-			</div>
-		</dialog>
+					))}
+				</div>
+				<div className={s.wrapperButtons}>
+					<Button
+						type='button'
+						title='Закрити'
+						onClick={closeModalHandler}
+						className={s.cancelButton}
+					/>
+					<Button type='submit' title='Авторизуватися' form={formId} />
+				</div>
+			</form>
+		</Popup>
 	)
 })

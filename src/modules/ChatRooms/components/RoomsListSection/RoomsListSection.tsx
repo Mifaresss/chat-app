@@ -41,8 +41,8 @@ export function RoomsListSection({}: PropsType) {
 				) : error ? (
 					<p className={s.error}>{error}</p>
 				) : (
-					rooms
-						.toSorted((a, b) => a.id - b.id)
+					[...rooms]
+						.sort((a, b) => a.id - b.id)
 						.map(({ id, name, description, image }) => (
 							<Link className={s.cardLink} href={path + id} key={id}>
 								<InfoCard className={s.card}>

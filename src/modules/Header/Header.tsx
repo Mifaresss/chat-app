@@ -14,34 +14,16 @@ import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
 import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
 import { useAppSelector } from '@/hooks/redux'
 import { AutorizedUser } from '@/UI/AutorizedUser/AutorizedUser'
-import { Popup } from '@/UI/Popup/Popup'
+import { EditUserPopup } from '@/components/EditUserPopup/EditUserPopup'
+import { Navigation } from './components/Navigation/Navigation'
 
 export function Header() {
-	const { userName, userMood } = useAppSelector(state => state.auth)
-
-	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
-	const dispatch = useDispatch()
+	const { userName, userMood } = useAppSelector(state => state.user)
 
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
-
 	function openPopupHandler() {
 		if (dialogRef.current) {
 			dialogRef.current.showModal()
-		}
-	}
-
-	useEffect(() => {
-		if (isOpen) {
-			document.body.style.overflowY = 'hidden'
-		} else {
-			document.body.style.overflowY = 'auto'
-		}
-	}, [isOpen])
-
-	const editUserRef = useRef<HTMLDialogElement | null>(null)
-	function editUserHandler() {
-		if (editUserRef.current) {
-			editUserRef.current.showModal()
 		}
 	}
 
@@ -53,23 +35,16 @@ export function Header() {
 					<Link href='/'>
 						<Image priority className={s.logo} src={logo} alt='Логотип сайту' />
 					</Link>
-					<nav className={[s.nav, isOpen && s.visible].join(' ')}>
-						<NavList
-							highlight
-							isOpen={isOpen}
-							updateOpen={() => {
-								dispatch(toggleNavMenu(false))
-							}}
-						/>
-					</nav>
+					<Navigation />
 				</div>
 				<div className={s.secondBlockWrapper}>
 					<SocialMenu className={s.socialBlock} />
 					{userName ? (
-						<>
-							<AutorizedUser name={userName} emoji={userMood} onClick={editUserHandler} />
-							<Popup ref={editUserRef}></Popup>
-						</>
+						<AutorizedUser
+							className={s.headerAutorizedUser}
+							name={userName}
+							emoji={userMood}
+						/>
 					) : (
 						<LoginButton label='Вхід' onClick={openPopupHandler} />
 					)}

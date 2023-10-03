@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 
 export function WhatIsOurChat() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
-	const userId = useAppSelector(state => state.auth.userId)
+	const userId = useAppSelector(state => state.user.userId)
 
 	function openPopupHandler() {
 		if (userId) return

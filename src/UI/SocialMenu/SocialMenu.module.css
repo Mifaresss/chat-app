@@ -1,9 +1,8 @@
 .social {
 	display: flex;
 	height: max-content;
-	gap: calc(min(0.625rem + 6 * ((100vw - 320px) / (1320 - 320)), 1rem));
+	gap: calc(min(0.625rem + 4 * ((100vw - 320px) / (1320 - 320)), 0.875rem));
 }
 .socialLink {
 	width: 2.5rem;
 }
- 

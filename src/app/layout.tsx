@@ -8,7 +8,6 @@ import { persistor, store } from '@/redux/store'
 
 import './styles/reset.css'
 import './styles/globals.css'
-import { useEffect } from 'react'
 
 const roboto = Roboto({
 	weight: ['300', '500', '700'],
@@ -18,19 +17,6 @@ const roboto = Roboto({
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-	useEffect(() => {
-		const root = localStorage.getItem('persist:root')
-		if (root) {
-			const { auth } = JSON.parse(root)
-			const id: string = auth && JSON.parse(auth)?.userId
-
-			if (id) {
-				// TODO: login logic
-				console.log('login logic will be here')
-			}
-		}
-	}, [])
-
 	return (
 		<html lang='uk'>
 			<head>

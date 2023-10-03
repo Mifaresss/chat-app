@@ -1,22 +1,21 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { IAuth, IAuthResponse } from '../../models/models'
-import { Emoji } from '@/types/emojies'
 import { apiInstance } from '@/api/base'
+import { IAuth, IAuthResponse } from './types'
 
-interface AuthState {
+interface State {
 	userMood: number
 	userName: string
 	userId: string
 }
 
-const initialState: AuthState = {
+const initialState: State = {
 	userMood: 0,
 	userName: '',
 	userId: '',
 }
 
 export const login = createAsyncThunk(
-	'auth/login',
+	'auth/signup',
 	async (toRequest: IAuth, { rejectWithValue }) => {
 		try {
 			const { data } = await apiInstance.post<IAuthResponse>('auth/signup', toRequest)
@@ -27,8 +26,21 @@ export const login = createAsyncThunk(
 	},
 )
 
-export const authSlice = createSlice({
-	name: 'auth',
+export const update = createAsyncThunk('updateUser', async (req: any) => {
+	try {
+		const { data } = await apiInstance.put('user/update', req, {
+			params: {
+				userId: req.id,
+			},
+		})
+		return data
+	} catch (error) {
+		return error
+	}
+})
+
+export const userSlice = createSlice({
+	name: 'user',
 	initialState,
 	reducers: {
 		logout(state) {
@@ -44,11 +56,18 @@ export const authSlice = createSlice({
 				state.userMood = action.payload.newUser.userMood
 				state.userId = action.payload.newUser._id
 			})
-			.addCase(login.rejected, state => {
+			.addCase(login.rejected, (state, action) => {
 				console.log('ERROR in reducer::', state)
+			})
+			.addCase(update.fulfilled, (state, action) => {
+				state.userName = action.payload.updatedUser.userName
+				state.userMood = action.payload.updatedUser.userMood
+			})
+			.addCase(update.rejected, (state, action) => {
+				console.log('ERROR in update reducer:', state)
 			})
 	},
 })
 
-export const { logout } = authSlice.actions
-export default authSlice.reducer
+export const { logout } = userSlice.actions
+export default userSlice.reducer

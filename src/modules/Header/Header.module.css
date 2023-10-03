@@ -29,7 +29,7 @@
 	width: 8.125rem;
 }
 
-@media (max-width: 835px) {
+@media (max-width: 950px) {
 	.socialBlock {
 		position: absolute;
 		margin-top: 8rem;
@@ -40,35 +40,12 @@
 		border-radius: 0.625rem;
 	}
 }
-@media (max-width: 650px) {
+@media (max-width: 812px) {
 	.navWrapper {
 		gap: 0;
 	}
-	.nav {
-		position: absolute;
-		width: 100vw;
-		height: 100lvh;
-		top: 0;
-		left: -100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		transition: left 0.2s;
-		background-color: rgba(0, 0, 0, 0.7);
-		backdrop-filter: blur(0.25rem);
-		z-index: 9;
-	}
-	.nav.visible {
-		left: 0;
-	}
-	.nav ul {
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-	.nav a {
-		font-size: 1.5rem;
-		font-weight: 600;
-	}
+}
+@media (max-width: 550px) {
 	.socialBlock {
 		position: static;
 		margin-top: 0;
@@ -77,79 +54,7 @@
 		backdrop-filter: none;
 		border-radius: none;
 	}
+	.headerAutorizedUser {
+		display: none;
+	}
 }
-
-/* .loginBtn {
-   display: none;
-}
-.burgerMenu {
-   display: block;
-}
-
-.infoBlockImage {
-   width: 130px;
-   height: 28px;
-   margin-left: 60px;
-}
-
-.firstBloc {
-   display: flex;
-   flex-direction: row-reverse;
-   align-items: center;
-}
-
-.secondBlock {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-}
-
-@media (min-width: 840px) {
-   .main {
-      display: flex;
-      flex-direction: row;
-      padding: 15px 50px;
-      height: 70px;
-      justify-content: space-around;
-   }
-   .infoBlockImage {
-      width: 230px;
-      height: 48px;
-   }
-
-   .loginBtn {
-      display: block;
-   }
-   .burgerMenu {
-      display: none;
-   }
-   .navHederWrapper {
-      display: none;
-   }
-
-   .firstBloc {
-      flex-direction: row;
-   }
-   .secondBlock {
-      flex-direction: row-reverse;
-      min-width: 230px;
-   }
-} */
-
-/* @media (min-width: 1280px) {
-  .main{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;  
-    align-items: center;
-    padding: 30px 40px;
-    width: 100vw;
-    height: 60px;
-    background-color: var(--color-7);
-  
-  }
-  .infoBlockImage{
-    width: 130px;
-    height: 28px;
-  }
-} */

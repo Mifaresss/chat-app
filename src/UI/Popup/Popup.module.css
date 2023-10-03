@@ -2,7 +2,7 @@
 	max-width: 35rem;
 	width: 100%;
 	background-color: var(--color-5);
-	padding: calc(min(1.25rem + 20 * ((100vw - 320px) / (1320 - 320)), 2.5rem));
+	padding: calc(min(1.5rem + 20 * ((100vw - 320px) / (1320 - 320)), 2.5rem));
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -31,12 +31,12 @@
 
 .popupContent {
 	max-width: 25rem;
+	width: 100%;
 	flex: 1 1 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: calc(min(1.5625rem + 23 * ((100vw - 320px) / (1320 - 320)), 3rem));
 }
 
 .cancelButton2 {

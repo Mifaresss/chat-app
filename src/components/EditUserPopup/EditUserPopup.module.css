@@ -1,8 +1,9 @@
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	gap: calc(min(1.5625rem + 23 * ((100vw - 320px) / (1320 - 320)), 3rem));
+	gap: 1.2rem;
 }
+
 .popupForm {
 	width: 100%;
 	display: flex;

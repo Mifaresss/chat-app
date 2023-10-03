@@ -3,13 +3,14 @@ import { forwardRef, MouseEvent, ReactNode } from 'react'
 
 interface Props {
 	children?: ReactNode
-	closeModal?: () => void
+	onClose?: () => void
 }
 
 // eslint-disable-next-line react/display-name
 export const Popup = forwardRef<HTMLDialogElement, Props>((props, ref) => {
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
 		e.preventDefault()
+		props.onClose && props.onClose()
 		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 			ref.current.close()
 		}

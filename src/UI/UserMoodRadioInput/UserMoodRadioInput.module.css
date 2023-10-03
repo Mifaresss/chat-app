@@ -8,7 +8,7 @@
 }
 .emoji:has(.emojiInput:checked) .emojiImg {
 	--fill-c: transparent;
-	--stroke-width: 1.75;
+	--stroke-width: 2.2;
 }
 .emojiInput {
 	position: absolute;

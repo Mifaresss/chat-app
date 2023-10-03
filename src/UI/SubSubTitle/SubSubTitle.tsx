@@ -8,11 +8,22 @@ interface SubSubTitlePropsType extends HTMLAttributes<HTMLHeadingElement> {
 	label: string
 }
 
-export function SubSubTitle({ color, align, label, className, ...props }: SubSubTitlePropsType) {
-	const style = { color: `var(${color})`, textAlign: align }
+export function SubSubTitle({
+	color,
+	align,
+	label,
+	className,
+	style,
+	...props
+}: SubSubTitlePropsType) {
+	const internalStyle = { color: `var(${color})`, textAlign: align }
 
 	return (
-		<h3 className={[s.subSubTitle, className].join(' ')} style={style} {...props}>
+		<h3
+			className={[s.subSubTitle, className].join(' ')}
+			style={{ ...internalStyle, ...style }}
+			{...props}
+		>
 			{label}
 		</h3>
 	)

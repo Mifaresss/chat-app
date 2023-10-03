@@ -24,7 +24,17 @@ export function RoomsListSection({}: PropsType) {
 
 	return (
 		<section className={s.section}>
-			<Title title='Обери чат-кімнату для спілкування:' className={s.title} justify='center' />
+			<Title
+				title={
+					loading
+						? 'Почекай трохи, щось з твоїм інетом (або сервером)...'
+						: error
+						? error
+						: 'Обери чат-кімнату для спілкування:'
+				}
+				className={s.title}
+				justify='center'
+			/>
 			<div className={s.contentWrapper}>
 				{loading ? (
 					<Loader />

@@ -10,7 +10,7 @@ export function Footer() {
 		<footer className={s.footer}>
 			<div className={s.footerContainer}>
 				<Link href='/'>
-					<Image className={s.logo} src={logo} alt='Логотип сайту' />
+					<Image priority className={s.logo} src={logo} alt='Логотип сайту' />
 				</Link>
 				<NavList />
 				<div className={s.social}>

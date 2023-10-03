@@ -51,7 +51,7 @@ export function Header() {
 				<BurgerMenuButton />
 				<div className={s.navWrapper}>
 					<Link href='/'>
-						<Image className={s.logo} src={logo} alt='Логотип сайту' />
+						<Image priority className={s.logo} src={logo} alt='Логотип сайту' />
 					</Link>
 					<nav className={[s.nav, isOpen && s.visible].join(' ')}>
 						<NavList

@@ -3,6 +3,7 @@ import s from './NotFound.module.css'
 import { Text } from '@/UI/Text/Text'
 import { Button } from '@/UI/Button/Button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface PropsType {}
 
@@ -18,7 +19,9 @@ export function NotFound({}: PropsType) {
 							Сторінка, яку ви намагаєтесь відкрити, не може бути знайдена на сервері
 						</p>
 					</div>
-					<Button className={s.button} title='На головну' />
+					<Link href='/'>
+						<Button className={s.button} title='На головну' />
+					</Link>
 				</div>
 				<Image
 					className={s.image}

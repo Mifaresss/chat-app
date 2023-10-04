@@ -6,7 +6,7 @@ import { useAppSelector } from '@/hooks/redux'
 interface PropsType {}
 
 export function BeforeChatBody({}: PropsType) {
-	const userName = useAppSelector(state => state.auth.userName)
+	const userName = useAppSelector(state => state.user.userName)
 
 	return (
 		<div className={s.beforeChatBody}>

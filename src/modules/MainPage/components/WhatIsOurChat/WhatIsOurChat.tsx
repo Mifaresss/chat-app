@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 
 export function WhatIsOurChat() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
-	const userId = useAppSelector(state => state.auth.userId)
+	const userId = useAppSelector(state => state.user.userId)
 
 	function openPopupHandler() {
 		if (userId) return
@@ -25,7 +25,7 @@ export function WhatIsOurChat() {
 
 	return (
 		<section className={s.whatIsOurChat}>
-			<div className={s.contentWrapper}>
+			<div className={s.contentWrapper} style={userId ? { justifyContent: 'space-evenly' } : {}}>
 				<div className={s.titleWrapper}>
 					<Title title={title} />
 				</div>
@@ -33,7 +33,7 @@ export function WhatIsOurChat() {
 					<InfoList listStyleImg={listStyleImg.src} listItems={listItems} />
 				</div>
 				<Button
-					disabled={userId ? true : false}
+					style={userId ? { display: 'none' } : {}}
 					title={buttonContent}
 					onClick={openPopupHandler}
 				/>

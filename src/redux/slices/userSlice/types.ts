@@ -1,5 +1,3 @@
-import { Emoji } from '@/types/emojies'
-
 export interface IAuth {
 	userName: string
 	userMood: number

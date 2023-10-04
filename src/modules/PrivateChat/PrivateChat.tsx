@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 import { connect } from '@/redux/slices/socketSlice'
 
 export function PrivateChat() {
-	const userId = useAppSelector(state => state.auth.userId)
+	const userId = useAppSelector(state => state.user.userId)
 	const socket = useAppSelector(state => state.socket.socket)
 
 	const [message, setMessage] = useState('')

@@ -22,7 +22,6 @@
 		"jsx-quotes": ["error", "prefer-single"],
 		"no-duplicate-imports": "warn",
 		"semi": ["error", "never"],
-		"indent": ["error", "tab"],
 		"object-curly-spacing": ["error", "always"],
 		"array-bracket-spacing": ["error", "never"],
 		"comma-spacing": "error",

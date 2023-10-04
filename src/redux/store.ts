@@ -11,19 +11,21 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import toggleNavMenuReducer from './slices/toggleNavMenuSlice'
-import authReducer from './slices/authSlice'
+import userReducer from './slices/userSlice/userSlice'
 import socketReducer from './slices/socketSlice'
+import roomsReducer from './slices/roomsSlice'
 
 const rootReducer = combineReducers({
 	toggleNavMenu: toggleNavMenuReducer,
-	auth: authReducer,
+	user: userReducer,
+	rooms: roomsReducer,
 	socket: socketReducer,
 })
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['auth'],
+	whitelist: ['user'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

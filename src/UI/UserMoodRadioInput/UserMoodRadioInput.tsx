@@ -1,5 +1,4 @@
-import s from './UserMood.module.css'
-import { FieldError } from 'react-hook-form'
+import s from './UserMoodRadioInput.module.css'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 
 interface PropsType {
@@ -9,7 +8,7 @@ interface PropsType {
 	className?: string
 }
 
-export function UserMood({ name, value, register, className }: PropsType) {
+export function UserMoodRadioInput({ name, value, register, className }: PropsType) {
 	return (
 		<label className={s.emoji}>
 			<input

@@ -1,4 +1,4 @@
-import s from './FirstSection.module.css'
+import s from './AboutSection.module.css'
 import Image from 'next/image'
 import contentImg from '@images/chat-rooms/first-block/content.jpg'
 import { Title } from '@/UI/Title/Title'
@@ -6,7 +6,7 @@ import { Text } from '@/UI/Text/Text'
 
 interface PropsType {}
 
-export function FirstSection({}: PropsType) {
+export function AboutSection({}: PropsType) {
 	return (
 		<section className={s.section}>
 			<Image

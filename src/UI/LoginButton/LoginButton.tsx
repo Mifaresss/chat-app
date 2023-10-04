@@ -5,9 +5,9 @@ interface LoginButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
 	label: string
 }
 
-export function LoginButton({ label, ...props }: LoginButtonPropsType) {
+export function LoginButton({ label, className, ...props }: LoginButtonPropsType) {
 	return (
-		<button className={s.loginButton} {...props}>
+		<button className={[s.loginButton, className].join(' ')} {...props}>
 			{label}
 		</button>
 	)

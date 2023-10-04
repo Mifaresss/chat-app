@@ -25,7 +25,7 @@ export function WhatIsOurChat() {
 
 	return (
 		<section className={s.whatIsOurChat}>
-			<div className={s.contentWrapper}>
+			<div className={s.contentWrapper} style={userId ? { justifyContent: 'space-evenly' } : {}}>
 				<div className={s.titleWrapper}>
 					<Title title={title} />
 				</div>
@@ -33,7 +33,7 @@ export function WhatIsOurChat() {
 					<InfoList listStyleImg={listStyleImg.src} listItems={listItems} />
 				</div>
 				<Button
-					disabled={userId ? true : false}
+					style={userId ? { display: 'none' } : {}}
 					title={buttonContent}
 					onClick={openPopupHandler}
 				/>

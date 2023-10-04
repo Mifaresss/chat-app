@@ -1,6 +1,9 @@
 .navAutorizedUser {
 	display: none;
 }
+.loginButton {
+	display: none;
+}
 
 @media (max-width: 812px) {
 	.nav {
@@ -35,5 +38,8 @@
 
 	.navAutorizedUser {
 		display: flex;
+	}
+	.loginButton {
+		display: block;
 	}
 }

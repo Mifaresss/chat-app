@@ -7,6 +7,7 @@ import { RootState } from '@/redux/store'
 import { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
+import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
 
 interface PropsType {}
 
@@ -25,6 +26,7 @@ export function Navigation() {
 
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	function openPopupHandler() {
+		dispatch(toggleNavMenu(false))
 		if (dialogRef.current) {
 			dialogRef.current.showModal()
 		}
@@ -40,7 +42,10 @@ export function Navigation() {
 					emoji={userMood}
 				/>
 			) : (
-				<LoginButton label='Вхід' onClick={openPopupHandler} />
+				<>
+					<LoginButton label='Вхід' onClick={openPopupHandler} className={s.loginButton} />
+					<LoginPopup ref={dialogRef} />
+				</>
 			)}
 			<NavList
 				highlight

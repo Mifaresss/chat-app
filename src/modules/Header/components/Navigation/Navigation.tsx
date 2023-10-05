@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
 import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
 
-interface PropsType {}
+interface Props {}
 
 export function Navigation() {
 	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)

@@ -2,13 +2,13 @@ import { Colors } from '@/types/colors'
 import s from './SubTitle.module.css'
 import { HTMLAttributes } from 'react'
 
-interface SubTitlePropsType extends HTMLAttributes<HTMLHeadingElement> {
+interface SubTitleProps extends HTMLAttributes<HTMLHeadingElement> {
 	color?: Colors
 	align?: 'left' | 'center' | 'right'
 	title: string
 }
 
-export function SubTitle({ color, align, title, className, ...props }: SubTitlePropsType) {
+export function SubTitle({ color, align, title, className, ...props }: SubTitleProps) {
 	const style = { color: `var(${color})`, textAlign: align }
 
 	return (

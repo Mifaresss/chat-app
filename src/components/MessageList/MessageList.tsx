@@ -4,13 +4,13 @@ import { UserEmoji } from '@/UI/UserEmoji/UserEmoji'
 import { UserName } from '@/UI/UserName/UserName'
 import { Emoji } from '@/types/emojies'
 
-interface PropsType {
+interface Props {
 	messages: { text: string; date: string }[]
 	userName: string
 	emoji: Emoji
 }
 
-export function MessageList({ userName, messages, emoji }: PropsType) {
+export function MessageList({ userName, messages, emoji }: Props) {
 	return (
 		<div className={s.message}>
 			<div className={s.firstLine}>

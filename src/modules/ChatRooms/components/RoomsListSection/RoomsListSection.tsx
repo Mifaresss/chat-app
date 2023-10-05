@@ -11,9 +11,9 @@ import { fetchRooms } from '@/redux/slices/roomsSlice'
 import { usePathname } from 'next/navigation'
 import { Loader } from '@/UI/Loader/Loader'
 
-interface PropsType {}
+interface Props {}
 
-export function RoomsListSection({}: PropsType) {
+export function RoomsListSection({}: Props) {
 	const { rooms, loading, error } = useAppSelector(state => state.rooms)
 	const path = usePathname()
 	const dispatch = useAppDispatch()
@@ -38,13 +38,11 @@ export function RoomsListSection({}: PropsType) {
 			<div className={s.contentWrapper}>
 				{loading ? (
 					<Loader />
-				) : error ? (
-					<p className={s.error}>{error}</p>
 				) : (
 					[...rooms]
 						.sort((a, b) => a.id - b.id)
 						.map(({ id, name, description, image }) => (
-							<Link className={s.cardLink} href={path + id} key={id}>
+							<Link className={s.cardLink} href={path + '/' + id} key={id}>
 								<InfoCard className={s.card}>
 									<SvgIcon
 										src='chat-rooms/second-block/sprite.svg'

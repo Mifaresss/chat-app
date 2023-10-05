@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
 import s from './InfoCard.module.css'
 
-interface InfoCardPropsType {
+interface InfoCardProps {
 	bgColor?: string
 	children: ReactNode
 	className?: string
 }
 
-export function InfoCard({ bgColor, children, className }: InfoCardPropsType) {
+export function InfoCard({ bgColor, children, className }: InfoCardProps) {
 	const infoCardStyles = { backgroundColor: bgColor }
 
 	return (

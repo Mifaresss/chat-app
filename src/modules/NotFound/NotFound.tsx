@@ -5,9 +5,9 @@ import { Button } from '@/UI/Button/Button'
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface PropsType {}
+interface Props {}
 
-export function NotFound({}: PropsType) {
+export function NotFound({}: Props) {
 	return (
 		<section className={s.mainContainer}>
 			<div className={s.contentWrapper}>

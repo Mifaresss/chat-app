@@ -1,11 +1,11 @@
 import s from './LoginButton.module.css'
 import { ButtonHTMLAttributes } from 'react'
 
-interface LoginButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface LoginButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	label: string
 }
 
-export function LoginButton({ label, className, ...props }: LoginButtonPropsType) {
+export function LoginButton({ label, className, ...props }: LoginButtonProps) {
 	return (
 		<button className={[s.loginButton, className].join(' ')} {...props}>
 			{label}

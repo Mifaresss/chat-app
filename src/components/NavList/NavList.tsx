@@ -3,17 +3,17 @@ import { NavLink } from '@/UI/NavLink/NavLink'
 
 const navItems = [
 	{ label: 'Приватний чат', href: '/private-chat' },
-	{ label: 'Чат кімнати', href: '/chat-rooms' },
+	{ label: 'Чат-кімнати', href: '/chat-rooms' },
 	{ label: 'Підтримка', href: '/support' },
 ]
 
-interface NavListPropsType {
+interface NavListProps {
 	isOpen?: boolean
 	updateOpen?: () => void
 	highlight?: boolean
 }
 
-export function NavList({ isOpen, updateOpen, highlight }: NavListPropsType) {
+export function NavList({ isOpen, updateOpen, highlight }: NavListProps) {
 	return (
 		<ul className={s.navList}>
 			{navItems.map(link => (

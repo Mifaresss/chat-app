@@ -1,14 +1,14 @@
 import s from './UserMoodRadioInput.module.css'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 
-interface PropsType {
+interface Props {
 	name: string
 	value: string
 	register: any
 	className?: string
 }
 
-export function UserMoodRadioInput({ name, value, register, className }: PropsType) {
+export function UserMoodRadioInput({ name, value, register, className }: Props) {
 	return (
 		<label className={s.emoji}>
 			<input

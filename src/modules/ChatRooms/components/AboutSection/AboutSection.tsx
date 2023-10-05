@@ -4,9 +4,9 @@ import contentImg from '@images/chat-rooms/first-block/content.jpg'
 import { Title } from '@/UI/Title/Title'
 import { Text } from '@/UI/Text/Text'
 
-interface PropsType {}
+interface Props {}
 
-export function AboutSection({}: PropsType) {
+export function AboutSection({}: Props) {
 	return (
 		<section className={s.section}>
 			<Image

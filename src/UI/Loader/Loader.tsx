@@ -1,8 +1,8 @@
 import s from './Loader.module.css'
 
-interface PropsType {}
+interface Props {}
 
-export function Loader({}: PropsType) {
+export function Loader({}: Props) {
 	return (
 		<div className={s.ldsRipple}>
 			<div></div>

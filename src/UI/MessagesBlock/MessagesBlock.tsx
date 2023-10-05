@@ -7,9 +7,9 @@ import { ConnectionState } from './components/ConnectionState'
 import { Events } from './components/Events'
 import { ConnectionManager } from './components/ConnectionManager'
 
-interface PropsType {}
+interface Props {}
 
-export function MessagesBlock({}: PropsType) {
+export function MessagesBlock({}: Props) {
 	const [isConnected, setIsConnected] = useState(socket.connected)
 	const [fooEvents, setFooEvents] = useState<any>([])
 

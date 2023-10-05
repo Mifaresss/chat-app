@@ -8,13 +8,13 @@ import { logout } from '@/redux/slices/userSlice/userSlice'
 import { LogoutPopup } from '@/components/LogoutPopup/LogoutPopup'
 import { EditUserPopup } from '@/components/EditUserPopup/EditUserPopup'
 
-interface PropsType extends HTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLDivElement> {
 	name: string
 	emoji: number
 	ellipsis?: boolean
 }
 
-export function AutorizedUser({ name, emoji, className, ellipsis = true, ...props }: PropsType) {
+export function AutorizedUser({ name, emoji, className, ellipsis = true, ...props }: Props) {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	function openPopupHandler() {
 		if (dialogRef.current) {

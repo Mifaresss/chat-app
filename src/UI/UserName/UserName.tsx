@@ -1,9 +1,9 @@
 import s from './UserName.module.css'
 
-interface PropsType {
+interface Props {
 	name: string
 }
 
-export function UserName({ name }: PropsType) {
+export function UserName({ name }: Props) {
 	return <p className={s.userName}>{name}</p>
 }

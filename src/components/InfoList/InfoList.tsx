@@ -1,11 +1,11 @@
 import s from './InfoList.module.css'
-interface InfoListPropsType {
+interface InfoListProps {
 	listStyleImg: string
 	listItems: string[]
 	className?: string
 }
 
-export function InfoList({ listStyleImg, listItems, className }: InfoListPropsType) {
+export function InfoList({ listStyleImg, listItems, className }: InfoListProps) {
 	const itemStyle = {
 		background: `url(${listStyleImg}) no-repeat top left`,
 	}

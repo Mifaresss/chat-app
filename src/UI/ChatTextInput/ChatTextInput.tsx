@@ -1,11 +1,11 @@
 import { HTMLAttributes } from 'react'
 import s from './ChatTextInput.module.css'
 
-interface PropsType extends HTMLAttributes<HTMLTextAreaElement> {
+interface Props extends HTMLAttributes<HTMLTextAreaElement> {
 	value: string
 }
 
-export function ChatTextInput({ value, ...props }: PropsType) {
+export function ChatTextInput({ value, ...props }: Props) {
 	return (
 		<textarea
 			{...props}

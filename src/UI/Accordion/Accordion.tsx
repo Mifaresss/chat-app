@@ -4,12 +4,12 @@ import { useState } from 'react'
 import { SubTitle } from '../SubTitle/SubTitle'
 import { SvgIcon } from '../SvgIcon/SvgIcon'
 
-interface PropsType {
+interface Props {
 	question: string
 	answer: string
 }
 
-export function Accordion({ question, answer }: PropsType) {
+export function Accordion({ question, answer }: Props) {
 	const [isOpen, setIsOpen] = useState(false)
 
 	function toggleOpen() {

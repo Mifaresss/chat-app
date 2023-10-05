@@ -4,12 +4,12 @@ import Link from 'next/link'
 import { socialMediaCards } from './data'
 import { HTMLAttributes } from 'react'
 
-interface SocialMenuPropsType extends HTMLAttributes<HTMLDivElement> {
+interface SocialMenuProps extends HTMLAttributes<HTMLDivElement> {
 	className?: string
 	reverse?: boolean
 }
 
-export function SocialMenu({ className, reverse, ...props }: SocialMenuPropsType) {
+export function SocialMenu({ className, reverse, ...props }: SocialMenuProps) {
 	const newSocialMediaCards = reverse ? [...socialMediaCards].reverse() : socialMediaCards
 
 	return (

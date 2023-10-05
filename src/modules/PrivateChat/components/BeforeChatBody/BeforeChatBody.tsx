@@ -3,9 +3,9 @@ import { SubSubTitle } from '@/UI/SubSubTitle/SubSubTitle'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { useAppSelector } from '@/hooks/redux'
 
-interface PropsType {}
+interface Props {}
 
-export function BeforeChatBody({}: PropsType) {
+export function BeforeChatBody({}: Props) {
 	const userName = useAppSelector(state => state.user.userName)
 
 	return (

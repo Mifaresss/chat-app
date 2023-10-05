@@ -6,23 +6,15 @@ import { ChatTextInput } from '@/UI/ChatTextInput/ChatTextInput'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 import { BeforeChatBody } from './components/BeforeChatBody/BeforeChatBody'
-import { useAppDispatch, useAppSelector } from '@/hooks/redux'
-import { useEffect, useState } from 'react'
-import { connect } from '@/redux/slices/socketSlice'
+import { useAppSelector } from '@/hooks/redux'
+import { useState } from 'react'
 
 export function PrivateChat() {
 	const userId = useAppSelector(state => state.user.userId)
-	const socket = useAppSelector(state => state.socket.socket)
 
 	const [message, setMessage] = useState('')
 
-	const dispatch = useAppDispatch()
-	// useEffect(() => {
-	// 	dispatch(connect())
-	// }, [dispatch])
-
 	function sendMessage() {
-		console.log('socket:', socket)
 		// socket.emit('message', {
 		// 	message,
 		// 	from: userId,

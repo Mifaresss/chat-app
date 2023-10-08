@@ -2,8 +2,8 @@ import { MessageText } from '@/UI/MessageText/MessageText'
 import s from './MessageList.module.css'
 import { UserEmoji } from '@/UI/UserEmoji/UserEmoji'
 import { UserName } from '@/UI/UserName/UserName'
-import { Message } from '@/modules/ChatRoom/ChatRoom'
 import { getEmojiFromResponse } from '@/utils/getEmojiFromResponse'
+import { Message } from '@/redux/slices/messagesSlice'
 
 interface Props {
 	message: Message

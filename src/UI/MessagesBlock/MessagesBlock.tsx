@@ -1,17 +1,16 @@
 import s from './MessagesBlock.module.css'
 import { useEffect, useRef } from 'react'
-import { useAppSelector } from '@/hooks/redux'
 import { Loader } from '../Loader/Loader'
 import { Message } from '../Message/Message'
-import { Message as MessageType } from '@/modules/ChatRoom/ChatRoom'
+import { useAppSelector } from '@/hooks/redux'
+import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
 
-interface Props {
-	messages: MessageType[]
-}
+interface Props {}
 
-export function MessagesBlock({ messages }: Props) {
+export function MessagesBlock({}: Props) {
+	const { messages, loading } = useAppSelector(state => state.messages)
+
 	const scroll = useRef<HTMLDivElement>(null)
-
 	useEffect(() => {
 		if (scroll.current) {
 			scroll.current.scrollIntoView({ behavior: 'smooth' })
@@ -21,18 +20,26 @@ export function MessagesBlock({ messages }: Props) {
 	return (
 		<section className={s.messagesBlock}>
 			<div className={s.messagesWrapper}>
-				{messages?.length ? (
-					messages?.map((message: MessageType, index: number) => {
+				{loading ? (
+					<div style={{ margin: 'auto' }}>
+						<Loader />
+					</div>
+				) : messages.length ? (
+					messages.map((message, index: number) => {
 						const previousMessage = messages[index - 1]
-						const sameAuthor = previousMessage?.senderId === message.senderId
 
 						return (
-							<Message key={index} index={index} sameAuthor={sameAuthor} message={message} />
+							<Message
+								key={index}
+								index={index}
+								previousMessage={previousMessage}
+								message={message}
+							/>
 						)
 					})
 				) : (
 					<div style={{ margin: 'auto' }}>
-						<Loader />
+						<SubSubTitle label='Поки пусто:) Будь першим!' style={{ textAlign: 'center' }} />
 					</div>
 				)}
 			</div>

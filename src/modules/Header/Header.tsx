@@ -5,16 +5,21 @@ import logo from '@images/logo.svg'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
-import { BurgerMenuButton } from '@/UI/BurgerButton/BurgerButton'
+import { BurgerButton } from '@/UI/BurgerButton/BurgerButton'
 import { useRef } from 'react'
 import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
-import { useAppSelector } from '@/hooks/redux'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { Navigation } from './components/Navigation/Navigation'
 import { AutorizedUser } from '@/components/AutorizedUser/AutorizedUser'
 import { ThemeSwitcher } from '@/UI/ThemeSwitcher/ThemeSwitcher'
+import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
+import { RootState } from '@/redux/store'
 
 export function Header() {
 	const { userName, userMood } = useAppSelector(state => state.user)
+	const isOpen = useAppSelector((state: RootState) => state.toggleNavMenu.isOpen)
+
+	const dispatch = useAppDispatch()
 
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	function openPopupHandler() {
@@ -26,7 +31,14 @@ export function Header() {
 	return (
 		<header className={s.header}>
 			<div className={s.headerContainer}>
-				<BurgerMenuButton />
+				<div className={s.burgerButtonWrapper}>
+					<BurgerButton
+						isOpen={isOpen}
+						onClick={() => {
+							dispatch(toggleNavMenu(!isOpen))
+						}}
+					/>
+				</div>
 				<div className={s.navWrapper}>
 					<Link href='/'>
 						<Image priority className={s.logo} src={logo} alt='Логотип сайту' />

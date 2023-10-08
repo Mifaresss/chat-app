@@ -1,35 +1,38 @@
 'use client'
 import s from './ChatRoom.module.css'
 import { ChatPageTemplate } from '@/components/ChatPageTemplate/ChatPageTemplate'
-import { Title } from '@/UI/Title/Title'
-import { useEffect, useRef, useState } from 'react'
-import { useAppSelector } from '@/hooks/redux'
+import { useEffect, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { connectSocket, socket } from '@/api/socket'
-import { EmojiNumber } from '@/types/emojies'
+import { Aside } from '@/UI/Aside/Aside'
+import { fetchRooms } from '@/redux/slices/roomsSlice'
+import { addMessage, setLoading, setMessages } from '@/redux/slices/messagesSlice'
 
 interface Props {
 	id: string
 }
-export type Message = {
-	text: string
-	senderId: string
-	chatId: string
-	userName: string
-	userMood: EmojiNumber
-	createdAt: Date
-}
 
 export function ChatRoom({ id }: Props) {
+	const rooms = useAppSelector(state => state.rooms.rooms)
 	const { userId, userName, userMood } = useAppSelector(state => state.user)
+
+	const dispatch = useAppDispatch()
+	useEffect(() => {
+		if (rooms.length === 0) {
+			dispatch(fetchRooms())
+		}
+	}, [dispatch, rooms.length])
+
 	const [text, setText] = useState('')
-	const [messages, setMessages] = useState<Message[]>([])
 
 	useEffect(() => {
+		dispatch(setLoading(true))
 		connectSocket(userId)
 		socket.emit('new-user-add', userId)
 		socket.emit('get-curent-chatRoom', id, userId)
 		socket.on('get-chatRoom', chatRoom => {
-			setMessages(chatRoom?.messages)
+			dispatch(setMessages(chatRoom.messages))
+			dispatch(setLoading(false))
 		})
 		return () => {
 			socket.disconnect()
@@ -37,7 +40,7 @@ export function ChatRoom({ id }: Props) {
 			socket.off('get-chatRoom')
 			socket.off('new-user-add')
 		}
-	}, [userId, id])
+	}, [userId, id, dispatch])
 
 	function sendMessageHandler() {
 		const message = {
@@ -55,29 +58,18 @@ export function ChatRoom({ id }: Props) {
 
 	useEffect(() => {
 		socket.on('receive-message', data => {
-			console.log('receive-message:', data)
 			if (data !== null) {
-				setMessages(prevMessages => {
-					if (!prevMessages) return data
-					return [...prevMessages, data]
-				})
+				dispatch(addMessage(data))
 			}
 		})
-	}, [])
+	}, [dispatch])
 
 	return (
 		<div className={s.wrapper}>
 			<div className={s.mainContainer}>
 				<div className={s.contentWrapper}>
-					<aside className={s.aside}>
-						<Title title={id} />
-					</aside>
-					<ChatPageTemplate
-						messages={messages}
-						text={text}
-						setText={setText}
-						sendMessage={sendMessageHandler}
-					/>
+					<Aside rooms={rooms} />
+					<ChatPageTemplate text={text} setText={setText} sendMessage={sendMessageHandler} />
 				</div>
 			</div>
 		</div>

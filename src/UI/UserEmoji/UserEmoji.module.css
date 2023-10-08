@@ -1,4 +1,4 @@
-.emoji {
+svg.emoji {
 	--stroke-width: 1.75;
-	--fill-c: tranparent;
+	--fill-c: transparent;
 }

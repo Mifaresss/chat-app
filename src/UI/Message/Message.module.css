@@ -8,7 +8,7 @@
 
 .firstLine {
 	display: flex;
-	gap: 0.5rem;
+	gap: 0.3125rem;
 }
 .secondLine {
 	display: flex;

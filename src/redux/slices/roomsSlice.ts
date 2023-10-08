@@ -1,15 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { Emoji } from '@/types/emojies'
 import { apiInstance } from '@/api/base'
 
-namespace InitialState {
+export namespace InitialState {
 	export interface Type {
 		rooms: Room[]
 		loading: boolean
 		error: null | string
 	}
 	export interface Room {
-		readonly id: number
+		readonly id: string
 		readonly title: string
 		readonly description: string
 		readonly image: Image
@@ -29,6 +28,7 @@ const initialState: InitialState.Type = {
 export const fetchRooms = createAsyncThunk('rooms/fetchRooms', async () => {
 	try {
 		const response = await apiInstance.get('/rooms')
+		console.log(response)
 		return response.data
 	} catch (error) {
 		throw error

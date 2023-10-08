@@ -4,23 +4,32 @@ import { UserEmoji } from '@/UI/UserEmoji/UserEmoji'
 import { UserName } from '@/UI/UserName/UserName'
 import { Message } from '@/modules/ChatRoom/ChatRoom'
 import { getEmojiFromResponse } from '@/utils/getEmojiFromResponse'
+import { useAppSelector } from '@/hooks/redux'
 
 interface Props {
 	message: Message
-	sameAuthor: boolean
+	previousMessage: Message
 	index: number
 }
 
-export function Message({ message, sameAuthor, index }: Props) {
-	const marginTop = sameAuthor ? { marginTop: '0.25rem' } : { marginTop: '1rem' }
+export function Message({ message, previousMessage, index }: Props) {
+	const userId = useAppSelector(state => state.user.userId)
+
+	const isCurrentUserSender = message?.senderId === userId
+	const isSameAuthor = previousMessage?.senderId === message.senderId
+
+	const marginTop = isSameAuthor ? '0.25rem' : '1rem'
+	const marginLeft = isCurrentUserSender ? 'auto' : ''
+
+	const style = { marginTop, marginLeft }
 
 	if (index === 0) {
-		marginTop.marginTop = '0rem'
+		style.marginTop = '0rem'
 	}
 
 	return (
-		<div className={s.message} style={marginTop}>
-			{!sameAuthor && (
+		<div className={s.message} style={style}>
+			{!isSameAuthor && !isCurrentUserSender && (
 				<div className={s.firstLine}>
 					<UserEmoji emoji={getEmojiFromResponse(message.userMood)} />
 					<UserName name={message.userName} />
@@ -33,7 +42,7 @@ export function Message({ message, sameAuthor, index }: Props) {
 						hour: '2-digit',
 						minute: '2-digit',
 					})}
-					isAuthor={false}
+					isAuthor={isCurrentUserSender}
 				/>
 			</div>
 		</div>

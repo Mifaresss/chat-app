@@ -28,6 +28,9 @@
 .logo {
 	width: 8.125rem;
 }
+.burgerButtonWrapper {
+	display: none;
+}
 
 @media (max-width: 950px) {
 	.socialBlock {
@@ -43,6 +46,9 @@
 @media (max-width: 812px) {
 	.navWrapper {
 		gap: 0;
+	}
+	.burgerButtonWrapper {
+		display: block;
 	}
 }
 @media (max-width: 550px) {

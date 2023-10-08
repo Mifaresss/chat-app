@@ -3,21 +3,20 @@ import s from './ChatPageTemplate.module.css'
 import { ChatTextInput } from '@/UI/ChatTextInput/ChatTextInput'
 import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
-import { Message } from '@/modules/ChatRoom/ChatRoom'
-import { Dispatch, useState } from 'react'
+import { Message } from '@/redux/slices/messagesSlice'
+import { Dispatch } from 'react'
 
 interface Props {
 	text: string
 	setText: Dispatch<string>
-	messages: Message[]
 	sendMessage: () => void
 }
 
-export function ChatPageTemplate({ text, setText, messages, sendMessage }: Props) {
+export function ChatPageTemplate({ text, setText, sendMessage }: Props) {
 	return (
 		<div className={s.contentWrapper}>
 			<div className={s.chatBody}>
-				<MessagesBlock messages={messages} />
+				<MessagesBlock />
 				<div className={s.sendBlockWrapper}>
 					<ChatTextInput
 						className={s.sendInput}
@@ -33,7 +32,7 @@ export function ChatPageTemplate({ text, setText, messages, sendMessage }: Props
 							name='send'
 							onClick={sendMessage}
 						/>
-						<SvgIcon className={s.button} src='icons/sprite.svg' name='smile' />
+						{/* <SvgIcon className={s.button} src='icons/sprite.svg' name='smile' /> */}
 					</div>
 				</div>
 			</div>

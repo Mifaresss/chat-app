@@ -4,18 +4,14 @@ import { LoginButton } from '@/UI/LoginButton/LoginButton'
 import logo from '@images/logo.svg'
 import Link from 'next/link'
 import Image from 'next/image'
-import { NavList } from '@/components/NavList/NavList'
 import { SocialMenu } from '@/UI/SocialMenu/SocialMenu'
 import { BurgerMenuButton } from '@/UI/BurgerButton/BurgerButton'
-import { useDispatch, useSelector } from 'react-redux'
-import { useRef, useEffect } from 'react'
-import { RootState } from '@/redux/store'
-import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
+import { useRef } from 'react'
 import { LoginPopup } from '../../components/LoginPopup/LoginPopup'
 import { useAppSelector } from '@/hooks/redux'
-import { AutorizedUser } from '@/UI/AutorizedUser/AutorizedUser'
-import { EditUserPopup } from '@/components/EditUserPopup/EditUserPopup'
 import { Navigation } from './components/Navigation/Navigation'
+import { AutorizedUser } from '@/components/AutorizedUser/AutorizedUser'
+import { ThemeSwitcher } from '@/UI/ThemeSwitcher/ThemeSwitcher'
 
 export function Header() {
 	const { userName, userMood } = useAppSelector(state => state.user)
@@ -48,6 +44,7 @@ export function Header() {
 					) : (
 						<LoginButton label='Вхід' onClick={openPopupHandler} />
 					)}
+					<ThemeSwitcher />
 				</div>
 			</div>
 			<LoginPopup ref={dialogRef} />

@@ -17,6 +17,21 @@
 	--hover-transit: 0.2s;
 }
 
+/* ========== Theme Switcher ========== */
+html[data-theme="dark"] {
+	color-scheme: dark;
+	--color-1: #fffefe;
+	--color-2: #a3afd1;
+	--color-3: #13192b;
+
+	--color-4: #ffd600;
+	--color-5: #13192b;
+	--color-6: #a3afd1;
+	--color-7: #374b88;
+	--color-8: #f4f6ff;
+}
+/* ========== Theme Switcher End ========== */
+
 html {
 	overflow-y: scroll;
 }

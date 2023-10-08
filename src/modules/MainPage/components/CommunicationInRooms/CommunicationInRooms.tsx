@@ -19,7 +19,7 @@ export function CommunicationInRooms() {
 				<div className={s.content}>
 					<InfoList
 						className={s.infoList}
-						listStyleImg={communicationSectionData.listItems.icon}
+						imgId='communication-item-icon'
 						listItems={communicationSectionData.listItems.data}
 					/>
 				</div>

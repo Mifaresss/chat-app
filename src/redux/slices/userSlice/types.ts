@@ -1,6 +1,8 @@
+import { EmojiNumber } from '@/types/emojies'
+
 export interface IAuth {
 	userName: string
-	userMood: number
+	userMood: EmojiNumber
 }
 
 export interface IAuthResponse {
@@ -9,6 +11,6 @@ export interface IAuthResponse {
 	newUser: {
 		_id: string
 		userName: string
-		userMood: number
+		userMood: EmojiNumber
 	}
 }

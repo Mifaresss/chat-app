@@ -1,5 +1,5 @@
 'use client'
-import s from './PrivateChat.module.css'
+import s from './PrivateChats.module.css'
 import { HeroSection } from '../HeroSection/HeroSection'
 import { NotAuthorized } from './components/NotAuthorized/NotAuthorized'
 import { ChatTextInput } from '@/UI/ChatTextInput/ChatTextInput'
@@ -9,7 +9,7 @@ import { BeforeChatBody } from './components/BeforeChatBody/BeforeChatBody'
 import { useAppSelector } from '@/hooks/redux'
 import { useState } from 'react'
 
-export function PrivateChat() {
+export function PrivateChats() {
 	const userId = useAppSelector(state => state.user.userId)
 
 	const [message, setMessage] = useState('')
@@ -26,7 +26,6 @@ export function PrivateChat() {
 			<div className={s.privateChatContainer}>
 				{userId ? (
 					<div className={s.contentWrapper}>
-						<BeforeChatBody />
 						<div className={s.chatBody}>
 							<MessagesBlock />
 							<div className={s.sendBlockWrapper}>

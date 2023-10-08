@@ -10,7 +10,7 @@ namespace InitialState {
 	}
 	export interface Room {
 		readonly id: number
-		readonly name: string
+		readonly title: string
 		readonly description: string
 		readonly image: Image
 	}
@@ -47,10 +47,7 @@ export const roomsSlice = createSlice({
 			})
 			.addCase(fetchRooms.fulfilled, (state, action) => {
 				state.loading = false
-				state.rooms = action.payload.rooms.map((room: any) => ({
-					...room,
-					name: room.roomName,
-				}))
+				state.rooms = action.payload
 			})
 			.addCase(fetchRooms.rejected, (state, action) => {
 				state.loading = false

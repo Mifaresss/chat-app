@@ -41,7 +41,7 @@ export function RoomsListSection({}: Props) {
 				) : (
 					[...rooms]
 						.sort((a, b) => a.id - b.id)
-						.map(({ id, name, description, image }) => (
+						.map(({ id, title, description, image }) => (
 							<Link className={s.cardLink} href={path + '/' + id} key={id}>
 								<InfoCard className={s.card}>
 									<SvgIcon
@@ -50,7 +50,7 @@ export function RoomsListSection({}: Props) {
 										width={100}
 										height={100}
 									/>
-									<SubTitle title={name} />
+									<SubTitle title={title} />
 									<p className={s.text}>{description}</p>
 								</InfoCard>
 							</Link>

@@ -1,0 +1,94 @@
+@import url("https://unpkg.com/open-props/easings.min.css");
+
+/* ====================================== Button ====================================== */
+.themeToggleBtn {
+	--size: 2rem;
+	--icon-fill: hsl(210, 20%, 94%);
+	/* --icon-fill: hsl(57, 94%, 39%); */
+	--icon-fill-hover: hsl(60, 91%, 51%);
+
+	/* position: absolute;
+	top: 16%;
+	right: 2%; */
+
+	background: none;
+	border: none;
+	padding: 0;
+
+	inline-size: var(--size);
+	block-size: var(--size);
+	aspect-ratio: 1;
+	border-radius: 50%;
+
+	cursor: pointer;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
+
+	outline-offset: 5px;
+	transition: hover 0.9s;
+}
+
+/* =================== Button:hover =================== */
+.themeToggleBtn:hover :is(.moon, .sun) {
+	fill: var(--icon-fill-hover);
+}
+.themeToggleBtn:hover .sunBeams {
+	stroke: var(--icon-fill-hover);
+}
+
+/* ====================================== Light Theme ====================================== */
+.sunAndMoon {
+	inline-size: 100%;
+	block-size: 100%;
+	stroke-linecap: round;
+}
+.sunAndMoon :is(.moon, .sun, .sunBeams) {
+	transform-origin: center center;
+}
+.sunAndMoon :is(.moon, .sun) {
+	fill: var(--icon-fill);
+}
+.moon > circle {
+	transition: transform 0.25s var(--ease-out-5);
+
+	@supports (cx: 1) {
+		transition: cx 0.25s var(--ease-out-5);
+	}
+}
+.sun {
+	transition: transform 0.5s var(--ease-elastic-3);
+}
+.sunBeams {
+	stroke-width: 0.125rem;
+	stroke: var(--icon-fill);
+	transition:
+		transform 0.5s var(--ease-elastic-4),
+		opacity 0.5s var(--ease-3);
+}
+
+/* ====================================== Dark Theme ====================================== */
+[data-theme="dark"] .themeToggleBtn {
+	--icon-fill: hsl(213, 23%, 92%);
+	--icon-fill-hover: hsl(226, 74%, 79%);
+}
+[data-theme="dark"] .sun {
+	transform: scale(1.75);
+	transition-timing-function: var(--ease-3);
+	transition-duration: 0.25s;
+}
+[data-theme="dark"] .sunBeams {
+	transform: rotateZ(-25deg);
+	transition-duration: 0.3s;
+
+	opacity: 0;
+}
+[data-theme="dark"] .moon > circle {
+	transform: translateX(-7px);
+	transition-delay: 0.25s;
+	transition-duration: 0.2s;
+
+	@supports (cx: 1) {
+		transform: translateX(0);
+		cx: 17;
+	}
+}

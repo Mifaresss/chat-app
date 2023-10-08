@@ -2,33 +2,29 @@ import { MessageText } from '@/UI/MessageText/MessageText'
 import s from './MessageList.module.css'
 import { UserEmoji } from '@/UI/UserEmoji/UserEmoji'
 import { UserName } from '@/UI/UserName/UserName'
-import { Emoji } from '@/types/emojies'
+import { getEmojiFromResponse } from '@/utils/getEmojiFromResponse'
+import { Message } from '@/redux/slices/messagesSlice'
 
 interface Props {
-	messages: { text: string; date: string }[]
-	userName: string
-	emoji: Emoji
+	message: Message
 }
 
-export function MessageList({ userName, messages, emoji }: Props) {
+export function MessageList({ message }: Props) {
 	return (
 		<div className={s.message}>
 			<div className={s.firstLine}>
-				<UserEmoji emoji={emoji} />
-				<UserName name={userName} />
+				<UserEmoji emoji={getEmojiFromResponse(message.userMood)} />
+				<UserName name={message.userName} />
 			</div>
 			<div className={s.secondLine}>
-				{messages.map(({ text, date }) => (
-					<MessageText
-						key={1}
-						text={text}
-						date={new Date(date).toLocaleTimeString([], {
-							hour: '2-digit',
-							minute: '2-digit',
-						})}
-						isAuthor={false}
-					/>
-				))}
+				<MessageText
+					text={message.text}
+					date={new Date().toLocaleTimeString([], {
+						hour: '2-digit',
+						minute: '2-digit',
+					})}
+					isAuthor={false}
+				/>
 			</div>
 		</div>
 	)

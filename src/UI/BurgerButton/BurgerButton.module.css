@@ -3,7 +3,8 @@
 	z-index: 10;
 	padding: 0.625rem;
 	cursor: pointer;
-	display: none;
+	display: block;
+	max-width: 2.8125rem;
 }
 .burgerButton {
 	display: block;
@@ -58,10 +59,4 @@
 .wrapperButton.open:hover .burgerButton:before,
 .wrapperButton.open:hover .burgerButton:after {
 	width: 100%;
-}
-
-@media (max-width: 812px) {
-	.wrapperButton {
-		display: block;
-	}
 }

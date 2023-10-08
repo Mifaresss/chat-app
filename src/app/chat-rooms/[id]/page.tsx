@@ -1,4 +1,4 @@
-import { Title } from '@/UI/Title/Title'
+import { ChatRoom } from '@/modules/ChatRoom/ChatRoom'
 
 interface Props {
 	params: {
@@ -7,5 +7,5 @@ interface Props {
 }
 
 export default function Room({ params: { id } }: Props) {
-	return <Title style={{ margin: 'auto' }} title={id} />
+	return <ChatRoom id={id} />
 }

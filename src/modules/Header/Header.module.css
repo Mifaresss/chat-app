@@ -23,10 +23,13 @@
 .secondBlockWrapper {
 	display: flex;
 	align-items: center;
-	gap: calc(min(1.5rem + 32 * ((100vw - 840px) / (1320 - 840)), 3.5rem));
+	gap: calc(min(2rem + 24 * ((100vw - 840px) / (1320 - 840)), 3.5rem));
 }
 .logo {
 	width: 8.125rem;
+}
+.burgerButtonWrapper {
+	display: none;
 }
 
 @media (max-width: 950px) {
@@ -44,15 +47,19 @@
 	.navWrapper {
 		gap: 0;
 	}
+	.burgerButtonWrapper {
+		display: block;
+	}
 }
 @media (max-width: 550px) {
 	.socialBlock {
-		position: static;
+		/* position: static;
 		margin-top: 0;
 		padding: 0;
 		background-color: transparent;
 		backdrop-filter: none;
-		border-radius: none;
+		border-radius: none; */
+		display: none;
 	}
 	.headerAutorizedUser {
 		display: none;

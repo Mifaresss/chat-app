@@ -19,8 +19,10 @@ export function RoomsListSection({}: Props) {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(fetchRooms())
-	}, [dispatch])
+		if (rooms.length === 0) {
+			dispatch(fetchRooms())
+		}
+	}, [dispatch, rooms.length])
 
 	return (
 		<section className={s.section}>
@@ -39,22 +41,20 @@ export function RoomsListSection({}: Props) {
 				{loading ? (
 					<Loader />
 				) : (
-					[...rooms]
-						.sort((a, b) => a.id - b.id)
-						.map(({ id, name, description, image }) => (
-							<Link className={s.cardLink} href={path + '/' + id} key={id}>
-								<InfoCard className={s.card}>
-									<SvgIcon
-										src='chat-rooms/second-block/sprite.svg'
-										name={image.name}
-										width={100}
-										height={100}
-									/>
-									<SubTitle title={name} />
-									<p className={s.text}>{description}</p>
-								</InfoCard>
-							</Link>
-						))
+					rooms.map(({ id, title, description, image }) => (
+						<Link className={s.cardLink} href={path + '/' + id} key={id}>
+							<InfoCard className={s.card}>
+								<SvgIcon
+									src='chat-rooms/second-block/sprite.svg'
+									name={image.name}
+									width={100}
+									height={100}
+								/>
+								<SubTitle title={title} />
+								<p className={s.text}>{description}</p>
+							</InfoCard>
+						</Link>
+					))
 				)}
 				{!loading && (
 					<Link className={s.cardLink} href='6'>

@@ -1,16 +1,15 @@
-import { getEmojiFromResponse } from '@/utils/getEmojiFromResponse'
-import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
-import { SvgIcon } from '../SvgIcon/SvgIcon'
 import s from './AutorizedUser.module.css'
-import { useAppDispatch } from '@/hooks/redux'
+import { getEmojiFromResponse } from '@/utils/getEmojiFromResponse'
 import { HTMLAttributes, useRef } from 'react'
-import { logout } from '@/redux/slices/userSlice/userSlice'
 import { LogoutPopup } from '@/components/LogoutPopup/LogoutPopup'
 import { EditUserPopup } from '@/components/EditUserPopup/EditUserPopup'
+import { SubSubTitle } from '@/UI/SubSubTitle/SubSubTitle'
+import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
+import { EmojiNumber } from '@/types/emojies'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
 	name: string
-	emoji: number
+	emoji: EmojiNumber
 	ellipsis?: boolean
 }
 

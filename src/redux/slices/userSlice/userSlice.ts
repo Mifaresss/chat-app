@@ -1,15 +1,16 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { apiInstance } from '@/api/base'
 import { IAuth, IAuthResponse } from './types'
+import { EmojiNumber } from '@/types/emojies'
 
 interface State {
-	userMood: number
+	userMood: EmojiNumber
 	userName: string
 	userId: string
 }
 
 const initialState: State = {
-	userMood: 0,
+	userMood: 1,
 	userName: '',
 	userId: '',
 }
@@ -45,7 +46,7 @@ export const userSlice = createSlice({
 	reducers: {
 		logout(state) {
 			state.userName = ''
-			state.userMood = 0
+			state.userMood = 1
 			state.userId = ''
 		},
 	},

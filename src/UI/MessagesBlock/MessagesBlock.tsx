@@ -1,51 +1,47 @@
-import { MessageList } from '@/components/MessageList/MessageList'
 import s from './MessagesBlock.module.css'
-import { testMessages } from './data'
-import { useEffect, useState } from 'react'
-import { socket } from '@/api/socket'
-import { ConnectionState } from './components/ConnectionState'
-import { Events } from './components/Events'
-import { ConnectionManager } from './components/ConnectionManager'
+import { useEffect, useRef } from 'react'
+import { Loader } from '../Loader/Loader'
+import { Message } from '../Message/Message'
+import { useAppSelector } from '@/hooks/redux'
+import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
 
 interface Props {}
 
 export function MessagesBlock({}: Props) {
-	const [isConnected, setIsConnected] = useState(socket.connected)
-	const [fooEvents, setFooEvents] = useState<any>([])
+	const { messages, loading } = useAppSelector(state => state.messages)
 
+	const scroll = useRef<HTMLDivElement>(null)
 	useEffect(() => {
-		function onConnect() {
-			setIsConnected(true)
+		if (scroll.current) {
+			scroll.current.scrollIntoView({ behavior: 'smooth' })
 		}
-
-		function onDisconnect() {
-			setIsConnected(false)
-		}
-
-		function onFooEvent(value: any) {
-			setFooEvents((previous: any) => [...previous, value])
-		}
-
-		socket.on('connect', onConnect)
-		socket.on('disconnect', onDisconnect)
-		socket.on('foo', onFooEvent)
-
-		return () => {
-			socket.off('connect', onConnect)
-			socket.off('disconnect', onDisconnect)
-			socket.off('foo', onFooEvent)
-		}
-	}, [])
+	}, [messages])
 
 	return (
 		<section className={s.messagesBlock}>
-			{/* <ConnectionState isConnected={isConnected} />
-			<Events events={fooEvents} />
-			<ConnectionManager /> */}
 			<div className={s.messagesWrapper}>
-				{testMessages.map((messageList, i) => (
-					<MessageList key={i} {...messageList} />
-				))}
+				{loading ? (
+					<div style={{ margin: 'auto' }}>
+						<Loader />
+					</div>
+				) : messages.length ? (
+					messages.map((message, index: number) => {
+						const previousMessage = messages[index - 1]
+
+						return (
+							<Message
+								key={index}
+								index={index}
+								previousMessage={previousMessage}
+								message={message}
+							/>
+						)
+					})
+				) : (
+					<div style={{ margin: 'auto' }}>
+						<SubSubTitle label='Поки пусто:) Будь першим!' style={{ textAlign: 'center' }} />
+					</div>
+				)}
 			</div>
 		</section>
 	)

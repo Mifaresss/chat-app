@@ -24,6 +24,12 @@
 	height: 2.5rem;
 }
 
+svg.userMood {
+	--fill-c: transparent;
+	--color-7: #fffefe;
+	--stroke-width: 1.7;
+}
+
 .exitButton {
 	--exit-fill-c: transparent;
 	--stroke-c: white;

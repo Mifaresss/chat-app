@@ -1,4 +1,3 @@
-import { AutorizedUser } from '@/UI/AutorizedUser/AutorizedUser'
 import s from './Navigation.module.css'
 import { NavList } from '@/components/NavList/NavList'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
@@ -8,6 +7,7 @@ import { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { LoginButton } from '@/UI/LoginButton/LoginButton'
 import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
+import { AutorizedUser } from '@/components/AutorizedUser/AutorizedUser'
 
 interface Props {}
 

@@ -1,23 +1,16 @@
 'use client'
-import { RootState } from '@/redux/store'
+import { HTMLAttributes } from 'react'
 import s from './BurgerButton.module.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
 
-interface BurgerButtonProps {}
+interface BurgerButtonProps extends HTMLAttributes<HTMLDivElement> {
+	isOpen?: boolean
+	wrapperClassName?: string
+}
 
-export function BurgerMenuButton({}: BurgerButtonProps) {
-	const dispatch = useDispatch()
-	const isOpen = useSelector((state: RootState) => state.toggleNavMenu.isOpen)
-
+export function BurgerButton({ isOpen, wrapperClassName, className, ...props }: BurgerButtonProps) {
 	return (
-		<div
-			className={[s.wrapperButton, isOpen && s.open].join(' ')}
-			onClick={() => {
-				dispatch(toggleNavMenu(!isOpen))
-			}}
-		>
-			<button className={s.burgerButton}>
+		<div className={[s.wrapperButton, isOpen && s.open, wrapperClassName].join(' ')} {...props}>
+			<button className={[s.burgerButton, className].join(' ')}>
 				<span></span>
 			</button>
 		</div>

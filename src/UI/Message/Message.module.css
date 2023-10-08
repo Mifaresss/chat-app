@@ -1,0 +1,17 @@
+.message {
+	max-width: 60%;
+	width: max-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2813rem;
+}
+
+.firstLine {
+	display: flex;
+	gap: 0.3125rem;
+}
+.secondLine {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}

@@ -11,21 +11,25 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import toggleNavMenuReducer from './slices/toggleNavMenuSlice'
+import toggleChatSideBarReducer from './slices/toggleChatSideBarSlice'
 import userReducer from './slices/userSlice/userSlice'
 import socketReducer from './slices/socketSlice'
 import roomsReducer from './slices/roomsSlice'
+import messagesReducer from './slices/messagesSlice'
 
 const rootReducer = combineReducers({
 	toggleNavMenu: toggleNavMenuReducer,
+	toggleChatSideBar: toggleChatSideBarReducer,
 	user: userReducer,
 	rooms: roomsReducer,
+	messages: messagesReducer,
 	socket: socketReducer,
 })
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['user'],
+	whitelist: ['user', 'rooms'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

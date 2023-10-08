@@ -1,0 +1,34 @@
+.contentWrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: calc(min(0.9375rem + (9 * (1320px - 100vw) / (1320 - 835)), 1.5rem));
+	margin-top: 1.25rem;
+}
+
+.chatBody {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	transition: padding var(--transit);
+}
+.sendBlockWrapper {
+	flex: 1 1 auto;
+	display: flex;
+	gap: calc(min(0.8125rem + 40 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
+}
+.sendButtonsWrapper {
+	display: flex;
+	gap: calc(min(0.8125rem + 40 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
+}
+.button {
+	width: 2.5rem;
+	height: 2.5rem;
+	cursor: pointer;
+}
+
+@media (max-width: 835px) {
+	.chatBody {
+		padding-left: 4.375rem;
+	}
+}

@@ -5,11 +5,10 @@ import contentImg from '@images/what-is-our-chat/content-img.jpg'
 import { Title } from '@/UI/Title/Title'
 import { InfoList } from '@/components/InfoList/InfoList'
 import { Button } from '@/UI/Button/Button'
-import listStyleImg from '@images/what-is-our-chat/item-icon.svg'
 import { altForContentImg, buttonContent, listItems, title } from './data'
 import { useRef } from 'react'
 import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
-import { useAppDispatch, useAppSelector } from '@/hooks/redux'
+import { useAppSelector } from '@/hooks/redux'
 
 export function WhatIsOurChat() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -30,7 +29,7 @@ export function WhatIsOurChat() {
 					<Title title={title} />
 				</div>
 				<div className={s.content}>
-					<InfoList listStyleImg={listStyleImg.src} listItems={listItems} />
+					<InfoList imgId='what-is-item-icon' listItems={listItems} />
 				</div>
 				<Button
 					style={userId ? { display: 'none' } : {}}

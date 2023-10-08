@@ -3,13 +3,14 @@ import s from './LoginPopup.module.css'
 import { MouseEvent, forwardRef, useId, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { authValidationSchema, loginPopupUsersMood } from './data'
 import { Popup } from '@/UI/Popup/Popup'
 import { SubSubTitle } from '@/UI/SubSubTitle/SubSubTitle'
 import { TextField } from '@/UI/TextField/TextField'
 import { Button } from '@/UI/Button/Button'
 import { login } from '@/redux/slices/userSlice/userSlice'
 import { UserMoodRadioInput } from '@/UI/UserMoodRadioInput/UserMoodRadioInput'
+import { EmojiNumber } from '@/types/emojies'
+import { authValidationSchema, loginPopupUsersMood } from './data'
 
 interface FormValues {
 	userName: string
@@ -40,7 +41,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 	async function onSubmit(data: FormValues) {
 		const newData = {
 			userName: data.userName,
-			userMood: Number(data.userMood.at(-1)),
+			userMood: Number(data.userMood.at(-1)) as EmojiNumber,
 		}
 
 		await dispatch(login(newData))

@@ -28,7 +28,6 @@ const initialState: InitialState.Type = {
 export const fetchRooms = createAsyncThunk('rooms/fetchRooms', async () => {
 	try {
 		const response = await apiInstance.get('/rooms')
-		console.log(response)
 		return response.data
 	} catch (error) {
 		throw error

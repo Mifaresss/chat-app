@@ -174,16 +174,13 @@
       </clipPath>
     </defs>
   </symbol>
-  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="send">
-    <g id="Send">
-      <g clip-path="url(#clip0_27_1271)">
-        <path id="Vector" d="M17 23L34 5" stroke="#001966" stroke-linecap="round" stroke-linejoin="round"></path>
-        <path id="Vector_2" d="M34 5L23.7112 34.4746C23.6417 34.6314 23.5302 34.7642 23.3899 34.8573C23.2496 34.9505 23.0864 35 22.9197 35C22.753 35 22.5898 34.9505 22.4495 34.8573C22.3092 34.7642 22.1977 34.6314 22.1283 34.4746L16.5882 23.0122L5.5079 17.2811C5.35636 17.2092 5.22793 17.0939 5.1379 16.9488C5.04786 16.8036 5 16.6348 5 16.4623C5 16.2899 5.04786 16.1211 5.1379 15.9759C5.22793 15.8308 5.35636 15.7154 5.5079 15.6436L34 5Z" stroke="#001966" stroke-linecap="round" stroke-linejoin="round"></path>
-      </g>
-      <rect x="0.5" y="0.5" width="39" height="39" rx="4.5" stroke="#A3AFD1"></rect>
+   <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="send">
+    <g clip-path="url(#clip0_766_3517)">
+      <path d="M17 23L34 5" stroke="#001966" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M34 5L23.7112 34.4746C23.6417 34.6314 23.5302 34.7642 23.3899 34.8573C23.2496 34.9505 23.0864 35 22.9197 35C22.753 35 22.5898 34.9505 22.4495 34.8573C22.3092 34.7642 22.1977 34.6314 22.1283 34.4746L16.5882 23.0122L5.5079 17.2811C5.35636 17.2092 5.22793 17.0939 5.1379 16.9488C5.04786 16.8036 5 16.6348 5 16.4623C5 16.2899 5.04786 16.1211 5.1379 15.9759C5.22793 15.8308 5.35636 15.7154 5.5079 15.6436L34 5Z" stroke="#001966" stroke-linecap="round" stroke-linejoin="round"></path>
     </g>
     <defs>
-      <clipPath id="clip0_27_1271">
+      <clipPath id="clip0_766_3517">
         <rect width="40" height="40" rx="5" fill="white"></rect>
       </clipPath>
     </defs>

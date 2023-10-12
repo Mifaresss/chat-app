@@ -7,6 +7,8 @@ import { connectSocket, socket } from '@/api/socket'
 import { Aside } from '@/UI/Aside/Aside'
 import { fetchRooms } from '@/redux/slices/roomsSlice'
 import { addMessage, setLoading, setMessages } from '@/redux/slices/messagesSlice'
+import { HeroSection } from '../HeroSection/HeroSection'
+import { NotAuthorized } from '../PrivateChats/components/NotAuthorized/NotAuthorized'
 
 interface Props {
 	id: string
@@ -14,7 +16,7 @@ interface Props {
 
 export function ChatRoom({ id }: Props) {
 	const rooms = useAppSelector(state => state.rooms.rooms)
-	const { userId, userName, userMood } = useAppSelector(state => state.user)
+	const userId = useAppSelector(state => state.user.userId)
 
 	const dispatch = useAppDispatch()
 	useEffect(() => {
@@ -23,54 +25,40 @@ export function ChatRoom({ id }: Props) {
 		}
 	}, [dispatch, rooms.length])
 
-	const [text, setText] = useState('')
-
 	useEffect(() => {
-		dispatch(setLoading(true))
-		connectSocket(userId)
-		socket.emit('new-user-add', userId)
-		socket.emit('get-curent-chatRoom', id, userId)
-		socket.on('get-chatRoom', chatRoom => {
-			dispatch(setMessages(chatRoom.messages))
-			dispatch(setLoading(false))
-		})
+		if (userId) {
+			dispatch(setLoading(true))
+			connectSocket(userId)
+			socket.emit('new-user-add', userId)
+			socket.emit('get-curent-chatRoom', id, userId)
+			socket.on('get-chatRoom', chatRoom => {
+				dispatch(setMessages(chatRoom.messages))
+				dispatch(setLoading(false))
+			})
+		}
+
 		return () => {
-			socket.disconnect()
-			socket.off('get-curent-chatRoom')
-			socket.off('get-chatRoom')
-			socket.off('new-user-add')
+			socket?.disconnect()
+			socket?.off('get-curent-chatRoom')
+			socket?.off('get-chatRoom')
+			socket?.off('new-user-add')
 		}
 	}, [userId, id, dispatch])
-
-	function sendMessageHandler() {
-		const message = {
-			text,
-			senderId: userId,
-			chatId: id,
-			userName,
-			userMood,
-		}
-		if (message.text !== '') {
-			setText('')
-			socket.emit('send-message', message)
-		}
-	}
-
-	useEffect(() => {
-		socket.on('receive-message', data => {
-			if (data !== null) {
-				dispatch(addMessage(data))
-			}
-		})
-	}, [dispatch])
 
 	return (
 		<div className={s.wrapper}>
 			<div className={s.mainContainer}>
-				<div className={s.contentWrapper}>
-					<Aside rooms={rooms} />
-					<ChatPageTemplate text={text} setText={setText} sendMessage={sendMessageHandler} />
-				</div>
+				{userId ? (
+					<div className={s.contentWrapper}>
+						<Aside rooms={rooms} />
+						<ChatPageTemplate roomId={id} />
+					</div>
+				) : (
+					<>
+						<HeroSection infoBlock />
+						<NotAuthorized />
+					</>
+				)}
 			</div>
 		</div>
 	)

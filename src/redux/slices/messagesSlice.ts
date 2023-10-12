@@ -1,12 +1,11 @@
-import { EmojiNumber } from '@/types/emojies'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { User } from './userSlice/types'
 
+type OriginUser = Omit<User, 'userId'> & { _id: string }
 export interface Message {
 	text: string
-	senderId: string
 	chatId: string
-	userName: string
-	userMood: EmojiNumber
+	user: OriginUser
 	createdAt: Date
 }
 

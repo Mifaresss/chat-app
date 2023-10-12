@@ -13,7 +13,7 @@ export function ChatTextInput({ value, onKeyDown, ...props }: Props) {
 			placeholder='Напишіть Ваше повідомлення...'
 			value={value}
 			onKeyDown={e => {
-				// e.preventDefault()
+				// e?.key === 'Enter' && !e.shiftKey && e.preventDefault()
 				onKeyDown && onKeyDown(e)
 			}}
 		/>

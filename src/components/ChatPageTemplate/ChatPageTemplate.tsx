@@ -16,23 +16,31 @@ export function ChatPageTemplate({ roomId }: Props) {
 
 	const [text, setText] = useState('')
 
-	function sendMessageHandler(e?: KeyboardEvent<HTMLTextAreaElement>) {
-		const isKeyEnter = e?.key === 'Enter'
+	function sendMessageOnKeyDown(e: KeyboardEvent<HTMLTextAreaElement>) {
+		const isKeyEnter = e.key === 'Enter'
+		const isMessageExist = !!text.trim().length
 
-		if (!text.trim().length) {
-			isKeyEnter && setText('')
-			return
+		if (isKeyEnter) e.preventDefault()
+
+		if (isMessageExist && isKeyEnter) {
+			sendMessage()
+		} else if (!isMessageExist && isKeyEnter) {
+			setText('')
 		}
+	}
 
+	function sendMessageOnClick() {
+		if (text.trim().length) {
+			sendMessage()
+		} else {
+			setText('')
+		}
+	}
+
+	function sendMessage() {
 		const message = { text, senderId: userId, chatId: roomId }
-
-		if (isKeyEnter && !e.shiftKey) {
-			setText('')
-			socket?.emit('send-message', message)
-		} else if (!e) {
-			setText('')
-			socket?.emit('send-message', message)
-		}
+		setText('')
+		socket?.emit('send-message', message)
 	}
 
 	return (
@@ -46,16 +54,14 @@ export function ChatPageTemplate({ roomId }: Props) {
 						onChange={({ target }) => {
 							setText((target as HTMLTextAreaElement).value)
 						}}
-						onKeyDown={sendMessageHandler}
+						onKeyDown={sendMessageOnKeyDown}
 					/>
 					<div className={s.sendButtonsWrapper}>
 						<SvgIcon
 							className={s.button}
 							src='icons/sprite.svg'
 							name='send'
-							onClick={() => {
-								sendMessageHandler()
-							}}
+							onClick={sendMessageOnClick}
 						/>
 						{/* <SvgIcon className={s.button} src='icons/sprite.svg' name='smile' /> */}
 					</div>

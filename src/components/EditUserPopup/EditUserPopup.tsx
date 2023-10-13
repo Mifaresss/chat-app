@@ -51,10 +51,15 @@ export const EditUserPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 			id: userId,
 		}
 
-		await dispatch(update(newData))
-		reset()
-		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
-			ref.current.close()
+		const res = await dispatch(update(newData))
+
+		if (res.payload.code !== 201) {
+			alert(`Виникла помилка: "${res.payload.message}", спробуйте ще раз`)
+		} else {
+			reset()
+			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
+				ref.current.close()
+			}
 		}
 	}
 

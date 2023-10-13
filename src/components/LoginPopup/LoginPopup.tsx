@@ -48,7 +48,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 		const res = await dispatch(login(newData))
 
 		if (res.payload.code !== 201) {
-			alert(`Виникла помилка: ${res.payload.message}, спробуйте ще раз`)
+			alert(`Виникла помилка: "${res.payload.message}", спробуйте ще раз`)
 		} else {
 			reset()
 			if (typeof ref === 'object' && ref !== null && ref.current !== null) {

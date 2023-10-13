@@ -53,7 +53,7 @@ export const EditUserPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 
 		const res = await dispatch(update(newData))
 
-		if (res.payload.code !== 201) {
+		if (res.payload.code !== 200) {
 			alert(`Виникла помилка: "${res.payload.message}", спробуйте ще раз`)
 		} else {
 			reset()

@@ -11,6 +11,7 @@ import { Button } from '@/UI/Button/Button'
 import { getEmojiFromResponse } from '@/utils/getEmojiFromResponse'
 import { login, update } from '@/redux/slices/userSlice/userSlice'
 import { UserMoodRadioInput } from '@/UI/UserMoodRadioInput/UserMoodRadioInput'
+import { PassiveButton } from '@/UI/PassiveButton/PassiveButton'
 
 interface FormValues {
 	userName: string
@@ -92,7 +93,7 @@ export const EditUserPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 						))}
 					</div>
 					<div className={s.wrapperButtons}>
-						<Button
+						<PassiveButton
 							type='button'
 							title='Закрити'
 							onClick={closeModalHandler}

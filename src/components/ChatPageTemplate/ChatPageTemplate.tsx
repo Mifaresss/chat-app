@@ -5,7 +5,7 @@ import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { socket } from '@/api/socket'
 import { useAppSelector } from '@/hooks/redux'
-import { Dispatch, KeyboardEvent, MouseEventHandler, useState } from 'react'
+import { KeyboardEvent, useState } from 'react'
 
 interface Props {
 	roomId: string

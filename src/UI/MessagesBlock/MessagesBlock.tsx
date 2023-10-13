@@ -23,7 +23,6 @@ export function MessagesBlock({}: Props) {
 
 	useEffect(() => {
 		socket?.on('receive-message', data => {
-			console.log('receive-message:', data)
 			if (data != null) {
 				dispatch(addMessage(data))
 			}

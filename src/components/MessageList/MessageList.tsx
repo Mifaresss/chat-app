@@ -13,8 +13,8 @@ export function MessageList({ message }: Props) {
 	return (
 		<div className={s.message}>
 			<div className={s.firstLine}>
-				<UserEmoji emoji={getEmojiFromResponse(message.userMood)} />
-				<UserName name={message.userName} />
+				<UserEmoji emoji={getEmojiFromResponse(message?.user?.userMood)} />
+				<UserName name={message?.user?.userName} />
 			</div>
 			<div className={s.secondLine}>
 				<MessageText

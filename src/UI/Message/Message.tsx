@@ -15,8 +15,8 @@ interface Props {
 export function Message({ message, previousMessage, index }: Props) {
 	const userId = useAppSelector(state => state.user.userId)
 
-	const isCurrentUserSender = message?.senderId === userId
-	const isSameAuthor = previousMessage?.senderId === message.senderId
+	const isCurrentUserSender = message?.user?._id === userId
+	const isSameAuthor = previousMessage?.user?._id === message?.user?._id
 
 	const marginTop = isSameAuthor ? '0.25rem' : '1rem'
 	const marginLeft = isCurrentUserSender ? 'auto' : ''
@@ -31,14 +31,14 @@ export function Message({ message, previousMessage, index }: Props) {
 		<div className={s.message} style={style}>
 			{!isSameAuthor && !isCurrentUserSender && (
 				<div className={s.firstLine}>
-					<UserEmoji emoji={getEmojiFromResponse(message.userMood)} />
-					<UserName name={message.userName} />
+					<UserEmoji emoji={getEmojiFromResponse(message?.user?.userMood)} />
+					<UserName name={message?.user?.userName} />
 				</div>
 			)}
 			<div className={s.secondLine}>
 				<MessageText
-					text={message.text}
-					date={new Date().toLocaleTimeString([], {
+					text={message?.text}
+					date={new Date(message?.createdAt).toLocaleTimeString([], {
 						hour: '2-digit',
 						minute: '2-digit',
 					})}

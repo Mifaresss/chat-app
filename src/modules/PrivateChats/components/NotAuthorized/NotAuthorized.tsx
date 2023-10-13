@@ -5,6 +5,7 @@ import { SubTitle } from '@/UI/SubTitle/SubTitle'
 import { Button } from '@/UI/Button/Button'
 import Link from 'next/link'
 import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
+import { PassiveButton } from '@/UI/PassiveButton/PassiveButton'
 
 export function NotAuthorized() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -21,7 +22,7 @@ export function NotAuthorized() {
 				<SubTitle title='На жаль, ти ще не авторизований!' align='center' />
 				<div className={s.wrapperButtons}>
 					<Link href='/'>
-						<Button title='На головну' />
+						<PassiveButton title='На головну' />
 					</Link>
 					<Button title='Авторизуватися' onClick={openPopupHandler} />
 				</div>

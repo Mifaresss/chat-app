@@ -9,8 +9,6 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
 	icon?: string
 	chatName: string
 	chatId: string
-
-	onClick?: () => void
 }
 
 export function ChatName({ icon, chatName, chatId, className, ...props }: Props) {

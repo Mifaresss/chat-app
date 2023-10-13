@@ -2,20 +2,32 @@ import s from './MessagesBlock.module.css'
 import { useEffect, useRef } from 'react'
 import { Loader } from '../Loader/Loader'
 import { Message } from '../Message/Message'
-import { useAppSelector } from '@/hooks/redux'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
+import { socket } from '@/api/socket'
+import { addMessage } from '@/redux/slices/messagesSlice'
 
 interface Props {}
 
 export function MessagesBlock({}: Props) {
 	const { messages, loading } = useAppSelector(state => state.messages)
 
-	const scroll = useRef<HTMLDivElement>(null)
+	const dispatch = useAppDispatch()
+
+	const messagesEndRef = useRef<HTMLDivElement>(null)
 	useEffect(() => {
-		if (scroll.current) {
-			scroll.current.scrollIntoView({ behavior: 'smooth' })
+		if (messagesEndRef.current) {
+			messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' })
 		}
 	}, [messages])
+
+	useEffect(() => {
+		socket?.on('receive-message', data => {
+			if (data != null) {
+				dispatch(addMessage(data))
+			}
+		})
+	}, [dispatch])
 
 	return (
 		<section className={s.messagesBlock}>
@@ -42,6 +54,7 @@ export function MessagesBlock({}: Props) {
 						<SubSubTitle label='Поки пусто:) Будь першим!' style={{ textAlign: 'center' }} />
 					</div>
 				)}
+				<div ref={messagesEndRef}></div>
 			</div>
 		</section>
 	)

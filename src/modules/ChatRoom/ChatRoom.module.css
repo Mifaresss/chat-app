@@ -14,3 +14,9 @@
 	justify-content: space-between;
 	gap: 1rem;
 }
+
+@media (max-width: 835px) {
+	.mainContainer {
+		gap: calc(min(1.5rem + (36 * (835px - 100vw) / (835 - 320)), 3.75rem));
+	}
+}

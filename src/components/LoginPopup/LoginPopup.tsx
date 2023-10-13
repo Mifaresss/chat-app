@@ -11,6 +11,7 @@ import { login } from '@/redux/slices/userSlice/userSlice'
 import { UserMoodRadioInput } from '@/UI/UserMoodRadioInput/UserMoodRadioInput'
 import { EmojiNumber } from '@/types/emojies'
 import { authValidationSchema, loginPopupUsersMood } from './data'
+import { PassiveButton } from '@/UI/PassiveButton/PassiveButton'
 
 interface FormValues {
 	userName: string
@@ -44,10 +45,15 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 			userMood: Number(data.userMood.at(-1)) as EmojiNumber,
 		}
 
-		await dispatch(login(newData))
-		reset()
-		if (typeof ref === 'object' && ref !== null && ref.current !== null) {
-			ref.current.close()
+		const res = await dispatch(login(newData))
+
+		if (res.payload.code !== 201) {
+			alert(`Виникла помилка: "${res.payload.message}", спробуйте ще раз`)
+		} else {
+			reset()
+			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
+				ref.current.close()
+			}
 		}
 	}
 
@@ -81,7 +87,7 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 						))}
 					</div>
 					<div className={s.wrapperButtons}>
-						<Button
+						<PassiveButton
 							type='button'
 							title='Закрити'
 							onClick={closeModalHandler}

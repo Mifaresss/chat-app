@@ -21,7 +21,7 @@ export function Header() {
 
 	const dispatch = useAppDispatch()
 
-	const dialogRef = useRef<HTMLDialogElement | null>(null)
+	const dialogRef = useRef<HTMLDialogElement>(null)
 	function openPopupHandler() {
 		if (dialogRef.current) {
 			dialogRef.current.showModal()
@@ -47,6 +47,7 @@ export function Header() {
 				</div>
 				<div className={s.secondBlockWrapper}>
 					<SocialMenu className={s.socialBlock} />
+					<ThemeSwitcher />
 					{userName ? (
 						<AutorizedUser
 							className={s.headerAutorizedUser}
@@ -56,7 +57,6 @@ export function Header() {
 					) : (
 						<LoginButton label='Вхід' onClick={openPopupHandler} />
 					)}
-					<ThemeSwitcher />
 				</div>
 			</div>
 			<LoginPopup ref={dialogRef} />

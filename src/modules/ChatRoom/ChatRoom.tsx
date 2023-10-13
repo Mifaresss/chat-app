@@ -32,6 +32,7 @@ export function ChatRoom({ id }: Props) {
 			socket.emit('new-user-add', userId)
 			socket.emit('get-curent-chatRoom', id, userId)
 			socket.on('get-chatRoom', chatRoom => {
+				console.log('chatRoom:', chatRoom)
 				dispatch(setMessages(chatRoom.messages))
 				dispatch(setLoading(false))
 			})

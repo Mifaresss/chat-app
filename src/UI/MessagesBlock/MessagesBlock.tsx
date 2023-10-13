@@ -29,8 +29,6 @@ export function MessagesBlock({}: Props) {
 		})
 	}, [dispatch])
 
-	console.log('messages:', messages)
-
 	return (
 		<section className={s.messagesBlock}>
 			<div className={s.messagesWrapper}>

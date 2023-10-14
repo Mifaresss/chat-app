@@ -23,10 +23,6 @@ export function Message({ message, previousMessage, index }: Props) {
 
 	const style = { marginTop, marginLeft }
 
-	if (index === 0) {
-		style.marginTop = '0rem'
-	}
-
 	return (
 		<div className={s.message} style={style}>
 			{!isSameAuthor && !isCurrentUserSender && (

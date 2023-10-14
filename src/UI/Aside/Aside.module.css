@@ -1,6 +1,5 @@
 .aside {
 	background-color: var(--color-5);
-	min-height: 100%;
 	max-width: 25rem;
 	width: 100%;
 	flex: 1 1 25rem;
@@ -8,10 +7,11 @@
 	border-bottom-left-radius: 0.3125rem;
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
-	padding-top: 1.25rem;
+	gap: 0.625rem;
+	padding: 1.25rem 0;
 	text-wrap: nowrap;
 	text-overflow: ellipsis;
+	overflow-y: auto;
 
 	transition: max-width var(--transit);
 }
@@ -28,20 +28,20 @@
 }
 
 @media (max-width: 835px) {
-	.burgerButtonWrapper {
+	/* .burgerButtonWrapper {
 		display: inline;
-	}
+	} */
 	.aside {
-		position: absolute;
+		/* position: absolute; */
 		max-width: 3.75rem;
-		overflow: hidden;
+		/* overflow: hidden; */
 	}
-	.aside.open {
+	/* .aside.open {
 		max-width: 12rem;
 		overflow: initial;
-	}
+	} */
 
-	.chatName {
+	/* .chatName {
 		transition: opacity var(--transit);
 		opacity: 0;
 		pointer-events: none;
@@ -52,5 +52,5 @@
 		width: 100%;
 		opacity: 1;
 		pointer-events: auto;
-	}
+	} */
 }

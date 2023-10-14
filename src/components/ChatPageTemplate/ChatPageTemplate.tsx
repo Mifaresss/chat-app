@@ -44,27 +44,25 @@ export function ChatPageTemplate({ roomId }: Props) {
 	}
 
 	return (
-		<div className={s.contentWrapper}>
-			<div className={s.chatBody}>
-				<MessagesBlock />
-				<div className={s.sendBlockWrapper}>
-					<ChatTextInput
-						className={s.sendInput}
-						value={text}
-						onChange={({ target }) => {
-							setText((target as HTMLTextAreaElement).value)
-						}}
-						onKeyDown={sendMessageOnKeyDown}
+		<div className={s.chatBody}>
+			<MessagesBlock />
+			<div className={s.sendBlockWrapper}>
+				<ChatTextInput
+					className={s.sendInput}
+					value={text}
+					onChange={({ target }) => {
+						setText((target as HTMLTextAreaElement).value)
+					}}
+					onKeyDown={sendMessageOnKeyDown}
+				/>
+				<div className={s.sendButtonsWrapper}>
+					<SvgIcon
+						className={s.button}
+						src='icons/sprite.svg'
+						name='send'
+						onClick={sendMessageOnClick}
 					/>
-					<div className={s.sendButtonsWrapper}>
-						<SvgIcon
-							className={s.button}
-							src='icons/sprite.svg'
-							name='send'
-							onClick={sendMessageOnClick}
-						/>
-						{/* <SvgIcon className={s.button} src='icons/sprite.svg' name='smile' /> */}
-					</div>
+					{/* <SvgIcon className={s.button} src='icons/sprite.svg' name='smile' /> */}
 				</div>
 			</div>
 		</div>

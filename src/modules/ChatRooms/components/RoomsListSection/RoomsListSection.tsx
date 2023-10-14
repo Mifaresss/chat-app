@@ -24,6 +24,8 @@ export function RoomsListSection({}: Props) {
 		}
 	}, [dispatch, rooms.length])
 
+	console.log('rooms:', rooms)
+
 	return (
 		<section className={s.section}>
 			<Title
@@ -41,15 +43,10 @@ export function RoomsListSection({}: Props) {
 				{loading ? (
 					<Loader />
 				) : (
-					rooms.map(({ id, title, description, image }) => (
+					rooms.map(({ id, title, description }) => (
 						<Link className={s.cardLink} href={path + '/' + id} key={id}>
 							<InfoCard className={s.card}>
-								<SvgIcon
-									src='chat-rooms/second-block/sprite.svg'
-									name={image.name}
-									width={100}
-									height={100}
-								/>
+								<SvgIcon src='icons/sprite.svg' name={id} width={100} height={100} />
 								<SubTitle title={title} />
 								<p className={s.text}>{description}</p>
 							</InfoCard>

@@ -1,16 +1,22 @@
 .wrapper {
 	width: 100%;
 	display: flex;
-	gap: 0.5rem;
+	gap: 0.625rem;
 	align-items: center;
-	padding: 0.3125rem 0.625rem;
+	padding: 0.625rem;
 }
 
 .chatName {
 	width: 100%;
-	font-size: 0.875rem;
+	font-size: 1rem;
 	font-weight: 300;
 	line-height: 1.7;
 	color: var(--color-2);
 	cursor: pointer;
+}
+
+@media (max-width: 835px) {
+	.chatName {
+		display: none;
+	}
 }

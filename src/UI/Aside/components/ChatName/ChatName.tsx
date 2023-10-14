@@ -6,12 +6,11 @@ import Link from 'next/link'
 import { HTMLAttributes } from 'react'
 
 interface Props extends HTMLAttributes<HTMLAnchorElement> {
-	icon?: string
 	chatName: string
 	chatId: string
 }
 
-export function ChatName({ icon, chatName, chatId, className, ...props }: Props) {
+export function ChatName({ chatName, chatId, className, ...props }: Props) {
 	const pathName = usePathname()
 	const isActive = chatId === pathName.substring(pathName.lastIndexOf('/') + 1)
 
@@ -19,13 +18,7 @@ export function ChatName({ icon, chatName, chatId, className, ...props }: Props)
 
 	return (
 		<Link href={chatId} className={[s.wrapper, className].join(' ')} style={style} {...props}>
-			<SvgIcon
-				className={s.icon}
-				width={30}
-				height={30}
-				src='icons/sprite.svg'
-				name={icon ?? 'mail'}
-			/>
+			<SvgIcon className={s.icon} width={40} height={40} src='icons/sprite.svg' name={chatId} />
 			<p className={s.chatName}>{chatName}</p>
 		</Link>
 	)

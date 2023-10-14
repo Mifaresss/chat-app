@@ -1,4 +1,5 @@
 .chatTextInput {
+	color: var(--color-2);
 	border: 0.0625rem solid var(--color-6);
 	border-radius: 0.3125rem;
 	padding: 0.5rem 1rem;

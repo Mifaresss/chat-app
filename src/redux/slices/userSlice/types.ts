@@ -8,5 +8,11 @@ export interface User {
 	userMood: EmojiNumber
 	userName: string
 	userId: string
-	error: string | null
+	error: UserError
+}
+
+export interface UserError {
+	login: string | null
+	update: string | null
+	logout: string | null
 }

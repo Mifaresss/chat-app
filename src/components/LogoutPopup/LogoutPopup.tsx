@@ -1,5 +1,5 @@
 import s from './LogoutPopup.module.css'
-import { useAppDispatch } from '@/hooks/redux'
+import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { MouseEvent, forwardRef } from 'react'
 import { Popup } from '@/UI/Popup/Popup'
 import { Button } from '@/UI/Button/Button'
@@ -8,6 +8,8 @@ import { SubTitle } from '@/UI/SubTitle/SubTitle'
 
 // eslint-disable-next-line react/display-name
 export const LogoutPopup = forwardRef<HTMLDialogElement>((props, ref) => {
+	const userId = useAppSelector(state => state.user.userId)
+
 	const dispatch = useAppDispatch()
 
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
@@ -18,7 +20,7 @@ export const LogoutPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 	}
 
 	function confirmHandler(e: MouseEvent<HTMLButtonElement>) {
-		dispatch(logout())
+		dispatch(logout(userId))
 	}
 
 	return (

@@ -26,6 +26,7 @@
 
 .cardLink {
 	display: flex;
+	cursor: pointer;
 }
 .cardLink:hover .card {
 	border-color: var(--color-5);

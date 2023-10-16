@@ -36,7 +36,7 @@ export const privateChatsSlice = createSlice({
 	initialState,
 	reducers: {
 		setPrivateChats(state, action) {
-			// state.chats = action.payload.chats
+			state.chats = action.payload
 		},
 	},
 	extraReducers: builder => {

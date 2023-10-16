@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import s from './RoomsListSection.module.css'
 import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'
@@ -8,13 +8,26 @@ import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import Link from 'next/link'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { fetchRooms } from '@/redux/slices/roomsSlice'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Loader } from '@/UI/Loader/Loader'
+import { Socket, io } from 'socket.io-client'
+import { apiBaseUrl } from '@/api/base'
+
+const privateChatUrl = apiBaseUrl + 'private-chat'
+let privateSocket: Socket
+const connectSocket = ({ user_id }: { user_id: string }): void => {
+	privateSocket = io(privateChatUrl, {
+		query: {
+			user_id,
+		},
+	})
+}
 
 interface Props {}
 
 export function RoomsListSection({}: Props) {
 	const { rooms, loading, error } = useAppSelector(state => state.rooms)
+	const userId = useAppSelector(state => state.user.userId)
 	const path = usePathname()
 	const dispatch = useAppDispatch()
 
@@ -23,6 +36,18 @@ export function RoomsListSection({}: Props) {
 			dispatch(fetchRooms())
 		}
 	}, [dispatch, rooms.length])
+
+	const router = useRouter()
+
+	async function addNewPrivateChat() {
+		await connectSocket({ user_id: userId })
+		privateSocket?.on('history', data => {
+			if (data.chat_id) {
+				console.log(path)
+				router.push('/private-chats/' + data.chat_id)
+			}
+		})
+	}
 
 	return (
 		<section className={s.section}>
@@ -50,7 +75,7 @@ export function RoomsListSection({}: Props) {
 					))
 				)}
 				{!loading && (
-					<Link className={s.cardLink} href='6'>
+					<div className={s.cardLink} onClick={addNewPrivateChat}>
 						<InfoCard className={s.card}>
 							<SvgIcon
 								src='chat-rooms/second-block/sprite.svg'
@@ -64,7 +89,7 @@ export function RoomsListSection({}: Props) {
 								однодумців для спілкування!
 							</p>
 						</InfoCard>
-					</Link>
+					</div>
 				)}
 			</div>
 		</section>

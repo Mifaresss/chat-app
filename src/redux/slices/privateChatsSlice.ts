@@ -24,7 +24,6 @@ export const fetchPrivateChats = createAsyncThunk(
 	async (userId: string) => {
 		try {
 			const response = await apiInstance.get(`/privates/${userId}`)
-			console.log(response.data)
 			return response.data
 		} catch (error) {
 			throw error

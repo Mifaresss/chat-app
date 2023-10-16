@@ -15,8 +15,8 @@ import toggleChatSideBarReducer from './slices/toggleChatSideBarSlice'
 import userReducer from './slices/userSlice/userSlice'
 import roomsReducer from './slices/roomsSlice'
 import privateChatsReducer from './slices/privateChatsSlice'
-import messagesReducer from './slices/messagesSlice'
 import privateChatReducer from './slices/privatChatSlice.ts'
+import messagesReducer from './slices/messagesSlice'
 
 const rootReducer = combineReducers({
 	toggleNavMenu: toggleNavMenuReducer,

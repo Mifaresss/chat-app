@@ -43,7 +43,6 @@ export function RoomsListSection({}: Props) {
 		await connectSocket({ user_id: userId })
 		privateSocket?.on('history', data => {
 			if (data.chat_id) {
-				console.log(path)
 				router.push('/private-chats/' + data.chat_id)
 			}
 		})

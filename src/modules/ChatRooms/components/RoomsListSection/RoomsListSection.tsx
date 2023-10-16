@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import s from './RoomsListSection.module.css'
 import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'

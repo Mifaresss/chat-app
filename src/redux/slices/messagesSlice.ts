@@ -29,11 +29,11 @@ const messagesSlice = createSlice({
 		addMessage: (state, action: PayloadAction<Message>) => {
 			state.messages.push(action.payload)
 		},
-		setLoading: (state, action: PayloadAction<boolean>) => {
+		setMessagesLoading: (state, action: PayloadAction<boolean>) => {
 			state.loading = action.payload
 		},
 	},
 })
 
-export const { setMessages, addMessage, setLoading } = messagesSlice.actions
+export const { setMessages, addMessage, setMessagesLoading } = messagesSlice.actions
 export default messagesSlice.reducer

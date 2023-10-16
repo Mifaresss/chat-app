@@ -1,0 +1,23 @@
+.wrapper {
+	flex: 1 1 auto;
+}
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	gap: calc(min(1.5rem + 72 * ((100vw - 834px) / (1320 - 834)), 6rem));
+	margin-bottom: calc(min(5rem + 40 * ((100vw - 320px) / (1320 - 320)), 7.5rem));
+}
+
+.contentWrapper {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	height: 90vh;
+}
+
+@media (max-width: 835px) {
+	.mainContainer {
+		gap: calc(min(1.5rem + (36 * (835px - 100vw) / (835 - 320)), 3.75rem));
+	}
+}

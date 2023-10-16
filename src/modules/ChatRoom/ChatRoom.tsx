@@ -1,12 +1,12 @@
 'use client'
 import s from './ChatRoom.module.css'
 import { ChatPageTemplate } from '@/components/ChatPageTemplate/ChatPageTemplate'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 // import { connectSocket, socket } from '@/api/socket'
 import { Aside } from '@/UI/Aside/Aside'
 import { fetchRooms } from '@/redux/slices/roomsSlice'
-import { addMessage, setLoading, setMessages } from '@/redux/slices/messagesSlice'
+import { addMessage, setMessagesLoading, setMessages, Message } from '@/redux/slices/messagesSlice'
 import { HeroSection } from '../HeroSection/HeroSection'
 import { NotAuthorized } from '../PrivateChats/components/NotAuthorized/NotAuthorized'
 import { socket } from '@/api/socket'
@@ -27,23 +27,29 @@ export function ChatRoom({ id }: Props) {
 	}, [dispatch, rooms.length])
 
 	useEffect(() => {
+		const handleReceiveMessage = (message: Message) => {
+			dispatch(addMessage(message))
+		}
+
 		if (userId) {
-			dispatch(setLoading(true))
+			dispatch(setMessagesLoading(true))
 			// connectSocket(userId)
 			socket.connect()
 			socket.emit('new-user-add', userId)
 			socket.emit('get-curent-chatRoom', id, userId)
 			socket.on('get-chatRoom', chatRoom => {
 				dispatch(setMessages(chatRoom.messages))
-				dispatch(setLoading(false))
+				dispatch(setMessagesLoading(false))
 			})
+			socket.on('receive-message', handleReceiveMessage)
 		}
 
 		return () => {
-			socket?.disconnect()
 			socket?.off('get-curent-chatRoom')
 			socket?.off('get-chatRoom')
 			socket?.off('new-user-add')
+			socket?.off('receive-message', handleReceiveMessage)
+			socket?.disconnect()
 		}
 	}, [userId, id, dispatch])
 

@@ -1,15 +1,17 @@
-import s from './LogoutPopup.module.css'
+import s from './LeaveChatPopup.module.css'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { MouseEvent, forwardRef } from 'react'
 import { Popup } from '@/UI/Popup/Popup'
 import { Button } from '@/UI/Button/Button'
-import { logout } from '@/redux/slices/userSlice/userSlice'
 import { SubTitle } from '@/UI/SubTitle/SubTitle'
+import { PassiveButton } from '@/UI/PassiveButton/PassiveButton'
+
+interface Props {
+	chatId: string | null
+}
 
 // eslint-disable-next-line react/display-name
-export const LogoutPopup = forwardRef<HTMLDialogElement>((props, ref) => {
-	const userId = useAppSelector(state => state.user.userId)
-
+export const LeaveChatPopup = forwardRef<HTMLDialogElement, Props>((props, ref) => {
 	const dispatch = useAppDispatch()
 
 	function closeModalHandler(e: MouseEvent<HTMLButtonElement>) {
@@ -20,18 +22,15 @@ export const LogoutPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 	}
 
 	function confirmHandler(e: MouseEvent<HTMLButtonElement>) {
-		dispatch(logout(userId))
+		// dispatch(logout(props.chatId))
 	}
 
 	return (
 		<Popup ref={ref}>
 			<div className={s.wrapper}>
-				<SubTitle
-					className={s.title}
-					title='Точно хочеш вийти? Зайти під цим аккаунтом вже не зможеш'
-				/>
+				<SubTitle className={s.title} title='Вийти?' />
 				<div className={s.wrapperButtons}>
-					<Button
+					<PassiveButton
 						type='button'
 						title='Закрити'
 						onClick={closeModalHandler}

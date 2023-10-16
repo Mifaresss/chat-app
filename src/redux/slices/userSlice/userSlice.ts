@@ -6,7 +6,11 @@ const initialState: User = {
 	userMood: 1,
 	userName: '',
 	userId: '',
-	error: null,
+	error: {
+		login: null,
+		update: null,
+		logout: null,
+	},
 }
 
 export const login = createAsyncThunk(
@@ -34,16 +38,19 @@ export const update = createAsyncThunk('updateUser', async (req: any) => {
 	}
 })
 
+export const logout = createAsyncThunk('logoutUser', async (userId: any) => {
+	try {
+		const { data } = await apiInstance.get(`auth/logout/${userId}`)
+		return data
+	} catch (error) {
+		return error
+	}
+})
+
 export const userSlice = createSlice({
 	name: 'user',
 	initialState,
-	reducers: {
-		logout(state) {
-			state.userName = ''
-			state.userMood = 1
-			state.userId = ''
-		},
-	},
+	reducers: {},
 	extraReducers: builder => {
 		builder
 			.addCase(login.fulfilled, (state, action) => {
@@ -52,17 +59,28 @@ export const userSlice = createSlice({
 				state.userId = action.payload.newUser._id
 			})
 			.addCase(login.rejected, (state, action: any) => {
-				state.error = action?.payload?.message
+				state.error.login = action?.payload?.message ?? null
 			})
+
 			.addCase(update.fulfilled, (state, action) => {
 				state.userName = action.payload.updatedUser.userName
 				state.userMood = action.payload.updatedUser.userMood
 			})
-			.addCase(update.rejected, (state, action) => {
+			.addCase(update.rejected, (state, action: any) => {
+				state.error.update = action?.payload?.message ?? null
+				console.log('ERROR in update reducer:', action)
+			})
+
+			.addCase(logout.fulfilled, state => {
+				state.userName = ''
+				state.userMood = 1
+				state.userId = ''
+			})
+			.addCase(logout.rejected, (state, action: any) => {
+				state.error.logout = action?.payload?.message ?? null
 				console.log('ERROR in update reducer:', action)
 			})
 	},
 })
 
-export const { logout } = userSlice.actions
 export default userSlice.reducer

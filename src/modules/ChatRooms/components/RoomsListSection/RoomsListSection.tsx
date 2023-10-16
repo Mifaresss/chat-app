@@ -24,17 +24,13 @@ export function RoomsListSection({}: Props) {
 		}
 	}, [dispatch, rooms.length])
 
-	console.log('rooms:', rooms)
-
 	return (
 		<section className={s.section}>
 			<Title
 				title={
 					loading
 						? 'Почекай трохи, щось з твоїм інетом (або сервером)...'
-						: error
-						? error
-						: 'Обери чат-кімнату для спілкування:'
+						: error || 'Обери чат-кімнату для спілкування:'
 				}
 				className={s.title}
 				justify='center'

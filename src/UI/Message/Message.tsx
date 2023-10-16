@@ -9,10 +9,9 @@ import { Message } from '@/redux/slices/messagesSlice'
 interface Props {
 	message: Message
 	previousMessage: Message
-	index: number
 }
 
-export function Message({ message, previousMessage, index }: Props) {
+export function Message({ message, previousMessage }: Props) {
 	const userId = useAppSelector(state => state.user.userId)
 
 	const isCurrentUserSender = message?.user?._id === userId

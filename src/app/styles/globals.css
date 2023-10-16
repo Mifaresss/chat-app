@@ -18,7 +18,7 @@
 }
 
 /* ========== Theme Switcher ========== */
-html[data-theme="dark"] {
+/* html[data-theme="dark"] {
 	color-scheme: dark;
 	--color-1: #fffefe;
 	--color-2: #a3afd1;
@@ -29,7 +29,7 @@ html[data-theme="dark"] {
 	--color-6: #a3afd1;
 	--color-7: #374b88;
 	--color-8: #f4f6ff;
-}
+} */
 /* ========== Theme Switcher End ========== */
 
 html {

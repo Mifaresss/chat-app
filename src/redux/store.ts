@@ -13,17 +13,19 @@ import storage from 'redux-persist/lib/storage'
 import toggleNavMenuReducer from './slices/toggleNavMenuSlice'
 import toggleChatSideBarReducer from './slices/toggleChatSideBarSlice'
 import userReducer from './slices/userSlice/userSlice'
-import socketReducer from './slices/socketSlice'
 import roomsReducer from './slices/roomsSlice'
+import privateChatsReducer from './slices/privateChatsSlice'
 import messagesReducer from './slices/messagesSlice'
+import privateChatReducer from './slices/privatChatSlice.ts'
 
 const rootReducer = combineReducers({
 	toggleNavMenu: toggleNavMenuReducer,
 	toggleChatSideBar: toggleChatSideBarReducer,
 	user: userReducer,
 	rooms: roomsReducer,
+	privateChats: privateChatsReducer,
+	privateChat: privateChatReducer,
 	messages: messagesReducer,
-	socket: socketReducer,
 })
 
 const persistConfig = {

@@ -9,7 +9,7 @@ const initialState: ToggleNavMenuState = {
 }
 
 const toggleNavMenuSlice = createSlice({
-	name: 'toggleNavMenu',
+	name: 'chat',
 	initialState,
 	reducers: {
 		toggleNavMenu(state, action: PayloadAction<boolean>) {

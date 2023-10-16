@@ -35,7 +35,7 @@ export const fetchRooms = createAsyncThunk('rooms/fetchRooms', async () => {
 })
 
 export const roomsSlice = createSlice({
-	name: 'auth',
+	name: 'rooms',
 	initialState,
 	reducers: {},
 	extraReducers: builder => {

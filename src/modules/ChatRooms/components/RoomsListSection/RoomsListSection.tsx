@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import s from './RoomsListSection.module.css'
 import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'
@@ -7,21 +7,11 @@ import { SubTitle } from '@/UI/SubTitle/SubTitle'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import Link from 'next/link'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
-import { fetchRooms } from '@/redux/slices/roomsSlice'
+import { fetchRooms, setError } from '@/redux/slices/roomsSlice'
 import { usePathname, useRouter } from 'next/navigation'
 import { Loader } from '@/UI/Loader/Loader'
-import { Socket, io } from 'socket.io-client'
-import { apiBaseUrl } from '@/api/base'
-
-const privateChatUrl = apiBaseUrl + 'private-chat'
-let privateSocket: Socket
-const connectSocket = ({ user_id }: { user_id: string }): void => {
-	privateSocket = io(privateChatUrl, {
-		query: {
-			user_id,
-		},
-	})
-}
+import { CreatingPrivateChatLoading } from './components/CreatingPrivateChatLoading'
+import { apiInstance } from '@/api/base'
 
 interface Props {}
 
@@ -31,21 +21,25 @@ export function RoomsListSection({}: Props) {
 	const path = usePathname()
 	const dispatch = useAppDispatch()
 
+	const [isCreatingPrivateChat, setIsCreatingPrivateChat] = useState(false)
+
 	useEffect(() => {
 		if (rooms.length === 0) {
 			dispatch(fetchRooms())
+		} else {
+			dispatch(setError(null))
 		}
 	}, [dispatch, rooms.length])
 
 	const router = useRouter()
 
 	async function addNewPrivateChat() {
-		await connectSocket({ user_id: userId })
-		privateSocket?.on('history', data => {
-			if (data.chat_id) {
-				router.push('/private-chats/' + data.chat_id)
-			}
+		setIsCreatingPrivateChat(true)
+		const res = await apiInstance.post('privates/add', {
+			userId,
 		})
+		setIsCreatingPrivateChat(false)
+		router.push('/private-chats/' + res.data.chatId)
 	}
 
 	return (
@@ -74,8 +68,12 @@ export function RoomsListSection({}: Props) {
 					))
 				)}
 				{!loading && (
-					<div className={s.cardLink} onClick={addNewPrivateChat}>
+					<div
+						className={[s.cardLink, isCreatingPrivateChat ? s.sdisabled : ''].join(' ')}
+						onClick={addNewPrivateChat}
+					>
 						<InfoCard className={s.card}>
+							{isCreatingPrivateChat && <CreatingPrivateChatLoading />}
 							<SvgIcon
 								src='chat-rooms/second-block/sprite.svg'
 								name='private'

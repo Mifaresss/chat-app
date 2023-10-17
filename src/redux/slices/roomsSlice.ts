@@ -37,7 +37,11 @@ export const fetchRooms = createAsyncThunk('rooms/fetchRooms', async () => {
 export const roomsSlice = createSlice({
 	name: 'rooms',
 	initialState,
-	reducers: {},
+	reducers: {
+		setError(state, action) {
+			state.error = action.payload
+		},
+	},
 	extraReducers: builder => {
 		builder
 			.addCase(fetchRooms.pending, state => {
@@ -55,4 +59,5 @@ export const roomsSlice = createSlice({
 	},
 })
 
+export const { setError } = roomsSlice.actions
 export default roomsSlice.reducer

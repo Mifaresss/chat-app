@@ -1,0 +1,18 @@
+.wrapperButtons {
+	display: flex;
+	gap: calc(min(0.5rem + 8 * ((100vw - 320px) / (1320 - 320)), 1rem));
+}
+.button {
+	width: 2.5rem;
+	height: 2.5rem;
+	cursor: pointer;
+}
+.button:hover {
+	opacity: 0.5;
+}
+
+.exitButton {
+	--exit-fill-c: transparent;
+	--stroke-c: #001966;
+	transition: all var(--hover-transit);
+}

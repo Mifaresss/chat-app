@@ -1,14 +1,16 @@
 'use client'
 import s from './PrivateChatRoom.module.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { HeroSection } from '../HeroSection/HeroSection'
 import { NotAuthorized } from '../PrivateChats/components/NotAuthorized/NotAuthorized'
 import { ChatPageTemplatePrivates } from '@/components/ChatPageTemplatePrivates/ChatPageTemplatePrivates'
 import { Socket, io } from 'socket.io-client'
 import { apiBaseUrl } from '@/api/base'
-import { setChatId } from '@/redux/slices/privatChatSlice.ts'
+import { setChatData } from '@/redux/slices/privatChatSlice.ts'
 import { Message, addMessage, setMessages, setMessagesLoading } from '@/redux/slices/messagesSlice'
+import { useRouter } from 'next/navigation'
+import { Loader } from '@/UI/Loader/Loader'
 
 interface Props {
 	chatId: string
@@ -16,24 +18,32 @@ interface Props {
 
 const privateChatUrl = apiBaseUrl + 'private-chat'
 
-export let privateSocket: Socket
-export const connectSocket = ({ user_id, chat_id }: { user_id: string; chat_id: string }): void => {
-	privateSocket = io(privateChatUrl, {
+export const getSocket = ({ userId, chatId }: { userId: string; chatId: string }) => {
+	const socket = io(privateChatUrl, {
 		query: {
-			user_id,
-			chat_id,
+			userId,
+			chatId,
 		},
+		autoConnect: false,
 	})
+
+	return socket
 }
 
+export let privateSocket: null | Socket = null
+
 export function PrivateChatRoom({ chatId }: Props) {
+	const [isValidId, setIsValidId] = useState(false)
+
 	const userId = useAppSelector(state => state.user.userId)
 
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
-		dispatch(setChatId(chatId))
-	}, [dispatch, chatId])
+		dispatch(setChatData({ id: chatId }))
+	}, [chatId, dispatch])
+
+	const router = useRouter()
 
 	useEffect(() => {
 		const handleReceiveMessage = (message: any) => {
@@ -48,9 +58,16 @@ export function PrivateChatRoom({ chatId }: Props) {
 
 		if (userId) {
 			dispatch(setMessagesLoading(true))
+			privateSocket = getSocket({ userId, chatId })
+			privateSocket.connect()
 
-			connectSocket({ user_id: userId, chat_id: chatId })
-			privateSocket?.on('history', (data: any) => {
+			privateSocket.on('error', () => {
+				router.push('/404')
+				return null
+			})
+
+			privateSocket.on('history', (data: any) => {
+				setIsValidId(true)
 				const newMessages: Message[] = data.messages.map(
 					(message: { chatId: any; message: any; author: any; createdAt: any }) => ({
 						chatId: message.chatId,
@@ -61,30 +78,39 @@ export function PrivateChatRoom({ chatId }: Props) {
 				)
 				dispatch(setMessages(newMessages))
 				dispatch(setMessagesLoading(false))
+				dispatch(setChatData({ title: data.chat.title }))
 			})
-			privateSocket?.on('message', handleReceiveMessage)
+			privateSocket.on('message', handleReceiveMessage)
 		}
 
 		return () => {
 			privateSocket?.off('message', handleReceiveMessage)
 			privateSocket?.disconnect()
 		}
-	}, [userId, chatId, dispatch])
+	}, [userId, chatId, dispatch, router])
 
-	return (
+	if (!userId) {
+		return (
+			<div className={s.wrapper}>
+				<div className={s.mainContainer}>
+					<HeroSection infoBlock />
+					<NotAuthorized />
+				</div>
+			</div>
+		)
+	}
+
+	return isValidId ? (
 		<div className={s.wrapper}>
 			<div className={s.mainContainer}>
-				{userId ? (
-					<div className={s.contentWrapper}>
-						<ChatPageTemplatePrivates chatId={chatId} />
-					</div>
-				) : (
-					<>
-						<HeroSection infoBlock />
-						<NotAuthorized />
-					</>
-				)}
+				<div className={s.contentWrapper}>
+					<ChatPageTemplatePrivates />
+				</div>
 			</div>
+		</div>
+	) : (
+		<div style={{ margin: 'auto' }}>
+			<Loader />
 		</div>
 	)
 }

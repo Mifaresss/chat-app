@@ -12,6 +12,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { Loader } from '@/UI/Loader/Loader'
 import { CreatingPrivateChatLoading } from './components/CreatingPrivateChatLoading'
 import { apiInstance } from '@/api/base'
+import { addPrivateChat } from '@/redux/slices/privateChatsSlice'
 
 interface Props {}
 
@@ -35,11 +36,12 @@ export function RoomsListSection({}: Props) {
 
 	async function addNewPrivateChat() {
 		setIsCreatingPrivateChat(true)
-		const res = await apiInstance.post('privates/add', {
+		const { data } = await apiInstance.post('privates/add', {
 			userId,
 		})
 		setIsCreatingPrivateChat(false)
-		router.push('/private-chats/' + res.data.chatId)
+		dispatch(addPrivateChat({ id: data.id, title: data.title }))
+		router.push('/private-chats/' + data.id)
 	}
 
 	return (

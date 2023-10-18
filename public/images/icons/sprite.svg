@@ -194,7 +194,7 @@
         <path id="Vector_4" d="M14.5 17.8333L25.5 12.1666" stroke="#001966" stroke-linecap="round" stroke-linejoin="round"></path>
         <path id="Vector_5" d="M14.5 22.1666L25.5 27.8333" stroke="#001966" stroke-linecap="round" stroke-linejoin="round"></path>
       </g>
-      <rect x="0.5" y="0.5" width="39" height="39" rx="4.5" stroke="#A3AFD1"></rect>
+      <!-- <rect x="0.5" y="0.5" width="39" height="39" rx="4.5" stroke="#A3AFD1"></rect> -->
     </g>
     <defs>
       <clipPath id="clip0_27_1216">

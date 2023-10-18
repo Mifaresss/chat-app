@@ -10,7 +10,7 @@
 	display: flex;
 	flex-direction: column;
 }
-/* .messagesBlock::-webkit-scrollbar {
+.messagesBlock::-webkit-scrollbar {
 	width: 15px;
 }
 .messagesBlock::-webkit-scrollbar-track {
@@ -22,7 +22,7 @@
 	background-color: var(--color-6);
 	border-top-right-radius: 0.2rem;
 	border-bottom-right-radius: 0.2rem;
-} */
+}
 
 @media (max-width: 835px) {
 	.messagesBlock {

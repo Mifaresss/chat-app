@@ -75,12 +75,6 @@
 	flex-direction: column;
 	gap: 1rem;
 }
-.noChats span {
-	text-align: center;
-	font-size: calc(min(1rem + 8 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
-	font-weight: 500;
-	color: var(--color-2);
-}
 
 @media (max-width: 835px) {
 	.privateChatContainer,

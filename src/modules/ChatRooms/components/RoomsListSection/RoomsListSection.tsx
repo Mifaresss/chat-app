@@ -40,6 +40,7 @@ export function RoomsListSection({}: Props) {
 			userId,
 		})
 		setIsCreatingPrivateChat(false)
+		console.log(data)
 		dispatch(addPrivateChat({ id: data.id, title: data.title }))
 		router.push('/private-chats/' + data.id)
 	}

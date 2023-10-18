@@ -6,6 +6,7 @@ import { Button } from '@/UI/Button/Button'
 import { SubTitle } from '@/UI/SubTitle/SubTitle'
 import { apiInstance } from '@/api/base'
 import { setPrivateChats } from '@/redux/slices/privateChatsSlice'
+import { usePathname, useRouter } from 'next/navigation'
 
 interface Props {
 	chatId: string
@@ -14,6 +15,9 @@ interface Props {
 // eslint-disable-next-line react/display-name
 export const ExitChatPopup = forwardRef<HTMLDialogElement, Props>((props, ref) => {
 	const userId = useAppSelector(state => state.user.userId)
+
+	const path = usePathname()
+	const router = useRouter()
 
 	const dispatch = useAppDispatch()
 
@@ -32,6 +36,9 @@ export const ExitChatPopup = forwardRef<HTMLDialogElement, Props>((props, ref) =
 		dispatch(setPrivateChats(data.chats))
 		if (typeof ref === 'object' && ref?.current !== null) {
 			ref?.current.close()
+		}
+		if (path !== '/private-chats') {
+			router.push('/private-chats')
 		}
 	}
 

@@ -16,6 +16,14 @@
 	height: 85vh;
 }
 
+.deletedChat {
+	text-align: center;
+	font-size: calc(min(1rem + 8 * ((100vw - 320px) / (1320 - 320)), 1.5rem));
+	font-weight: 600;
+	color: var(--color-2);
+	margin: auto;
+}
+
 @media (max-width: 835px) {
 	.mainContainer {
 		gap: calc(min(1.5rem + (36 * (835px - 100vw) / (835 - 320)), 3.75rem));

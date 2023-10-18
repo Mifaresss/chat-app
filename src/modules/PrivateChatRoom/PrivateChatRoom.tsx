@@ -11,6 +11,7 @@ import { setChatData } from '@/redux/slices/privatChatSlice.ts'
 import { Message, addMessage, setMessages, setMessagesLoading } from '@/redux/slices/messagesSlice'
 import { useRouter } from 'next/navigation'
 import { Loader } from '@/UI/Loader/Loader'
+import { SubTitle } from '@/UI/SubTitle/SubTitle'
 
 interface Props {
 	chatId: string
@@ -34,6 +35,7 @@ export let privateSocket: null | Socket = null
 
 export function PrivateChatRoom({ chatId }: Props) {
 	const [isValidId, setIsValidId] = useState(false)
+	const [isDeletedChat, setIsDeletedChat] = useState(false)
 
 	const userId = useAppSelector(state => state.user.userId)
 
@@ -78,7 +80,10 @@ export function PrivateChatRoom({ chatId }: Props) {
 				)
 				dispatch(setMessages(newMessages))
 				dispatch(setMessagesLoading(false))
-				dispatch(setChatData({ title: data.chat.title }))
+				dispatch(setChatData({ title: data.chat?.title }))
+			})
+			privateSocket.on('deleted-chat', () => {
+				setIsDeletedChat(true)
 			})
 			privateSocket.on('message', handleReceiveMessage)
 		}
@@ -96,6 +101,14 @@ export function PrivateChatRoom({ chatId }: Props) {
 					<HeroSection infoBlock />
 					<NotAuthorized />
 				</div>
+			</div>
+		)
+	}
+
+	if (isDeletedChat) {
+		return (
+			<div style={{ margin: 'auto' }}>
+				<SubTitle title='Цей чат було видалено(' align='center' />
 			</div>
 		)
 	}

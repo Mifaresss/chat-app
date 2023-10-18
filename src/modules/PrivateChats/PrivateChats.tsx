@@ -9,6 +9,7 @@ import { Button } from '@/UI/Button/Button'
 import { apiInstance } from '@/api/base'
 import { NotAuthorized } from './components/NotAuthorized/NotAuthorized'
 import { ChatItem } from './components/ChatItem/ChatItem'
+import { SubTitle } from '@/UI/SubTitle/SubTitle'
 
 export function PrivateChats() {
 	const userId = useAppSelector(state => state.user.userId)
@@ -54,10 +55,12 @@ export function PrivateChats() {
 								chats.map(({ id, title }) => <ChatItem key={id} id={id} title={title} />)
 							) : (
 								<p className={s.noChats}>
-									<span>
-										У тебе поки що немає жодного чату. Створи свій або перейди за існуючим
-										посиланням
-									</span>
+									<div style={{ margin: 'auto' }}>
+										<SubTitle
+											title='У тебе поки що немає жодного чату. Створи свій або перейди за існуючим посиланням'
+											align='center'
+										/>
+									</div>
 									<Button
 										title='Створити новий чат'
 										style={{ width: 'auto' }}

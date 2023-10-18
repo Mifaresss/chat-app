@@ -23,6 +23,10 @@
 }
 
 @media (max-width: 500px) {
+	.mainContainer {
+		padding-right: 0.9375rem;
+		padding-left: 0.9375rem;
+	}
 	.contentWrapper {
 		gap: 0.5rem;
 	}

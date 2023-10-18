@@ -3,8 +3,9 @@
 	gap: calc(min(0.5rem + 8 * ((100vw - 320px) / (1320 - 320)), 1rem));
 }
 .button {
-	width: 2.5rem;
-	height: 2.5rem;
+	--sizes: calc(min(2rem + 16 * ((100vw - 320px) / (1320 - 320)), 2.5rem));
+	width: var(--sizes);
+	height: var(--sizes);
 	cursor: pointer;
 }
 .button:hover {

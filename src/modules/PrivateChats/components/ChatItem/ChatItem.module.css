@@ -13,6 +13,7 @@
 }
 
 .chatLink {
+	width: 100%;
 	flex: 1 1 auto;
 	display: flex;
 	border-radius: 0.3125rem;
@@ -21,18 +22,38 @@
 }
 
 .chatIcon {
-	max-width: 2.5rem;
-	min-width: 2.5rem;
+	--sizes: calc(min(2rem + 8 * ((100vw - 320px) / (1320 - 320)), 2.5rem));
+	max-width: var(--sizes);
+	max-height: var(--sizes);
 }
 
 .chatName {
+	max-width: 66vw;
 	flex: 1;
-	font-size: 1.25rem;
+	font-size: calc(min(1rem + 4 * ((100vw - 320px) / (1320 - 320)), 1.25rem));
 	font-weight: 400;
 	line-height: 1.7;
-	color: var(--color-2);
+	color: var(--heading-c);
 	width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+
+.chatButtons {
+	width: 100%;
+	max-width: max-content;
+	flex: 1 1 auto;
+}
+
+@media (max-width: 570px) {
+	.chatItem {
+		flex-direction: column;
+	}
+	.chatName {
+		max-width: initial;
+	}
+	.chatButtons {
+		align-self: flex-end;
+	}
 }

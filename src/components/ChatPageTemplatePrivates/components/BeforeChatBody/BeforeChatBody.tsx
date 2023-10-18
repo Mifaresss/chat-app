@@ -12,12 +12,12 @@ export function BeforeChatBody({}: Props) {
 	return (
 		<div className={s.beforeChatBody}>
 			<div className={s.firstBlock}>
-				<Link href='/private-chats'>
+				<Link href='/private-chats' className={s.link}>
 					<SvgIcon className={s.arrowLeft} src='icons/sprite.svg' name='arrow-right' />
 				</Link>
 				<p className={s.chatName}>{chatName}</p>
 			</div>
-			<ChatButtons />
+			<ChatButtons className={s.chatButtons} />
 		</div>
 	)
 }

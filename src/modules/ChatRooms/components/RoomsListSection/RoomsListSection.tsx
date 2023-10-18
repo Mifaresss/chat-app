@@ -77,12 +77,7 @@ export function RoomsListSection({}: Props) {
 					>
 						<InfoCard className={s.card}>
 							{isCreatingPrivateChat && <CreatingPrivateChatLoading />}
-							<SvgIcon
-								src='chat-rooms/second-block/sprite.svg'
-								name='private'
-								width={100}
-								height={100}
-							/>
+							<SvgIcon src='icons/sprite.svg' name='private' width={100} height={100} />
 							<SubTitle title='Приватний чат' />
 							<p className={s.text}>
 								Якщо є ідеї для обговорення - створи новий чат зі своєю тематикою та збери

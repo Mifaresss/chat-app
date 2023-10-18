@@ -1,6 +1,7 @@
 .chatTextInput {
-	color: var(--color-2);
-	border: 0.0625rem solid var(--color-6);
+	color: var(--input-c);
+	border: 0.0625rem solid var(--input-passive-c);
+	background-color: transparent;
 	border-radius: 0.3125rem;
 	padding: 0.5rem 1rem;
 	resize: none;
@@ -8,7 +9,7 @@
 	height: 4.75rem;
 }
 .chatTextInput::placeholder {
-	color: var(--color-6);
+	color: var(--input-passive-c);
 	font-size: 0.75rem;
 	font-weight: 300;
 	line-height: 1.66;

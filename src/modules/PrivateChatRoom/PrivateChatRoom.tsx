@@ -63,9 +63,15 @@ export function PrivateChatRoom({ chatId }: Props) {
 			privateSocket = getSocket({ userId, chatId })
 			privateSocket.connect()
 
-			privateSocket.on('error', () => {
-				router.push('/404')
-				return null
+			privateSocket.on('error', (errorCode: number) => {
+				switch (errorCode) {
+					case 1:
+						setIsDeletedChat(true)
+
+					case 2:
+						router.push('/404')
+						return null
+				}
 			})
 
 			privateSocket.on('history', (data: any) => {
@@ -82,9 +88,7 @@ export function PrivateChatRoom({ chatId }: Props) {
 				dispatch(setMessagesLoading(false))
 				dispatch(setChatData({ title: data.chat?.title }))
 			})
-			privateSocket.on('deleted-chat', () => {
-				setIsDeletedChat(true)
-			})
+
 			privateSocket.on('message', handleReceiveMessage)
 		}
 
@@ -107,7 +111,7 @@ export function PrivateChatRoom({ chatId }: Props) {
 
 	if (isDeletedChat) {
 		return (
-			<div style={{ margin: 'auto' }}>
+			<div style={{ margin: 'auto', backgroundColor: 'var(--background-c)' }}>
 				<SubTitle title='Цей чат було видалено(' align='center' />
 			</div>
 		)

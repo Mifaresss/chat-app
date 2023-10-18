@@ -56,13 +56,11 @@ export function ChatRoom({ roomId }: Props) {
 			roomsSocket.connect()
 
 			roomsSocket.on('error', () => {
-				console.log('error')
 				router.push('/404')
 				return null
 			})
 
 			roomsSocket.on('history', (data: any) => {
-				console.log(data)
 				const newMessages: Message[] = data.messages.map(
 					(message: { chatId: any; text: any; user: any; createdAt: any }) => ({
 						chatId: message.chatId,

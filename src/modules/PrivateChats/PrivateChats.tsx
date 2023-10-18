@@ -33,7 +33,7 @@ export function PrivateChats() {
 	const isChatsExist = !!chats.length
 
 	return (
-		<div className={s.privateChatPage} style={userId ? { backgroundColor: '#f4f6ff' } : {}}>
+		<div className={s.privateChatPage}>
 			<div className={s.privateChatContainer}>
 				{userId ? (
 					<section className={s.mainContent}>

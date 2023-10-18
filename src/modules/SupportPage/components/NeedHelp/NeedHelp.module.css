@@ -6,7 +6,7 @@
 	padding: 3.75rem 0;
 }
 .needHelp::before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -14,7 +14,7 @@
 	width: 100vw;
 	height: 100%;
 	z-index: -1;
-	background-color: #f4f6ff;
+	background-color: var(--background-2-c);
 	background-size: 100% 100%;
 }
 .contentWrapper {

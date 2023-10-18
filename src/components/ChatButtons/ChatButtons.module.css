@@ -13,7 +13,5 @@
 }
 
 .exitButton {
-	--exit-fill-c: transparent;
-	--stroke-c: #001966;
 	transition: all var(--hover-transit);
 }

@@ -25,20 +25,19 @@
 }
 
 svg.userMood {
-	--fill-c: transparent;
-	--color-7: #fffefe;
+	--emoji-fill-c: transparent;
+	--emoji-stroke-c: #fffefe;
 	--stroke-width: 1.7;
 }
 
 .exitButton {
-	--exit-fill-c: transparent;
-	--stroke-c: white;
+	--icon-c: white;
 	cursor: pointer;
 	transition: all var(--hover-transit);
 }
 .exitButton:hover {
-	transform: scale(1.05);
+	transform: scale(1.03);
 }
 .exitButton:active {
-	--stroke-c: #ffd600;
+	--icon-c: #ffd600;
 }

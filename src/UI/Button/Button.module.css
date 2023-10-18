@@ -1,5 +1,5 @@
 .button {
-	color: var(--color-7);
+	color: var(--button-c);
 	background-color: transparent;
 	font-size: 1rem;
 	font-weight: 500;
@@ -13,7 +13,7 @@
 }
 
 .button:hover {
-	color: var(--color-6);
+	background-color: var(--button-hover-c);
 }
 .button:active {
 	color: var(--color-3);

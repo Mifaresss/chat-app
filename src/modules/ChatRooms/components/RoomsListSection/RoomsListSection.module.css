@@ -6,14 +6,14 @@
 	position: relative;
 }
 .section::before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	width: 100vw;
 	height: 100%;
 	margin: 0 calc(50% - 50vw);
 	padding: 0 calc(50vw - 50%);
-	background-color: #f4f6ff;
+	background-color: var(--background-2-c);
 	z-index: -1;
 }
 
@@ -29,13 +29,13 @@
 	cursor: pointer;
 }
 .cardLink:hover .card {
-	border-color: var(--color-5);
-	background-color: var(--color-5);
+	border-color: var(--info-card-hover-c);
+	background-color: var(--info-card-hover-c);
 	box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.3);
 }
 .cardLink:active .card {
-	border-color: var(--color-2);
-	background-color: var(--color-3);
+	border-color: var(--info-card-active-c);
+	background-color: var(--info-card-active-background-c);
 }
 .cardLink.disabled {
 	pointer-events: none;
@@ -44,12 +44,12 @@
 .cardLink.disabled:active .card {
 	border-color: initial;
 	background-color: initial;
-	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 5px 0px var(--info-card-box-shadow-c);
 }
 .card {
 	position: relative;
 	height: 100%;
-	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 5px 5px 0px var(--info-card-box-shadow-c);
 	transition: all var(--hover-transit);
 }
 

@@ -4,7 +4,7 @@
 	--color-2: #001966;
 	--color-3: #fffefe;
 
-	--color-4: #ffd600;
+	--hover-c: #ffd600;
 	--color-5: #dee3f3;
 	--color-6: #a3afd1;
 	--color-7: #374b88;
@@ -12,32 +12,31 @@
 
 	--color-9: #b70000;
 
+	--nav-link-c: #fffefe;
+	--heading-c: #001966;
+	--background-c: #fffefe;
+	--regular-text-c: #02000a;
+
 	/* ========================== Transition ========================== */
 	--transit: 0.3s;
 	--hover-transit: 0.2s;
 }
 
 /* ========== Theme Switcher ========== */
-/* html[data-theme="dark"] {
+html[data-theme='dark'] {
 	color-scheme: dark;
-	--color-1: #fffefe;
-	--color-2: #a3afd1;
-	--color-3: #13192b;
-
-	--color-4: #ffd600;
-	--color-5: #13192b;
-	--color-6: #a3afd1;
-	--color-7: #374b88;
-	--color-8: #f4f6ff;
-} */
+	--heading-c: #a3afd1;
+	--background-c: #13192b;
+	--regular-text-c: #fffefe;
+}
 /* ========== Theme Switcher End ========== */
 
 html {
 	overflow-y: scroll;
 }
 body {
-	color: var(--color-1);
-	background-color: var(--color-3);
+	color: var(--regular-text-c);
+	background-color: var(--background-c);
 	font-size: 1rem;
 	font-weight: 300;
 	line-height: 1.62;

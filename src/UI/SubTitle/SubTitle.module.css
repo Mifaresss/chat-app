@@ -1,5 +1,5 @@
 .subTitle {
-	color: var(--color-2);
+	color: var(--heading-c);
 	font-size: calc(min(1.125rem + 8 * ((100vw - 320px) / (1280 - 320)), 1.625rem));
 	font-weight: 700;
 	line-height: 1.4;

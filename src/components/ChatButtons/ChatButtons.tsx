@@ -11,9 +11,10 @@ interface Props {
 
 export function ChatButtons({ chatId }: Props) {
 	const internalChatId = useAppSelector(state => state.privateChat.id)
+	console.log({ internalChatId, chatId })
 
 	function handleCopyClick() {
-		const textToCopy = baseAppUrl + 'private-chats/' + chatId
+		const textToCopy = baseAppUrl + 'private-chats/' + (chatId ?? internalChatId)
 		navigator.clipboard.writeText(textToCopy).then(() => {
 			alert('Посилання на чат вже у буфері обміну')
 		})

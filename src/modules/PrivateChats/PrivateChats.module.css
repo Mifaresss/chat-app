@@ -19,12 +19,13 @@
 .chatList {
 	flex: 1 1 auto;
 
-	height: 75vh;
+	height: 65vh;
 	display: flex;
 	flex-direction: column;
 	gap: 0.625rem;
 	overflow: auto;
 	padding-right: 0.3125rem;
+	margin-bottom: 1.5rem;
 }
 .chatList::-webkit-scrollbar {
 	width: 15px;
@@ -65,6 +66,14 @@
 	flex-direction: column;
 	gap: calc(min(1.5rem + 72 * ((100vw - 834px) / (1320 - 834)), 6rem));
 	margin-bottom: calc(min(5rem + 40 * ((100vw - 320px) / (1320 - 320)), 7.5rem));
+}
+
+.noChats {
+	margin: auto;
+
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 @media (max-width: 835px) {

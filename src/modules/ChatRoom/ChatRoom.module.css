@@ -13,11 +13,17 @@
 	display: flex;
 	justify-content: space-between;
 	gap: 1rem;
-	height: 90vh;
+	height: 85dvh;
 }
 
 @media (max-width: 835px) {
 	.mainContainer {
 		gap: calc(min(1.5rem + (36 * (835px - 100vw) / (835 - 320)), 3.75rem));
+	}
+}
+
+@media (max-width: 500px) {
+	.contentWrapper {
+		gap: 0.5rem;
 	}
 }

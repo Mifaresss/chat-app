@@ -3,8 +3,8 @@ import s from './ChatPageTemplate.module.css'
 import { ChatTextInput } from '@/UI/ChatTextInput/ChatTextInput'
 import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
-import { socket } from '@/api/socket'
 import { useAppSelector } from '@/hooks/redux'
+import { roomsSocket } from '@/modules/ChatRoom/ChatRoom'
 import { KeyboardEvent, useState } from 'react'
 
 interface Props {
@@ -40,7 +40,7 @@ export function ChatPageTemplate({ roomId }: Props) {
 	function sendMessage() {
 		const message = { text, senderId: userId, chatId: roomId }
 		setText('')
-		socket?.emit('send-message', message)
+		roomsSocket?.emit('message', message)
 	}
 
 	return (

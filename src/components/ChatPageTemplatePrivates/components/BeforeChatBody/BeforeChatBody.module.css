@@ -1,0 +1,26 @@
+.beforeChatBody {
+	display: flex;
+	align-items: center;
+}
+.firstBlock {
+	flex: 1;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+.arrowLeft {
+	width: 2.5rem;
+	height: 2.5rem;
+	transform: rotate(180deg);
+}
+.chatName {
+	flex: 1;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.7;
+	color: var(--color-2);
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

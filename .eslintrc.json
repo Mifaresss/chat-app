@@ -26,6 +26,7 @@
 		"array-bracket-spacing": ["error", "never"],
 		"comma-spacing": "error",
 		"no-multiple-empty-lines": ["error", { "max": 1 }],
-		"no-trailing-spaces": "warn"
+		"no-trailing-spaces": "warn",
+		"object-shorthand": ["error", "always"]
 	}
 }

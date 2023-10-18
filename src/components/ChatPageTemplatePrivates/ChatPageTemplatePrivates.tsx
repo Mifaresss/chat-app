@@ -6,13 +6,13 @@ import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { useAppSelector } from '@/hooks/redux'
 import { privateSocket } from '@/modules/PrivateChatRoom/PrivateChatRoom'
 import { KeyboardEvent, useState } from 'react'
+import { BeforeChatBody } from './components/BeforeChatBody/BeforeChatBody'
 
-interface Props {
-	chatId: string
-}
+interface Props {}
 
-export function ChatPageTemplatePrivates({ chatId }: Props) {
+export function ChatPageTemplatePrivates({}: Props) {
 	const userId = useAppSelector(state => state.user.userId)
+	const chatId = useAppSelector(state => state.privateChat.id)
 
 	const [text, setText] = useState('')
 
@@ -45,6 +45,7 @@ export function ChatPageTemplatePrivates({ chatId }: Props) {
 
 	return (
 		<div className={s.chatBody}>
+			<BeforeChatBody />
 			<MessagesBlock />
 			<div className={s.sendBlockWrapper}>
 				<ChatTextInput

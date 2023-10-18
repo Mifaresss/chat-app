@@ -4,6 +4,11 @@
 	gap: 0.625rem;
 	align-items: center;
 	padding: 0.625rem;
+
+	transition: background-color var(--hover-transit);
+}
+.wrapper.active {
+	background-color: var(--color-6);
 }
 
 .chatName {

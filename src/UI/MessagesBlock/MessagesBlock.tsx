@@ -41,7 +41,7 @@ export function MessagesBlock({}: Props) {
 				})
 			) : (
 				<div style={{ margin: 'auto' }}>
-					<SubSubTitle label='Поки пусто:) Будь першим!' style={{ textAlign: 'center' }} />
+					<SubSubTitle label='Поки пусто:)' style={{ textAlign: 'center' }} />
 				</div>
 			)}
 			<div ref={messagesEndRef} style={{ marginTop: '1rem' }}></div>

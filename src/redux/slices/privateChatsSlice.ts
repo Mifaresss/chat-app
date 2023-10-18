@@ -38,6 +38,9 @@ export const privateChatsSlice = createSlice({
 		setPrivateChats(state, action) {
 			state.chats = action.payload
 		},
+		addPrivateChat(state, action) {
+			state.chats.unshift(action.payload)
+		},
 	},
 	extraReducers: builder => {
 		builder
@@ -56,5 +59,5 @@ export const privateChatsSlice = createSlice({
 	},
 })
 
-export const { setPrivateChats } = privateChatsSlice.actions
+export const { setPrivateChats, addPrivateChat } = privateChatsSlice.actions
 export default privateChatsSlice.reducer

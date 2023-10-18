@@ -12,12 +12,12 @@
 }
 
 .loginButton:hover {
-	color: var(--color-4);
+	color: var(--hover-c);
 }
 .loginButton:active {
 	color: var(--color-3);
-	background-color: var(--color-4);
-	border-color: var(--color-4);
+	background-color: var(--hover-c);
+	border-color: var(--hover-c);
 }
 
 @media (max-width: 650px) {

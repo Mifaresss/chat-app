@@ -1,7 +1,7 @@
 .title {
 	position: relative;
 	max-width: max-content;
-	color: var(--color-2);
+	color: var(--heading-c);
 	font-size: calc(min(1.625rem + 14 * ((100vw - 840px) / (1320 - 840)), 2.5rem));
 	font-weight: 500;
 	line-height: 1.2;
@@ -9,13 +9,13 @@
 }
 
 .title::after {
-	content: "";
+	content: '';
 	position: absolute;
 	left: 0;
 	bottom: 0;
 	width: calc(min(3.75rem + 20 * ((100vw - 52.5rem) / (1320 - 840)), 5rem));
 	height: 0.3125rem;
-	background-color: var(--color-4);
+	background-color: var(--hover-c);
 }
 
 @media (max-width: 840px) {

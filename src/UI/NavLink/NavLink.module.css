@@ -1,6 +1,6 @@
 .navLink {
 	width: max-content;
-	color: var(--color-3);
+	color: var(--nav-link-c);
 	font-size: calc(min(0.875rem + 2 * ((100vw - 320px) / (1280 - 320)), 1rem));
 	font-weight: 500;
 	line-height: 1.6;
@@ -10,8 +10,8 @@
 	height: max-content;
 }
 .navLink::after {
-	content: "";
-	background-color: var(--color-4);
+	content: '';
+	background-color: var(--hover-c);
 	position: absolute;
 	bottom: -5%;
 	left: -13%;
@@ -24,7 +24,7 @@
 
 .navLink:hover,
 .navLink.active {
-	color: var(--color-4);
+	color: var(--hover-c);
 }
 .navLink.active::after {
 	width: 126%;

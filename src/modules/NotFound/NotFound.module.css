@@ -23,7 +23,7 @@
 .title {
 	font-size: 9.375rem;
 	font-weight: 500;
-	color: var(--color-2);
+	color: var(--heading-c);
 	line-height: 1.06;
 }
 .internalContentWrapper {
@@ -33,7 +33,7 @@
 }
 .description {
 	font-weight: 500;
-	color: var(--color-2);
+	color: var(--regular-text-c);
 }
 
 .button {

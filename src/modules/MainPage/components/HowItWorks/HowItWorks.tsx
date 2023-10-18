@@ -4,6 +4,7 @@ import { cardsContent, title } from './data'
 import { SubTitle } from '@/UI/SubTitle/SubTitle'
 import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'
+import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 
 export function HowItWorks() {
 	return (
@@ -14,8 +15,9 @@ export function HowItWorks() {
 			<div className={s.contentWrapper}>
 				{cardsContent.map(({ id, img, subTitle, text }) => {
 					return (
-						<InfoCard key={id} bgColor='var(--color-5)'>
-							<Image src={img.src} alt={img.alt} />
+						<InfoCard key={id} bgColor='var(--info-card-background-c)'>
+							{/* <Image src={img.src} alt={img.alt} /> */}
+							<SvgIcon className={s.cardIcon} src='icons/sprite.svg' name='create' />
 							<SubTitle title={subTitle} />
 							<p>{text}</p>
 						</InfoCard>

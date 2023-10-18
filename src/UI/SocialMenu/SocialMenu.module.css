@@ -6,3 +6,7 @@
 .socialLink {
 	width: 2.5rem;
 }
+
+.displayNone {
+	display: none;
+}

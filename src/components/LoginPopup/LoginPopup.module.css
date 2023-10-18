@@ -21,6 +21,7 @@
 	position: absolute;
 	left: calc(50% - 5.75rem);
 	top: -40%;
+	font-weight: 400;
 	font-size: 0.75rem;
 	color: var(--color-9);
 	opacity: 0.9;

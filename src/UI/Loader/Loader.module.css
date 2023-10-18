@@ -1,6 +1,5 @@
 .ldsRipple {
 	--ripple-size: 10rem;
-	--ripple-border-color: var(--color-7);
 
 	display: inline-block;
 	position: relative;
@@ -10,7 +9,7 @@
 
 .ldsRipple div {
 	position: absolute;
-	border: 0.25rem solid var(--ripple-border-color);
+	border: 0.25rem solid var(--loader-c);
 	opacity: 1;
 	border-radius: 50%;
 	animation: ldsRipple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;

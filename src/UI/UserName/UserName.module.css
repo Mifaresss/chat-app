@@ -2,6 +2,6 @@
 	font-size: 1rem;
 	line-height: 1.62;
 	font-weight: 500;
-	color: var(--color-2);
+	color: var(--heading-c);
 	max-width: max-content;
 }

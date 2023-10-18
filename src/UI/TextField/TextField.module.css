@@ -5,28 +5,32 @@
 .input {
 	font-size: 0.75rem;
 	line-height: 1.66;
-	border: 0.0625rem solid var(--color-6);
-	color: var(--color-2);
+	border: 0.0625rem solid var(--input-passive-c);
+	color: var(--input-c);
 	padding: 0.5rem 1rem;
 	background-color: transparent;
 	width: 100%;
 }
 .input::placeholder {
-	color: var(--color-6);
+	color: var(--input-passive-c);
 	font-size: 0.75rem;
 	font-weight: 300;
 }
 .input:focus {
-	border-color: var(--color-2);
+	border-color: currentColor;
 }
 .input.inputError {
 	border-color: var(--color-9);
+}
+.input.inputError::placeholder {
+	color: var(--color-9);
 }
 
 .error {
 	position: absolute;
 	top: -60%;
 	left: 0;
+	font-weight: 400;
 	font-size: 0.75rem;
 	color: var(--color-9);
 	opacity: 0.9;

@@ -37,6 +37,7 @@ export function Message({ message, previousMessage }: Props) {
 						hour: '2-digit',
 						minute: '2-digit',
 					})}
+					// date={moment(message?.createdAt).format('DD.MM HH:mm')}
 					isAuthor={isCurrentUserSender}
 				/>
 			</div>

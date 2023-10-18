@@ -1,6 +1,6 @@
 .image {
-   --stroke-width: 1;
-   --fill-c: #ededed;
+	--stroke-width: 1;
+	--emoji-fill-c: #ededed;
 
-   transition: all var(--hover-transit);
+	transition: all var(--hover-transit);
 }

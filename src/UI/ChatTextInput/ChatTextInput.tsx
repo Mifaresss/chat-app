@@ -1,5 +1,5 @@
-import { HTMLAttributes } from 'react'
 import s from './ChatTextInput.module.css'
+import { HTMLAttributes } from 'react'
 
 interface Props extends HTMLAttributes<HTMLTextAreaElement> {
 	value: string

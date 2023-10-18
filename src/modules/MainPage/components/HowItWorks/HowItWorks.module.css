@@ -1,18 +1,23 @@
 .howItWorks {
-   display: flex;
-   flex-direction: column;
-   gap: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 }
 .contentWrapper {
-   display: flex;
-   gap: 1.25rem;
-   justify-content: center;
-   flex-wrap: wrap;
+	display: flex;
+	gap: 1.25rem;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.cardIcon {
+	max-width: 6.25rem;
+	max-height: 6.25rem;
 }
 
 @media (max-width: 1319px) {
-   .titleWrapper {
-      display: flex;
-      justify-content: center;
-   }
+	.titleWrapper {
+		display: flex;
+		justify-content: center;
+	}
 }

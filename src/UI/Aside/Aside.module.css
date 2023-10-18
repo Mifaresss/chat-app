@@ -1,5 +1,5 @@
 .aside {
-	background-color: var(--color-5);
+	background-color: var(--aside-background-c);
 	max-width: 25rem;
 	width: 100%;
 	flex: 1 1 25rem;
@@ -16,45 +16,12 @@
 	transition: max-width var(--transit);
 }
 
-.burgerButtonWrapper {
-	display: none;
-	margin-left: 0.4688rem;
-}
-
-.burgerButton::before,
-.burgerButton::after,
-.burgerButton span {
-	background-color: var(--color-2);
-}
-
 @media (max-width: 835px) {
-	/* .burgerButtonWrapper {
-		display: inline;
-	} */
 	.aside {
-		/* position: absolute; */
 		max-width: 3rem;
 		min-width: 3rem;
-		/* overflow: hidden; */
 	}
 	.chatName {
 		max-height: 3rem;
 	}
-	/* .aside.open {
-		max-width: 12rem;
-		overflow: initial;
-	} */
-
-	/* .chatName {
-		transition: opacity var(--transit);
-		opacity: 0;
-		pointer-events: none;
-		width: 0%;
-		transition: width var(--transit);
-	}
-	.chatName.open {
-		width: 100%;
-		opacity: 1;
-		pointer-events: auto;
-	} */
 }

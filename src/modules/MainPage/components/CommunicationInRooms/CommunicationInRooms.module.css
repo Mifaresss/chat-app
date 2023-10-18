@@ -1,63 +1,63 @@
 .communicationInRooms {
-   position: relative;
-   display: flex;
-   justify-content: space-between;
-   gap: 1.5rem;
-   padding: 3.75rem 0;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	gap: 1.5rem;
+	padding: 3.75rem 0;
 }
 .communicationInRooms::before {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 50%;
-   transform: translateX(-50%);
-   width: 100vw;
-   height: 100%;
-   z-index: -1;
-   background-color: #f4f6ff;
-   background-size: 100% 100%;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100vw;
+	height: 100%;
+	z-index: -1;
+	background-color: var(--background-2-c);
+	background-size: 100% 100%;
 }
 .contentWrapper {
-   max-width: 52.6875rem;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
+	max-width: 52.6875rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .infoList {
-   gap: 1rem;
-   font-size: calc(min(0.875rem + 2 * ((100vw - 420px) / (1320 - 420)), 1rem));
-   line-height: 1.62;
+	gap: 1rem;
+	font-size: calc(min(0.875rem + 2 * ((100vw - 420px) / (1320 - 420)), 1rem));
+	line-height: 1.62;
 }
 
 @media (max-width: 1000px) {
-   .communicationInRooms {
-      --top-bottom: calc(min(1.5rem + 36 * ((100vw - 420px) / (1000 - 420)), 3.75rem));
-      --left-right: calc(min(0rem + 30 * ((100vw - 700px) / (1000 - 700)), 1.875rem));
-      flex-wrap: wrap;
-      padding: var(--top-bottom) var(--left-right);
-   }
-   .contentWrapper {
-      order: -1;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-   }
-   .titleWrapper {
-      display: flex;
-      justify-content: center;
-   }
-   .contentImg {
-      width: 100%;
-      height: 21rem;
-      object-fit: cover;
-   }
+	.communicationInRooms {
+		--top-bottom: calc(min(1.5rem + 36 * ((100vw - 420px) / (1000 - 420)), 3.75rem));
+		--left-right: calc(min(0rem + 30 * ((100vw - 700px) / (1000 - 700)), 1.875rem));
+		flex-wrap: wrap;
+		padding: var(--top-bottom) var(--left-right);
+	}
+	.contentWrapper {
+		order: -1;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.titleWrapper {
+		display: flex;
+		justify-content: center;
+	}
+	.contentImg {
+		width: 100%;
+		height: 21rem;
+		object-fit: cover;
+	}
 }
 @media (max-width: 700px) {
-   .communicationInRooms {
-      padding-bottom: 0;
-   }
-   .contentImg {
-      width: 100vw;
-      margin: 0 -1.25rem;
-   }
+	.communicationInRooms {
+		padding-bottom: 0;
+	}
+	.contentImg {
+		width: 100vw;
+		margin: 0 -1.25rem;
+	}
 }

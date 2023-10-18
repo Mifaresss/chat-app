@@ -8,7 +8,7 @@
 	transition: background-color var(--hover-transit);
 }
 .wrapper.active {
-	background-color: var(--color-6);
+	background-color: var(--aside-item-active-background-c);
 }
 
 .icon {
@@ -22,7 +22,7 @@
 	font-size: 1rem;
 	font-weight: 300;
 	line-height: 1.7;
-	color: var(--color-2);
+	color: var(--heading-c);
 	cursor: pointer;
 }
 

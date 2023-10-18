@@ -15,7 +15,44 @@
 	--nav-link-c: #fffefe;
 	--heading-c: #001966;
 	--background-c: #fffefe;
+	--background-2-c: #f4f6ff;
 	--regular-text-c: #02000a;
+
+	--info-card-stroke-c: #001966;
+	--info-card-fill-c: #001966;
+	--info-card-background-c: #dee3f3;
+	--info-card-hover-c: #dee3f3;
+	--info-card-active-c: #001966;
+	--info-card-active-background-c: #fffefe;
+	--info-card-box-shadow-c: #0000001a;
+
+	--rooms-icon-stroke-c: #001966;
+	--rooms-icon-fill-c: #001966;
+
+	--button-c: #374b88;
+	--button-hover-c: #dee3f3;
+	--popup-background-c: #dee3f3;
+	--input-c: #001966;
+	--input-passive-c: #a3aed1;
+	--emoji-stroke-c: #3550a1;
+	--emoji-fill-c: #a3aed1;
+
+	--arrow-stroke-c: #001966;
+	--icon-c: #001966;
+
+	--messages-block-background-c: transparent;
+	--message-background-c: #f4f6ff;
+
+	--loader-c: #374b88;
+
+	--aside-background-c: #dee3f3;
+	--aside-item-active-background-c: #a3afd1;
+
+	--chat-item-background-c: #dee3f3;
+	--chat-item-active-background-c: #a3afd1;
+
+	--scrollbar-track-c: #dee3f3;
+	--scrollbar-thumb-c: #a3afd1;
 
 	/* ========================== Transition ========================== */
 	--transit: 0.3s;
@@ -27,7 +64,44 @@ html[data-theme='dark'] {
 	color-scheme: dark;
 	--heading-c: #a3afd1;
 	--background-c: #13192b;
+	--background-2-c: #262e47;
 	--regular-text-c: #fffefe;
+
+	--info-card-stroke-c: #a3afd1;
+	--info-card-fill-c: #60677c;
+	--info-card-background-c: #394056;
+	--info-card-hover-c: #374164;
+	/* --info-card-active-c: #1f419c; */
+	--info-card-active-c: #13192b;
+	--info-card-active-background-c: #13192b;
+	--info-card-box-shadow-c: #e4e1e11a;
+
+	--rooms-icon-stroke-c: #a3afd1;
+	--rooms-icon-fill-c: #60677c;
+
+	--button-c: #96a9e4;
+	--button-hover-c: #353c52;
+	--popup-background-c: #13192b;
+	--input-c: #c2cdec;
+	--emoji-stroke-c: #a3aed1;
+	--emoji-fill-c: #a3aed1;
+
+	--arrow-stroke-c: #a3afd1;
+	--icon-c: #a3afd1;
+
+	--messages-block-background-c: #262e47;
+	--message-background-c: #13192b;
+
+	--loader-c: #a6b0cd;
+
+	--aside-background-c: #1d284370;
+	--aside-item-active-background-c: #44537a70;
+
+	--chat-item-background-c: #2b355270;
+	--chat-item-active-background-c: #44537a70;
+
+	--scrollbar-track-c: #181c2b;
+	--scrollbar-thumb-c: #8994b2;
 }
 /* ========== Theme Switcher End ========== */
 

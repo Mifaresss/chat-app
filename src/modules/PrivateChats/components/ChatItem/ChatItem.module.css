@@ -1,6 +1,6 @@
 .chatItem {
 	border-radius: 0.3125rem;
-	background-color: var(--color-5);
+	background-color: var(--chat-item-background-c);
 	display: flex;
 	gap: 0.5rem;
 	align-items: center;
@@ -9,7 +9,7 @@
 	transition: background-color var(--hover-transit);
 }
 .chatItem:has(.chatLink:hover) {
-	background-color: var(--color-6);
+	background-color: var(--chat-item-active-background-c);
 }
 
 .chatLink {

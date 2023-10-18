@@ -1,11 +1,10 @@
-@import url("https://unpkg.com/open-props/easings.min.css");
+@import url('https://unpkg.com/open-props/easings.min.css');
 
 /* ====================================== Button ====================================== */
 .themeToggleBtn {
 	--size: 2rem;
 	--icon-fill: hsl(210, 20%, 94%);
-	/* --icon-fill: hsl(57, 94%, 39%); */
-	--icon-fill-hover: hsl(60, 91%, 51%);
+	--icon-fill-hover: var(--hover-c);
 
 	/* position: absolute;
 	top: 16%;
@@ -67,22 +66,22 @@
 }
 
 /* ====================================== Dark Theme ====================================== */
-[data-theme="dark"] .themeToggleBtn {
+[data-theme='dark'] .themeToggleBtn {
 	--icon-fill: hsl(213, 23%, 92%);
 	--icon-fill-hover: hsl(226, 74%, 79%);
 }
-[data-theme="dark"] .sun {
+[data-theme='dark'] .sun {
 	transform: scale(1.75);
 	transition-timing-function: var(--ease-3);
 	transition-duration: 0.25s;
 }
-[data-theme="dark"] .sunBeams {
+[data-theme='dark'] .sunBeams {
 	transform: rotateZ(-25deg);
 	transition-duration: 0.3s;
 
 	opacity: 0;
 }
-[data-theme="dark"] .moon > circle {
+[data-theme='dark'] .moon > circle {
 	transform: translateX(-7px);
 	transition-delay: 0.25s;
 	transition-duration: 0.2s;

@@ -20,7 +20,7 @@ export function ChatName({ chatName, chatId, className, ...props }: Props) {
 			className={[s.wrapper, className, isActive ? s.active : ''].join(' ')}
 			{...props}
 		>
-			<SvgIcon className={s.icon} width={40} height={40} src='icons/sprite.svg' name={chatId} />
+			<SvgIcon className={s.icon} src='icons/sprite.svg' name={chatId} />
 			<p className={s.chatName}>{chatName}</p>
 		</Link>
 	)

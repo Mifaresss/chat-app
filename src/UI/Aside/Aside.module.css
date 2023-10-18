@@ -33,9 +33,12 @@
 	} */
 	.aside {
 		/* position: absolute; */
-		max-width: 3.75rem;
-		min-width: 3.75rem;
+		max-width: 3rem;
+		min-width: 3rem;
 		/* overflow: hidden; */
+	}
+	.chatName {
+		max-height: 3rem;
 	}
 	/* .aside.open {
 		max-width: 12rem;

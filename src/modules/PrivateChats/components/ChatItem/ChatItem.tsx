@@ -12,16 +12,10 @@ export function ChatItem({ id, title }: Props) {
 	return (
 		<li className={s.chatItem}>
 			<Link className={s.chatLink} href={'/private-chats/' + id}>
-				<SvgIcon
-					className={s.chatIcon}
-					width={50}
-					height={50}
-					src='icons/sprite.svg'
-					name='mail'
-				/>
+				<SvgIcon className={s.chatIcon} src='icons/sprite.svg' name='mail' />
 				<p className={s.chatName}>{title}</p>
 			</Link>
-			<ChatButtons chatId={id} />
+			<ChatButtons className={s.chatButtons} chatId={id} />
 		</li>
 	)
 }

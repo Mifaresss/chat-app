@@ -49,6 +49,7 @@ export function ChatPageTemplatePrivates({}: Props) {
 			<MessagesBlock />
 			<div className={s.sendBlockWrapper}>
 				<ChatTextInput
+					socket={privateSocket}
 					className={s.sendInput}
 					value={text}
 					onChange={({ target }) => {

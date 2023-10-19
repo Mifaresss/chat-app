@@ -86,13 +86,18 @@ export function PrivateChatRoom({ chatId }: Props) {
 				)
 				dispatch(setMessages(newMessages))
 				dispatch(setMessagesLoading(false))
-				dispatch(setChatData({ title: data.chat?.title }))
+				dispatch(setChatData({ id: data.chat.id, title: data.chat?.title }))
 			})
 
 			privateSocket.on('message', handleReceiveMessage)
+			privateSocket.on('user-start-write', data => {
+				console.log('data:', data)
+			})
 		}
 
 		return () => {
+			privateSocket?.off('history')
+			privateSocket?.off('error')
 			privateSocket?.off('message', handleReceiveMessage)
 			privateSocket?.disconnect()
 		}

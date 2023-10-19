@@ -70,7 +70,7 @@ export function PrivateChatRoom({ chatId }: Props) {
 						setIsDeletedChat(true)
 
 					case 2:
-						// router.push('/404')
+						router.push('/404')
 						return null
 				}
 			})

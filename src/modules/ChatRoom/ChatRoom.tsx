@@ -57,7 +57,7 @@ export function ChatRoom({ roomId }: Props) {
 			roomsSocket.connect()
 
 			roomsSocket.on('error', () => {
-				// router.push('/404')
+				router.push('/404')
 				return null
 			})
 

@@ -20,6 +20,7 @@ interface Props {
 export let roomsSocket: null | Socket = null
 
 export const getSocket = ({ userId, roomId }: { userId: string; roomId: string }) => {
+	console.log({ userId, roomId })
 	const socket = io(roomsUrl, {
 		query: {
 			userId,
@@ -56,7 +57,7 @@ export function ChatRoom({ roomId }: Props) {
 			roomsSocket.connect()
 
 			roomsSocket.on('error', () => {
-				router.push('/404')
+				// router.push('/404')
 				return null
 			})
 

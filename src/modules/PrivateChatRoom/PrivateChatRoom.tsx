@@ -20,6 +20,7 @@ interface Props {
 const privateChatUrl = apiBaseUrl + 'private-chat'
 
 export const getSocket = ({ userId, chatId }: { userId: string; chatId: string }) => {
+	console.log({ userId, chatId })
 	const socket = io(privateChatUrl, {
 		query: {
 			userId,
@@ -86,13 +87,18 @@ export function PrivateChatRoom({ chatId }: Props) {
 				)
 				dispatch(setMessages(newMessages))
 				dispatch(setMessagesLoading(false))
-				dispatch(setChatData({ title: data.chat?.title }))
+				dispatch(setChatData({ id: data.chat.id, title: data.chat?.title }))
 			})
 
 			privateSocket.on('message', handleReceiveMessage)
+			privateSocket.on('user-start-write', data => {
+				console.log('data:', data)
+			})
 		}
 
 		return () => {
+			privateSocket?.off('history')
+			privateSocket?.off('error')
 			privateSocket?.off('message', handleReceiveMessage)
 			privateSocket?.disconnect()
 		}

@@ -5,13 +5,15 @@ import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { useAppSelector } from '@/hooks/redux'
 import { privateSocket } from '@/modules/PrivateChatRoom/PrivateChatRoom'
-import { KeyboardEvent, useState } from 'react'
+import { KeyboardEvent, useCallback, useState } from 'react'
 import { BeforeChatBody } from './components/BeforeChatBody/BeforeChatBody'
+import { debounce } from 'lodash'
 
 interface Props {}
 
 export function ChatPageTemplatePrivates({}: Props) {
 	const userId = useAppSelector(state => state.user.userId)
+	const userName = useAppSelector(state => state.user.userName)
 	const chatId = useAppSelector(state => state.privateChat.id)
 
 	const [text, setText] = useState('')
@@ -43,6 +45,25 @@ export function ChatPageTemplatePrivates({}: Props) {
 		privateSocket?.emit('message', message)
 	}
 
+	const [isTyping, setIsTyping] = useState(false)
+
+	const handleChange = () => {
+		if (!isTyping) {
+			privateSocket?.emit('user-start-write', { chatId, userName })
+			setIsTyping(true)
+		}
+		handleTyping()
+	}
+
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const handleTyping = useCallback(
+		debounce(() => {
+			setIsTyping(false)
+			privateSocket?.emit('user-end-write', { chatId, userName })
+		}, 1000),
+		[],
+	)
+
 	return (
 		<div className={s.chatBody}>
 			<BeforeChatBody />
@@ -52,6 +73,7 @@ export function ChatPageTemplatePrivates({}: Props) {
 					className={s.sendInput}
 					value={text}
 					onChange={({ target }) => {
+						handleChange()
 						setText((target as HTMLTextAreaElement).value)
 					}}
 					onKeyDown={sendMessageOnKeyDown}

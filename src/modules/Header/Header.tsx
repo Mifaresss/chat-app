@@ -23,9 +23,7 @@ export function Header() {
 
 	const dialogRef = useRef<HTMLDialogElement>(null)
 	function openPopupHandler() {
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	return (

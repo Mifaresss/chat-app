@@ -17,9 +17,7 @@ export function WhatIsOurChat() {
 	function openPopupHandler() {
 		if (userId) return
 
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	return (

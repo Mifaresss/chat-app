@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { MouseEvent, MouseEventHandler, useEffect, useRef, useState } from 'react'
 import s from './RoomsListSection.module.css'
 import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'
@@ -13,6 +13,7 @@ import { Loader } from '@/UI/Loader/Loader'
 import { CreatingPrivateChatLoading } from './components/CreatingPrivateChatLoading'
 import { apiInstance } from '@/api/base'
 import { addPrivateChat } from '@/redux/slices/privateChatsSlice'
+import { LoginPopup } from '@/components/LoginPopup/LoginPopup'
 
 interface Props {}
 
@@ -34,15 +35,25 @@ export function RoomsListSection({}: Props) {
 
 	const router = useRouter()
 
-	async function addNewPrivateChat() {
-		setIsCreatingPrivateChat(true)
-		const { data } = await apiInstance.post('privates/add', {
-			userId,
-		})
-		setIsCreatingPrivateChat(false)
-		console.log(data)
-		dispatch(addPrivateChat({ id: data.id, title: data.title }))
-		router.push('/private-chats/' + data.id)
+	const dialogRef = useRef<HTMLDialogElement>(null)
+
+	async function addNewPrivateChat(_: any, id?: string) {
+		if (!userId && !id) {
+			dialogRef?.current?.showModal()
+			return
+		}
+
+		try {
+			setIsCreatingPrivateChat(true)
+			const { data } = await apiInstance.post('privates/add', {
+				userId: userId || id,
+			})
+			dispatch(addPrivateChat({ id: data.id, title: data.title }))
+			setIsCreatingPrivateChat(false)
+			router.push('/private-chats/' + data.id)
+		} catch (error) {
+			setIsCreatingPrivateChat(false)
+		}
 	}
 
 	return (
@@ -87,6 +98,7 @@ export function RoomsListSection({}: Props) {
 					</div>
 				)}
 			</div>
+			<LoginPopup ref={dialogRef} onSubmit={addNewPrivateChat} />
 		</section>
 	)
 }

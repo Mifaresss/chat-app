@@ -21,9 +21,7 @@ export function ChatButtons({ chatId, className, ...props }: Props) {
 
 	const dialogRef = useRef<HTMLDialogElement>(null)
 	function openPopupHandler() {
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	return (

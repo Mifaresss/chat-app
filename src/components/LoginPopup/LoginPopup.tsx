@@ -18,8 +18,12 @@ interface FormValues {
 	userMood: string
 }
 
+interface Props {
+	onSubmit?: (_: any, id?: string) => void
+}
+
 // eslint-disable-next-line react/display-name
-export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
+export const LoginPopup = forwardRef<HTMLDialogElement, Props>((props, ref) => {
 	const dispatch = useAppDispatch()
 
 	const formId = useId()
@@ -51,6 +55,8 @@ export const LoginPopup = forwardRef<HTMLDialogElement>((props, ref) => {
 			alert(`Виникла помилка: "${res.payload.message}", спробуйте ще раз`)
 		} else {
 			reset()
+			const userId = res.payload.newUser._id
+			props.onSubmit?.('', userId)
 			if (typeof ref === 'object' && ref !== null && ref.current !== null) {
 				ref.current.close()
 			}

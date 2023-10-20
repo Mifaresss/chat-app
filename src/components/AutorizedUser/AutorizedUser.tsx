@@ -16,9 +16,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export function AutorizedUser({ name, emoji, className, ellipsis = true, ...props }: Props) {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	function openPopupHandler() {
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	const editUserRef = useRef<HTMLDialogElement | null>(null)

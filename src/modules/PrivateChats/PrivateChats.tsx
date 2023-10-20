@@ -54,7 +54,7 @@ export function PrivateChats() {
 							) : error || isChatsExist ? (
 								chats.map(({ id, title }) => <ChatItem key={id} id={id} title={title} />)
 							) : (
-								<p className={s.noChats}>
+								<div className={s.noChats}>
 									<div style={{ margin: 'auto' }}>
 										<SubTitle
 											title='У тебе поки що немає жодного чату. Створи свій або перейди за існуючим посиланням'
@@ -66,7 +66,7 @@ export function PrivateChats() {
 										style={{ width: 'auto' }}
 										onClick={addNewPrivateChat}
 									/>
-								</p>
+								</div>
 							)}
 						</ul>
 					</section>

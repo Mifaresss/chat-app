@@ -11,16 +11,10 @@ interface SocialMenuProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export function SocialMenu({ className, reverse, ...props }: SocialMenuProps) {
-	const path = usePathname()
-	const isPrivateChats = path.includes('private')
-
 	const newSocialMediaCards = reverse ? [...socialMediaCards].reverse() : socialMediaCards
 
 	return (
-		<div
-			className={[s.social, isPrivateChats ? s.displayNone : '', className].join(' ')}
-			{...props}
-		>
+		<div className={[s.social, className].join(' ')} {...props}>
 			{newSocialMediaCards.map(({ img, href }, i) => (
 				<Link target='_blank' key={i} className={s.socialLink} href={href}>
 					<Image src={img.src} alt={img.alt} />

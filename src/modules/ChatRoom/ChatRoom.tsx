@@ -1,7 +1,7 @@
 'use client'
 import s from './ChatRoom.module.css'
 import { ChatPageTemplate } from '@/components/ChatPageTemplate/ChatPageTemplate'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/hooks/redux'
 import { Aside } from '@/UI/Aside/Aside'
 import { fetchRooms } from '@/redux/slices/roomsSlice'

@@ -11,9 +11,7 @@ export function NotAuthorized() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 
 	function openPopupHandler() {
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	return (

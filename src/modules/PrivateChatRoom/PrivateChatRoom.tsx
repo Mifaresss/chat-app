@@ -20,7 +20,6 @@ interface Props {
 const privateChatUrl = apiBaseUrl + 'private-chat'
 
 export const getSocket = ({ userId, chatId }: { userId: string; chatId: string }) => {
-	console.log({ userId, chatId })
 	const socket = io(privateChatUrl, {
 		query: {
 			userId,

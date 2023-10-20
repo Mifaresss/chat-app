@@ -14,18 +14,20 @@ import { AutorizedUser } from '@/components/AutorizedUser/AutorizedUser'
 import { ThemeSwitcher } from '@/UI/ThemeSwitcher/ThemeSwitcher'
 import { toggleNavMenu } from '@/redux/slices/toggleNavMenuSlice'
 import { RootState } from '@/redux/store'
+import { usePathname } from 'next/navigation'
 
 export function Header() {
 	const { userName, userMood } = useAppSelector(state => state.user)
 	const isOpen = useAppSelector((state: RootState) => state.toggleNavMenu.isOpen)
 
+	const path = usePathname()
+	const isPrivateChatPage = path.includes('/private-chats/')
+
 	const dispatch = useAppDispatch()
 
 	const dialogRef = useRef<HTMLDialogElement>(null)
 	function openPopupHandler() {
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	return (
@@ -46,7 +48,9 @@ export function Header() {
 					<Navigation />
 				</div>
 				<div className={s.secondBlockWrapper}>
-					<SocialMenu className={s.socialBlock} />
+					<SocialMenu
+						className={[s.socialBlock, isPrivateChatPage ? s.displayNone : ''].join(' ')}
+					/>
 					<ThemeSwitcher />
 					{userName ? (
 						<AutorizedUser

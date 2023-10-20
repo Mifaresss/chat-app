@@ -27,9 +27,7 @@ export function Navigation() {
 	const dialogRef = useRef<HTMLDialogElement | null>(null)
 	function openPopupHandler() {
 		dispatch(toggleNavMenu(false))
-		if (dialogRef.current) {
-			dialogRef.current.showModal()
-		}
+		dialogRef.current?.showModal()
 	}
 
 	return (

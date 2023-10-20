@@ -1,6 +1,6 @@
 'use client'
-import { MouseEvent, MouseEventHandler, useEffect, useRef, useState } from 'react'
 import s from './RoomsListSection.module.css'
+import { useEffect, useRef, useState } from 'react'
 import { Title } from '@/UI/Title/Title'
 import { InfoCard } from '@/components/InfoCard/InfoCard'
 import { SubTitle } from '@/UI/SubTitle/SubTitle'

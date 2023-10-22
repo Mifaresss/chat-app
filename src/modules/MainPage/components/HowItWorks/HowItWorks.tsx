@@ -14,10 +14,11 @@ export function HowItWorks() {
 			</div>
 			<div className={s.contentWrapper}>
 				{cardsContent.map(({ id, img, subTitle, text }) => {
+					console.log({ id, img })
 					return (
 						<InfoCard key={id} bgColor='var(--info-card-background-c)'>
 							{/* <Image src={img.src} alt={img.alt} /> */}
-							<SvgIcon className={s.cardIcon} src='icons/sprite.svg' name='create' />
+							<SvgIcon className={s.cardIcon} src='icons/sprite.svg' name={img.src} />
 							<SubTitle title={subTitle} />
 							<p>{text}</p>
 						</InfoCard>

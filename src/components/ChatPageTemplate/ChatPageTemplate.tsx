@@ -5,7 +5,8 @@ import { MessagesBlock } from '@/UI/MessagesBlock/MessagesBlock'
 import { SvgIcon } from '@/UI/SvgIcon/SvgIcon'
 import { useAppSelector } from '@/hooks/redux'
 import { roomsSocket } from '@/modules/ChatRoom/ChatRoom'
-import { KeyboardEvent, useState } from 'react'
+import { debounce } from 'lodash'
+import { KeyboardEvent, useCallback, useState } from 'react'
 
 interface Props {
 	roomId: string
@@ -13,6 +14,7 @@ interface Props {
 
 export function ChatPageTemplate({ roomId }: Props) {
 	const userId = useAppSelector(state => state.user.userId)
+	const userName = useAppSelector(state => state.user.userName)
 
 	const [text, setText] = useState('')
 
@@ -38,10 +40,31 @@ export function ChatPageTemplate({ roomId }: Props) {
 	}
 
 	function sendMessage() {
+		setIsTyping(false)
+		roomsSocket?.emit('user-end-write', { chatId: roomId, userName })
 		const message = { text, senderId: userId, chatId: roomId }
 		setText('')
 		roomsSocket?.emit('message', message)
 	}
+
+	const [isTyping, setIsTyping] = useState(false)
+
+	const handleChange = () => {
+		if (!isTyping) {
+			roomsSocket?.emit('user-start-write', { chatId: roomId, userName })
+			setIsTyping(true)
+		}
+		handleTyping()
+	}
+
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const handleTyping = useCallback(
+		debounce(() => {
+			setIsTyping(false)
+			roomsSocket?.emit('user-end-write', { chatId: roomId, userName })
+		}, 1000),
+		[],
+	)
 
 	return (
 		<div className={s.chatBody}>
@@ -51,6 +74,7 @@ export function ChatPageTemplate({ roomId }: Props) {
 					className={s.sendInput}
 					value={text}
 					onChange={({ target }) => {
+						handleChange()
 						setText((target as HTMLTextAreaElement).value)
 					}}
 					onKeyDown={sendMessageOnKeyDown}

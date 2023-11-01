@@ -40,6 +40,8 @@ export function ChatPageTemplatePrivates({}: Props) {
 	}
 
 	function sendMessage() {
+		setIsTyping(false)
+		privateSocket?.emit('user-end-write', { chatId, userName })
 		const message = { message: text, userId, room: chatId }
 		setText('')
 		privateSocket?.emit('message', message)

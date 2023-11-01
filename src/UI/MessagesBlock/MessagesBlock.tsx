@@ -8,6 +8,7 @@ import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
 interface Props {}
 
 export function MessagesBlock({}: Props) {
+	const { isWriting, userName } = useAppSelector(state => state.isWriting)
 	const { messages, loading } = useAppSelector(state => state.messages)
 
 	const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -44,6 +45,7 @@ export function MessagesBlock({}: Props) {
 					<SubSubTitle label='Поки пусто:)' style={{ textAlign: 'center' }} />
 				</div>
 			)}
+			{isWriting && <div className={s.writing}>{userName} щось пише...</div>}
 			<div ref={messagesEndRef} style={{ marginTop: '1rem' }}></div>
 		</section>
 	)

@@ -17,6 +17,7 @@ import roomsReducer from './slices/roomsSlice'
 import privateChatsReducer from './slices/privateChatsSlice'
 import privateChatReducer from './slices/privatChatSlice.ts'
 import messagesReducer from './slices/messagesSlice'
+import isWritingReducer from './slices/isWritingSlice'
 
 const rootReducer = combineReducers({
 	toggleNavMenu: toggleNavMenuReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
 	privateChats: privateChatsReducer,
 	privateChat: privateChatReducer,
 	messages: messagesReducer,
+	isWriting: isWritingReducer,
 })
 
 const persistConfig = {

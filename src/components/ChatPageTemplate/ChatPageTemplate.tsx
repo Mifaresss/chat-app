@@ -62,7 +62,6 @@ export function ChatPageTemplate({ roomId }: Props) {
 						name='send'
 						onClick={sendMessageOnClick}
 					/>
-					{/* <SvgIcon className={s.button} src='icons/sprite.svg' name='smile' /> */}
 				</div>
 			</div>
 		</div>

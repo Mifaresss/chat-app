@@ -11,6 +11,7 @@ import { NotAuthorized } from '../PrivateChats/components/NotAuthorized/NotAutho
 import { apiBaseUrl } from '@/api/base'
 import { Socket, io } from 'socket.io-client'
 import { useRouter } from 'next/navigation'
+import { setIsWritingData } from '@/redux/slices/isWritingSlice'
 const roomsUrl = apiBaseUrl + 'rooms'
 
 interface Props {
@@ -51,6 +52,13 @@ export function ChatRoom({ roomId }: Props) {
 			dispatch(addMessage(message))
 		}
 
+		const handleStartWrite = (data: { userName: string }) => {
+			dispatch(setIsWritingData({ isWriting: true, userName: data.userName }))
+		}
+		const handleEndWrite = () => {
+			dispatch(setIsWritingData({ isWriting: false, userName: null }))
+		}
+
 		if (userId) {
 			dispatch(setMessagesLoading(true))
 			roomsSocket = getSocket({ userId, roomId })
@@ -73,12 +81,16 @@ export function ChatRoom({ roomId }: Props) {
 				dispatch(setMessages(newMessages))
 				dispatch(setMessagesLoading(false))
 			})
+			roomsSocket.on('user-start-write', handleStartWrite)
+			roomsSocket.on('user-end-write', handleEndWrite)
 
 			roomsSocket.on('message', handleReceiveMessage)
 		}
 
 		return () => {
 			roomsSocket?.off('message', handleReceiveMessage)
+			roomsSocket?.off('user-start-write', handleStartWrite)
+			roomsSocket?.off('user-end-write', handleEndWrite)
 			roomsSocket?.disconnect()
 		}
 	}, [userId, roomId, dispatch, router])

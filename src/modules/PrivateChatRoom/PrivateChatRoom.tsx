@@ -12,6 +12,7 @@ import { Message, addMessage, setMessages, setMessagesLoading } from '@/redux/sl
 import { useRouter } from 'next/navigation'
 import { Loader } from '@/UI/Loader/Loader'
 import { SubTitle } from '@/UI/SubTitle/SubTitle'
+import { setIsWritingData } from '@/redux/slices/isWritingSlice'
 
 interface Props {
 	chatId: string
@@ -58,47 +59,58 @@ export function PrivateChatRoom({ chatId }: Props) {
 			dispatch(addMessage(newMessage))
 		}
 
+		const handleReceiveHistory = (data: any) => {
+			setIsValidId(true)
+			const newMessages: Message[] = data.messages.map(
+				(message: { chatId: any; message: any; author: any; createdAt: any }) => ({
+					chatId: message.chatId,
+					text: message.message,
+					user: message.author,
+					createdAt: message.createdAt,
+				}),
+			)
+			dispatch(setMessages(newMessages))
+			dispatch(setMessagesLoading(false))
+			dispatch(setChatData({ id: data.chat.id, title: data.chat?.title }))
+		}
+
+		const handleError = (errorCode: number) => {
+			switch (errorCode) {
+				case 1:
+					setIsDeletedChat(true)
+
+				case 2:
+					router.push('/404')
+					return null
+			}
+		}
+
+		const handleStartWrite = (data: { userName: string }) => {
+			dispatch(setIsWritingData({ isWriting: true, userName: data.userName }))
+		}
+		const handleEndWrite = () => {
+			dispatch(setIsWritingData({ isWriting: false, userName: null }))
+		}
+
 		if (userId) {
 			dispatch(setMessagesLoading(true))
 			privateSocket = getSocket({ userId, chatId })
 			privateSocket.connect()
 
-			privateSocket.on('error', (errorCode: number) => {
-				switch (errorCode) {
-					case 1:
-						setIsDeletedChat(true)
-
-					case 2:
-						router.push('/404')
-						return null
-				}
-			})
-
-			privateSocket.on('history', (data: any) => {
-				setIsValidId(true)
-				const newMessages: Message[] = data.messages.map(
-					(message: { chatId: any; message: any; author: any; createdAt: any }) => ({
-						chatId: message.chatId,
-						text: message.message,
-						user: message.author,
-						createdAt: message.createdAt,
-					}),
-				)
-				dispatch(setMessages(newMessages))
-				dispatch(setMessagesLoading(false))
-				dispatch(setChatData({ id: data.chat.id, title: data.chat?.title }))
-			})
-
+			privateSocket.on('error', handleError)
+			privateSocket.on('history', handleReceiveHistory)
 			privateSocket.on('message', handleReceiveMessage)
-			privateSocket.on('user-start-write', data => {
-				console.log('data:', data)
-			})
+			privateSocket.on('user-start-write', handleStartWrite)
+			privateSocket.on('user-end-write', handleEndWrite)
 		}
 
 		return () => {
-			privateSocket?.off('history')
-			privateSocket?.off('error')
+			dispatch(setIsWritingData({ isWriting: false, userName: null }))
+			privateSocket?.off('history', handleReceiveHistory)
+			privateSocket?.off('error', handleError)
 			privateSocket?.off('message', handleReceiveMessage)
+			privateSocket?.off('user-start-write', handleStartWrite)
+			privateSocket?.off('user-end-write', handleEndWrite)
 			privateSocket?.disconnect()
 		}
 	}, [userId, chatId, dispatch, router])

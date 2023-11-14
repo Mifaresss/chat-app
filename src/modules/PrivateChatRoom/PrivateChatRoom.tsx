@@ -26,7 +26,6 @@ export const getSocket = ({ userId, chatId }: { userId: string; chatId: string }
 			userId,
 			chatId,
 		},
-		autoConnect: false,
 	})
 
 	return socket
@@ -49,16 +48,24 @@ export function PrivateChatRoom({ chatId }: Props) {
 	const router = useRouter()
 
 	useEffect(() => {
-		const handleReceiveMessage = (message: any) => {
-			const newMessage: Message = {
-				chatId: message.chatId,
-				createdAt: message.createdAt,
-				text: message.message,
-				user: message.author,
-			}
-			dispatch(addMessage(newMessage))
-		}
+		const handleReceiveError = (errorCode: number) => {
+			switch (errorCode) {
+				case 1:
+					setIsDeletedChat(true)
 
+				case 2:
+					router.push('/404')
+					return null
+
+				case 3:
+					privateSocket = io(privateChatUrl, {
+						query: {
+							userId,
+							chatId,
+						},
+					})
+			}
+		}
 		const handleReceiveHistory = (data: any) => {
 			setIsValidId(true)
 			const newMessages: Message[] = data.messages.map(
@@ -73,47 +80,45 @@ export function PrivateChatRoom({ chatId }: Props) {
 			dispatch(setMessagesLoading(false))
 			dispatch(setChatData({ id: data.chat.id, title: data.chat?.title }))
 		}
-
-		const handleError = (errorCode: number) => {
-			switch (errorCode) {
-				case 1:
-					setIsDeletedChat(true)
-
-				case 2:
-					router.push('/404')
-					return null
-			}
-		}
-
 		const handleStartWrite = (data: { userName: string }) => {
 			dispatch(setIsWritingData({ isWriting: true, userName: data.userName }))
 		}
 		const handleEndWrite = () => {
 			dispatch(setIsWritingData({ isWriting: false, userName: null }))
 		}
+		const handleReceiveMessage = (message: any) => {
+			const newMessage: Message = {
+				chatId: message.chatId,
+				createdAt: message.createdAt,
+				text: message.message,
+				user: message.author,
+			}
+			dispatch(addMessage(newMessage))
+		}
 
 		if (userId) {
 			dispatch(setMessagesLoading(true))
 			privateSocket = getSocket({ userId, chatId })
-			privateSocket.connect()
 
-			privateSocket.on('error', handleError)
+			privateSocket.on('error', handleReceiveError)
 			privateSocket.on('history', handleReceiveHistory)
-			privateSocket.on('message', handleReceiveMessage)
 			privateSocket.on('user-start-write', handleStartWrite)
 			privateSocket.on('user-end-write', handleEndWrite)
+			privateSocket.on('message', handleReceiveMessage)
 		}
 
 		return () => {
 			dispatch(setIsWritingData({ isWriting: false, userName: null }))
+			privateSocket?.off('error', handleReceiveError)
 			privateSocket?.off('history', handleReceiveHistory)
-			privateSocket?.off('error', handleError)
-			privateSocket?.off('message', handleReceiveMessage)
 			privateSocket?.off('user-start-write', handleStartWrite)
 			privateSocket?.off('user-end-write', handleEndWrite)
+			privateSocket?.off('message', handleReceiveMessage)
 			privateSocket?.disconnect()
 		}
-	}, [userId, chatId, dispatch, router])
+		// ↓↓↓ fix bug with roomId === undefined on backend ↓↓↓
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [userId, chatId, dispatch, router, privateSocket])
 
 	if (!userId) {
 		return (

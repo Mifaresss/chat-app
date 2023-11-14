@@ -27,7 +27,6 @@ export const getSocket = ({ userId, roomId }: { userId: string; roomId: string }
 			userId,
 			roomId,
 		},
-		autoConnect: false,
 	})
 
 	return socket
@@ -48,53 +47,67 @@ export function ChatRoom({ roomId }: Props) {
 	const router = useRouter()
 
 	useEffect(() => {
-		const handleReceiveMessage = (message: Message) => {
-			dispatch(addMessage(message))
-		}
+		const handleReceiveError = (errorCode: number) => {
+			switch (errorCode) {
+				case 0:
+				case 1:
+				case 2:
+					router.push('/404')
+					return null
 
+				case 3:
+					roomsSocket = io(roomsUrl, {
+						query: {
+							userId,
+							roomId,
+						},
+					})
+			}
+		}
+		const handleReceiveHistory = (data: any) => {
+			const newMessages: Message[] = data.messages.map(
+				(message: { chatId: any; text: any; user: any; createdAt: any }) => ({
+					chatId: message.chatId,
+					text: message.text,
+					user: message.user,
+					createdAt: message.createdAt,
+				}),
+			)
+			dispatch(setMessages(newMessages))
+			dispatch(setMessagesLoading(false))
+		}
 		const handleStartWrite = (data: { userName: string }) => {
 			dispatch(setIsWritingData({ isWriting: true, userName: data.userName }))
 		}
 		const handleEndWrite = () => {
 			dispatch(setIsWritingData({ isWriting: false, userName: null }))
 		}
+		const handleReceiveMessage = (message: Message) => {
+			dispatch(addMessage(message))
+		}
 
 		if (userId) {
 			dispatch(setMessagesLoading(true))
 			roomsSocket = getSocket({ userId, roomId })
-			roomsSocket.connect()
 
-			roomsSocket.on('error', () => {
-				router.push('/404')
-				return null
-			})
-
-			roomsSocket.on('history', (data: any) => {
-				console.log('history:', data)
-				const newMessages: Message[] = data.messages.map(
-					(message: { chatId: any; text: any; user: any; createdAt: any }) => ({
-						chatId: message.chatId,
-						text: message.text,
-						user: message.user,
-						createdAt: message.createdAt,
-					}),
-				)
-				dispatch(setMessages(newMessages))
-				dispatch(setMessagesLoading(false))
-			})
+			roomsSocket.on('error', handleReceiveError)
+			roomsSocket.on('history', handleReceiveHistory)
 			roomsSocket.on('user-start-write', handleStartWrite)
 			roomsSocket.on('user-end-write', handleEndWrite)
-
 			roomsSocket.on('message', handleReceiveMessage)
 		}
 
 		return () => {
-			roomsSocket?.off('message', handleReceiveMessage)
+			roomsSocket?.off('error', handleReceiveError)
+			roomsSocket?.off('history', handleReceiveHistory)
 			roomsSocket?.off('user-start-write', handleStartWrite)
 			roomsSocket?.off('user-end-write', handleEndWrite)
+			roomsSocket?.off('message', handleReceiveMessage)
 			roomsSocket?.disconnect()
 		}
-	}, [userId, roomId, dispatch, router])
+		// ↓↓↓ fix bug with roomId === undefined on backend ↓↓↓
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [userId, roomId, dispatch, router, roomsSocket])
 
 	if (!userId) {
 		return (

@@ -70,6 +70,7 @@ export function ChatRoom({ roomId }: Props) {
 			})
 
 			roomsSocket.on('history', (data: any) => {
+				console.log('history:', data)
 				const newMessages: Message[] = data.messages.map(
 					(message: { chatId: any; text: any; user: any; createdAt: any }) => ({
 						chatId: message.chatId,

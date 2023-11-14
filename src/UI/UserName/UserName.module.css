@@ -4,4 +4,13 @@
 	font-weight: 500;
 	color: var(--heading-c);
 	max-width: max-content;
+	display: flex;
+	align-items: flex-end;
+	gap: 0.3125rem;
+}
+
+.deleted {
+	font-size: 0.8125rem;
+	color: var(--input-passive-c);
+	font-weight: 300;
 }

@@ -14,8 +14,12 @@ interface Props {
 export function Message({ message, previousMessage }: Props) {
 	const userId = useAppSelector(state => state.user.userId)
 
-	const isCurrentUserSender = message?.user?._id === userId
-	const isSameAuthor = previousMessage?.user?._id === message?.user?._id
+	const previousUserId = previousMessage?.user?._id
+	const currentUserId = message?.user?._id
+
+	const isDeletedUser = !currentUserId
+	const isCurrentUserSender = currentUserId === userId
+	const isSameAuthor = currentUserId ? previousUserId === currentUserId : false
 
 	const marginTop = isSameAuthor ? '0.25rem' : '1rem'
 	const marginLeft = isCurrentUserSender ? 'auto' : ''
@@ -24,12 +28,13 @@ export function Message({ message, previousMessage }: Props) {
 
 	return (
 		<div className={s.message} style={style}>
-			{!isSameAuthor && !isCurrentUserSender && (
+			{!isSameAuthor && !isCurrentUserSender && !isDeletedUser && (
 				<div className={s.firstLine}>
 					<UserEmoji emoji={getEmojiFromResponse(message?.user?.userMood)} />
 					<UserName name={message?.user?.userName} />
 				</div>
 			)}
+			{isDeletedUser && <UserName name={message?.user?.userName} deleted={isDeletedUser} />}
 			<div className={s.secondLine}>
 				<MessageText
 					text={message?.text}

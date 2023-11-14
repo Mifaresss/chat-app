@@ -4,6 +4,7 @@ import { Loader } from '../Loader/Loader'
 import { Message } from '../Message/Message'
 import { useAppSelector } from '@/hooks/redux'
 import { SubSubTitle } from '../SubSubTitle/SubSubTitle'
+import { SvgIcon } from '../SvgIcon/SvgIcon'
 
 interface Props {}
 
@@ -41,11 +42,28 @@ export function MessagesBlock({}: Props) {
 					return <Message key={index} previousMessage={previousMessage} message={message} />
 				})
 			) : (
-				<div style={{ margin: 'auto' }}>
+				<div
+					style={{
+						position: 'absolute',
+						width: '100%',
+						height: '100%',
+						left: 0,
+						top: 0,
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+					}}
+				>
 					<SubSubTitle label='Поки пусто:)' style={{ textAlign: 'center' }} />
 				</div>
 			)}
-			{isWriting && <div className={s.writing}>{userName} щось пише...</div>}
+			{isWriting && (
+				<div className={s.writing}>
+					<SvgIcon className={s.writingIcon} name='edit' src='icons/sprite.svg' />
+					<SubSubTitle className={s.writingName} label={userName ?? '??'} />
+					<span>щось пише...</span>
+				</div>
+			)}
 			<div ref={messagesEndRef} style={{ marginTop: '1rem' }}></div>
 		</section>
 	)

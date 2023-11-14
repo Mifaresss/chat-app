@@ -15,7 +15,10 @@ export function Message({ message, previousMessage }: Props) {
 	const userId = useAppSelector(state => state.user.userId)
 
 	const isCurrentUserSender = message?.user?._id === userId
-	const isSameAuthor = previousMessage?.user?._id === message?.user?._id
+	const isSameAuthor = previousMessage ? previousMessage.user?._id === message?.user?._id : false
+
+	console.log('isSameAuthor:', isSameAuthor)
+	console.log({ previousMessage, message })
 
 	const marginTop = isSameAuthor ? '0.25rem' : '1rem'
 	const marginLeft = isCurrentUserSender ? 'auto' : ''
@@ -24,12 +27,12 @@ export function Message({ message, previousMessage }: Props) {
 
 	return (
 		<div className={s.message} style={style}>
-			{!isSameAuthor && !isCurrentUserSender && (
-				<div className={s.firstLine}>
+			<div className={s.firstLine}>
+				{message.user?.userMood && (
 					<UserEmoji emoji={getEmojiFromResponse(message?.user?.userMood)} />
-					<UserName name={message?.user?.userName} />
-				</div>
-			)}
+				)}
+				<UserName name={message?.user?.userName} deleted={!message.user._id} />
+			</div>
 			<div className={s.secondLine}>
 				<MessageText
 					text={message?.text}

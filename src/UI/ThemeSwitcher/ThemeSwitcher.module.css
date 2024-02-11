@@ -1,10 +1,13 @@
-@import url('https://unpkg.com/open-props/easings.min.css');
-
 /* ====================================== Button ====================================== */
 .themeToggleBtn {
 	--size: 2rem;
 	--icon-fill: hsl(210, 20%, 94%);
 	--icon-fill-hover: var(--hover-c);
+
+	--ease-3: cubic-bezier(0.25, 0, 0.3, 1);
+	--ease-out-5: cubic-bezier(0, 0, 0, 1);
+	--ease-elastic-3: cubic-bezier(0.5, 1.25, 0.75, 1.25);
+	--ease-elastic-4: cubic-bezier(0.5, 1.5, 0.75, 1.25);
 
 	/* position: absolute;
 	top: 16%;

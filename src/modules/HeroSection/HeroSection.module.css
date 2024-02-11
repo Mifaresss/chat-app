@@ -5,12 +5,12 @@
 	height: calc(min(16.75rem + 90 * ((100vw - 834px) / (1320 - 834)), 22.5rem));
 	position: relative;
 }
-.heroSection::before {
-	content: "";
+/* .heroSection::before {
+	content: '';
 	position: absolute;
 	z-index: -1;
 	width: 100vw;
-	/* This↓ is a bug. If you remove transform translate, a white bar will appear above the section */
+	This↓ is a bug. If you remove transform translate, a white bar will appear above the section
 	transform: translate(0);
 	margin: 0 calc(50% - 50vw);
 	padding: 0 calc(50vw - 50%);
@@ -19,18 +19,35 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+} */
+.heroImgWrapper {
+	position: absolute;
+	object-fit: cover;
+	width: 100vw;
+	margin: 0 calc(50% - 50vw);
+	padding: 0 calc(50vw - 50%);
+	height: 100%;
+}
+.img {
+	object-fit: cover;
 }
 
 @media (max-width: 835px) {
 	.heroSection {
 		height: calc(min(16.75rem + (40 * (834px - 100vw) / (834 - 430)), 19.25rem));
 	}
-	.heroSection::before {
+	/* .heroSection::before {
+		filter: brightness(50%);
+	} */
+	.img {
 		filter: brightness(50%);
 	}
 }
 @media (max-width: 431px) {
-	.heroSection::before {
+	/* .heroSection::before {
+		filter: brightness(30%);
+	} */
+	.img {
 		filter: brightness(30%);
 	}
 }
